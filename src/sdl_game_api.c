@@ -5,8 +5,9 @@ int main(int argc, char *args[]) {
 	hello_world();
 	sdl_install_test();
 	hashmap_test();
+	ini_reader_test();
 
-	printf("\nAll Tests passed, Press any key to continue...");
+	printf("\n All Tests passed, Press any key to continue...");
 	getch();
 
 	return 0;

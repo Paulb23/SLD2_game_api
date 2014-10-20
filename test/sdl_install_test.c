@@ -16,5 +16,5 @@ void sdl_install_test() {
     //Quit SDL
     SDL_Quit();
 
-	printf("\nsdl install test passed...\n");
+	printf("\n sdl install test passed...\n");
 }
