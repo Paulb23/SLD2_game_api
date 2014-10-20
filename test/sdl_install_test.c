@@ -2,9 +2,9 @@
 #include "../lib/SDL2/SDL_ttf.h"
 #include "../lib/SDL2/SDL_image.h"
 #include "../lib/SDL2/SDL_mixer.h"
+#include "tests.h"
 
-
-void sdl2_install_test() {
+void sdl_install_test() {
 
     //Start SDL
     SDL_Init( SDL_INIT_EVERYTHING );
