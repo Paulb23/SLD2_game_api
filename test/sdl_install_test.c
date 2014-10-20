@@ -3,6 +3,7 @@
 #include "../lib/SDL2/SDL_image.h"
 #include "../lib/SDL2/SDL_mixer.h"
 #include "tests.h"
+#include <stdio.h>
 
 void sdl_install_test() {
 
@@ -12,7 +13,8 @@ void sdl_install_test() {
     IMG_Init(IMG_INIT_PNG | IMG_INIT_JPG | IMG_INIT_TIF);
     Mix_Init(MIX_INIT_MP3 | MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_OGG);
 
-
     //Quit SDL
     SDL_Quit();
+
+	printf("\nsdl install test passed...\n");
 }
