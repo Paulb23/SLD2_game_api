@@ -7,6 +7,7 @@ int main(int argc, char *args[]) {
 	hashmap_test();
 	ini_reader_test();
 	sdl_window_test();
+	sdl_image_test();
 
 	printf("\n All Tests passed, Press any key to continue...");
 	getch();
