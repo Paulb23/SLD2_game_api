@@ -37,7 +37,7 @@ void font_draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, Font 
 	SDL_Texture *textTexture = SDL_CreateTextureFromSurface(window->renderer, textSurface);
 
 	if (SDL_QueryTexture(textTexture, NULL, NULL, &textSurface->w, &textSurface->h) != 0) {		/* check that it's valid */
-		if (LOGGIN) { log_write("Failed to create font texture reader! ");}
+		log_write("Failed to create font texture reader! ");
 		return;
 	} else {
 

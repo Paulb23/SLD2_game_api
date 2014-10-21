@@ -27,7 +27,7 @@ Hashmap *hashmap_create() {
  *************************/
 void hashmap_set(Hashmap *map, void *key, void *value) {
 	Hashmap *tmp = malloc(sizeof(Hashmap));					/* allocate memory */
-	if (!tmp) { if (LOGGIN) { log_write("Failed to allocate memory for hashmap! ");} return;}
+	if (!tmp) {log_write("Failed to allocate memory for hashmap! "); return;}
 
 	tmp->key = key;											/* fill in the data */
 	tmp->value = value;

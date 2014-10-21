@@ -21,15 +21,15 @@ static SDL_Texture *image_load_file(char file[], Image *image, Window *window);
  *
  *************************/
 Image *image_load(char *file, int frameWidth, int frameHeight, Window *window) {
-	Image *image = malloc(sizeof(Image));																		/* Allocate memory */
-	if (!image) {if (LOGGIN) { log_write("Failed to allocate memory, loading image! ");} return (Image *)-1;}	/* return of failed allocation */
+	Image *image = malloc(sizeof(Image));														/* Allocate memory */
+	if (!image) {log_write("Failed to allocate memory, loading image! "); return (Image *)-1;}	/* return of failed allocation */
 
 	image->Image = image_load_file(file, image,window);														/* actually load the texture */
 	image->frame_width = frameWidth;																		/* init the frame variables */
 	image->frame_height = frameHeight;
 
 	if (SDL_QueryTexture(image->Image, NULL, NULL, &image->texture_width, &image->texture_height) != 0) {	/* check texture is valid else return */
-		if (LOGGIN) { log_write("Failed to create image texture! ");}
+		log_write("Failed to create image texture! ");
 		return (Image *)-1;
 	} else if (frameWidth != 0 && frameHeight != 0) {														/* Calculate the amount of frame in the image */
 

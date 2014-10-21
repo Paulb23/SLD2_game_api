@@ -1,20 +1,28 @@
+#include "logger.h"
 #include <time.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-int LOGGIN = 0;
-static char *file_path = "../../extras/log.txt";
+int LOGGIN = 1;
+static char *file_path = "../extras/log.txt";
 
 void log_write(char *text) {
-	FILE *f = fopen(file_path, "a");
+	if (LOGGIN) {
+		FILE *f = fopen(file_path, "ab");
 
-	time_t current_time;
-	char* c_time_string;
+		if (f == NULL) {
+			printf("Hmmm");
+			return;
+		}
 
-	current_time = time(NULL);
-	c_time_string = ctime(&current_time);
+		time_t current_time;
+		char* c_time_string;
 
-	fprintf(f, "%s: %s \n", c_time_string, text);
+		current_time = time(NULL);
+		c_time_string = ctime(&current_time);
 
-	fclose(f);
+		fprintf(f, "%s: %s \r\n", c_time_string, text);
+
+		fclose(f);
+	}
 }
