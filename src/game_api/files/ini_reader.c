@@ -52,18 +52,6 @@ void ini_add_value(Ini_Reader *ini, char *catorgory, void *key, void *value) {
 }
 
 void *ini_get_value(Ini_Reader *ini, char *catorgory, void *key) {
-	Hashmap *curr = ini->catogories;
-	while (curr->next) {
-		printf(" Key: %s \n", (char *)curr->key);
-		Hashmap *val =  curr->value;
-		while (val->next) {
-			printf(" Val: %s %s \n", (char *)val->key, (char *)val->value);
-			val = val->next;
-		}
-		curr = curr->next;
-	}
-	printf("\n");
-
 	Hashmap *values = hashmap_get(ini->catogories, catorgory);
 	if (values == (void *)-1) return (void*)-1;
 	return hashmap_get(values, key);
