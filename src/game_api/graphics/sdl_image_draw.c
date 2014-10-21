@@ -1,4 +1,5 @@
 #include "../../../lib/SDL2/SDL.h"
+#include "../misc/logger.h"
 #include "sdl_window.h"
 #include "sdl_image_load.h"
 

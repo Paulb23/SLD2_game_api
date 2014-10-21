@@ -1,12 +1,13 @@
 #include "ini_reader.h"
 #include "../misc/hashmap.h"
+#include "../misc/logger.h"
 #include <string.h>
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 /* function prototyping */
-char *trim_whitespace(char *str);
+static char *trim_whitespace(char *str);
 
 
 /**************************
@@ -16,8 +17,8 @@ char *trim_whitespace(char *str);
  *
  *************************/
 Ini_Reader *ini_create() {
-	Ini_Reader *ini = malloc(sizeof(Ini_Reader));	/* Allocate memory */
-	if (!ini) return (Ini_Reader *) -1;				/* if Allocation fails return */
+	Ini_Reader *ini = malloc(sizeof(Ini_Reader));														/* Allocate memory */
+	if (!ini) { if (LOGGIN) { log_write("Failed to create ini reader! "); } return (Ini_Reader *) -1;}	/* if Allocation fails return */
 
 	ini->categories = hashmap_create();				/* create the categories hashmap */
 	ini_add_catorgory(ini, "default");				/* add a default category */
@@ -35,8 +36,8 @@ Ini_Reader *ini_create() {
  *************************/
 void ini_read_file(Ini_Reader *ini, char *file) {
 
-	  FILE *f = fopen(file, "r");					/* open the file */
-	  if (!f) return;								/* return if failed */
+	  FILE *f = fopen(file, "r");												/* open the file */
+	  if (!f) { if (LOGGIN) { log_write("Failed to open ini file! ");} return;}	/* return if failed */
 
 	  char curr_cat[256] = "default";				/* default category */
 	  char *line = ";";								/* default line */
@@ -85,7 +86,7 @@ void ini_add_catorgory(Ini_Reader *ini, char *catorgory) {
  *************************/
 void ini_add_value(Ini_Reader *ini, char *catorgory, void *key, void *value) {
 	Hashmap *values = hashmap_get(ini->categories, catorgory);
-	if (values == (void *)-1) return;
+	if (values == (void *)-1) { if (LOGGIN) { log_write("Failed to find catorgory reader! ");} return;}
 	hashmap_set(values, key, value);
 }
 
@@ -102,7 +103,7 @@ void ini_add_value(Ini_Reader *ini, char *catorgory, void *key, void *value) {
  *************************/
 void *ini_get_value(Ini_Reader *ini, char *catorgory, void *key) {
 	Hashmap *values = hashmap_get(ini->categories, catorgory);
-	if (values == (void *)-1) return (void*)-1;
+	if (values == (void *)-1) { if (LOGGIN) { log_write("Failed to find catorgory reader! ");} return (void*)-1;}
 	return hashmap_get(values, key);
 }
 
@@ -114,7 +115,7 @@ void *ini_get_value(Ini_Reader *ini, char *catorgory, void *key) {
  * @param str - string to trim
  *
  *************************/
-char *trim_whitespace(char *str) {
+static char *trim_whitespace(char *str) {
   char *end;
 
   while(isspace(*str)) str++;
