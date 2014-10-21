@@ -29,3 +29,7 @@ Loads and draw images and animationsl
 #### Font handler
 
 Loads and draws .ttf fonts
+
+#### logger
+
+Log errors to a file
