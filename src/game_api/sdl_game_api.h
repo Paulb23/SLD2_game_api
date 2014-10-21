@@ -3,6 +3,7 @@
 #define SDL_GAME_API_H_
 
 #include "misc/logger.h"
+#include "misc/keys.h"
 #include "misc/hashmap.h"
 #include "misc/sdl_color.h"
 #include "files/ini_reader.h"
