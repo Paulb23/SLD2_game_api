@@ -92,8 +92,8 @@ extern SDL_Scancode k_jump;
 extern SDL_Scancode altk_jump;
 
 
-
-extern int GetCode(char num[10]);
+/* function prototyping */
+extern int GetCode(char *num);
 
 //TODO DEFINE MORE KEYS, AND CONTROL DEFINES,
 

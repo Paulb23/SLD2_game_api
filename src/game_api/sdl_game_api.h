@@ -13,5 +13,7 @@
 #include "graphics/sdl_image_draw.h"
 #include "graphics/sdl_font.h"
 
+#include "input/keyboard.h"
+
 
 #endif /* SDL_GAME_API_H_ */

@@ -92,236 +92,230 @@ SDL_Scancode k_jump = 26;
 SDL_Scancode altk_jump = 82;
 
 
-/****************************************************************************************************************************************************************
+/**************************
+ *
+ *  converts text key code to SDL_SCANCODE
+ *
+ *  @param key - key to get
+ *
+ *************************/
+  int GetCode(char *key) {
 
-			** Get Code **
-
-			Converts the input string to a sdl keycode
-
-			\param num - the sdl key as a string
-
-			returns
-				- sdl keycode
-					- or 0 if unknown
-****************************************************************************************************************************************************************/
-
-  int GetCode(char num[10]) {
-
-	    if (strcmp(&num[0], "_a") == 0) {
+	    if (strcmp(&key[0], "_a") == 0) {
 		    return _a;
 	    }
-	    if (strcmp(&num[0], "_b") == 0) {
+	    if (strcmp(&key[0], "_b") == 0) {
 	    	return _b;
 	    }
-	    if (strcmp(&num[0], "_c") == 0) {
+	    if (strcmp(&key[0], "_c") == 0) {
 	    	return _c;
 	    }
-	    if (strcmp(&num[0], "_d") == 0) {
+	    if (strcmp(&key[0], "_d") == 0) {
 	    	return _d;
 	    }
-	    if (strcmp(&num[0], "_e") == 0) {
+	    if (strcmp(&key[0], "_e") == 0) {
 	    	return _e;
 	    }
-	    if (strcmp(&num[0], "_f") == 0) {
+	    if (strcmp(&key[0], "_f") == 0) {
 	    	return _f;
 	    }
-	    if (strcmp(&num[0], "_g") == 0) {
+	    if (strcmp(&key[0], "_g") == 0) {
 	    	return _g;
 	    }
-	    if (strcmp(&num[0], "_h") == 0) {
+	    if (strcmp(&key[0], "_h") == 0) {
 	    	return _h;
 	    }
-	    if (strcmp(&num[0], "_i") == 0) {
+	    if (strcmp(&key[0], "_i") == 0) {
 	    	return _i;
 	    }
-	    if (strcmp(&num[0], "_j") == 0) {
+	    if (strcmp(&key[0], "_j") == 0) {
 	    	return _j;
 	    }
-	    if (strcmp(&num[0], "_k") == 0) {
+	    if (strcmp(&key[0], "_k") == 0) {
 	    	return _k;
 	    }
-	    if (strcmp(&num[0], "_l") == 0) {
+	    if (strcmp(&key[0], "_l") == 0) {
 	    	return _l;
 	    }
-	    if (strcmp(&num[0], "_m") == 0) {
+	    if (strcmp(&key[0], "_m") == 0) {
 	    	return _m;
 	    }
-	    if (strcmp(&num[0], "_n") == 0) {
+	    if (strcmp(&key[0], "_n") == 0) {
 	    	return _n;
 	    }
-	    if (strcmp(&num[0], "_o") == 0) {
+	    if (strcmp(&key[0], "_o") == 0) {
 	    	return _o;
 	    }
-	    if (strcmp(&num[0], "_p") == 0) {
+	    if (strcmp(&key[0], "_p") == 0) {
 	    	return _p;
 	    }
-	    if (strcmp(&num[0], "_q") == 0) {
+	    if (strcmp(&key[0], "_q") == 0) {
 	    	return _q;
 	    }
-	    if (strcmp(&num[0], "_r") == 0) {
+	    if (strcmp(&key[0], "_r") == 0) {
 	    	return _r;
 	    }
-	    if (strcmp(&num[0], "_s") == 0) {
+	    if (strcmp(&key[0], "_s") == 0) {
 	    	return _s;
 	    }
-	    if (strcmp(&num[0], "_t") == 0) {
+	    if (strcmp(&key[0], "_t") == 0) {
 	    	return _t;
 	    }
-	    if (strcmp(&num[0], "_u") == 0) {
+	    if (strcmp(&key[0], "_u") == 0) {
 	    	return _u;
 	    }
-	    if (strcmp(&num[0], "_v") == 0) {
+	    if (strcmp(&key[0], "_v") == 0) {
 	    	return _v;
 	    }
-	    if (strcmp(&num[0], "_w") == 0) {
+	    if (strcmp(&key[0], "_w") == 0) {
 	    	return _w;
 	    }
-	    if (strcmp(&num[0], "_x") == 0) {
+	    if (strcmp(&key[0], "_x") == 0) {
 	    	return _x;
 	    }
-	    if (strcmp(&num[0], "_y") == 0) {
+	    if (strcmp(&key[0], "_y") == 0) {
 	    	return _y;
 	    }
-	    if (strcmp(&num[0], "_z") == 0) {
+	    if (strcmp(&key[0], "_z") == 0) {
 	    	return _z;
 	    }
 
-		if (strcmp(&num[0], "_up") == 0) {
+		if (strcmp(&key[0], "_up") == 0) {
 		  return _up;
 		}
-		if (strcmp(&num[0], "_down") == 0) {
+		if (strcmp(&key[0], "_down") == 0) {
 		  return _down;
 		}
-		if (strcmp(&num[0], "_left") == 0) {
+		if (strcmp(&key[0], "_left") == 0) {
 			return _left;
 		}
-		if (strcmp(&num[0], "_right") == 0) {
+		if (strcmp(&key[0], "_right") == 0) {
 		  return _right;
 		}
 
 
-		if (strcmp(&num[0], "_0") == 0) {
+		if (strcmp(&key[0], "_0") == 0) {
 		  return _0;
 		}
-		if (strcmp(&num[0], "_1") == 0) {
+		if (strcmp(&key[0], "_1") == 0) {
 		  return _1;
 		}
-		if (strcmp(&num[0], "_2") == 0) {
+		if (strcmp(&key[0], "_2") == 0) {
 		  return _2;
 		}
-	    if (strcmp(&num[0], "_3") == 0) {
+	    if (strcmp(&key[0], "_3") == 0) {
 		  return _3;
 		}
-		if (strcmp(&num[0], "_4") == 0) {
+		if (strcmp(&key[0], "_4") == 0) {
 		  return _4;
 		}
-		if (strcmp(&num[0], "_5") == 0) {
+		if (strcmp(&key[0], "_5") == 0) {
 		  return _5;
 		}
-		if (strcmp(&num[0], "_6") == 0) {
+		if (strcmp(&key[0], "_6") == 0) {
 		  return _6;
 		}
-		if (strcmp(&num[0], "_7") == 0) {
+		if (strcmp(&key[0], "_7") == 0) {
 		  return _7;
 		}
-		if (strcmp(&num[0], "_8") == 0) {
+		if (strcmp(&key[0], "_8") == 0) {
 		  return _8;
 		}
-		if (strcmp(&num[0], "_9") == 0) {
+		if (strcmp(&key[0], "_9") == 0) {
 		  return _9;
 		}
 
-		if (strcmp(&num[0], "_KP0") == 0) {
+		if (strcmp(&key[0], "_KP0") == 0) {
 		  return _KP0;
 		}
-		if (strcmp(&num[0], "_KP1") == 0) {
+		if (strcmp(&key[0], "_KP1") == 0) {
 		  return _KP1;
 	    }
-		if (strcmp(&num[0], "_KP2") == 0) {
+		if (strcmp(&key[0], "_KP2") == 0) {
 		  return _KP2;
 		}
-		if (strcmp(&num[0], "_KP3") == 0) {
+		if (strcmp(&key[0], "_KP3") == 0) {
 		  return _KP3;
 		}
-		if (strcmp(&num[0], "_KP4") == 0) {
+		if (strcmp(&key[0], "_KP4") == 0) {
 		  return _KP4;
 		}
-		if (strcmp(&num[0], "_KP5") == 0) {
+		if (strcmp(&key[0], "_KP5") == 0) {
 		  return _KP5;
 		}
-		if (strcmp(&num[0], "_KP6") == 0) {
+		if (strcmp(&key[0], "_KP6") == 0) {
 		  return _KP6;
 		}
-		if (strcmp(&num[0], "_KP7") == 0) {
+		if (strcmp(&key[0], "_KP7") == 0) {
 		  return _KP7;
 		}
-		if (strcmp(&num[0], "_KP8") == 0) {
+		if (strcmp(&key[0], "_KP8") == 0) {
 		  return _KP8;
 		}
-		if (strcmp(&num[0], "_KP9") == 0) {
+		if (strcmp(&key[0], "_KP9") == 0) {
 		  return _KP9;
 		}
 
 
-		if (strcmp(&num[0], "_f1") == 0) {
+		if (strcmp(&key[0], "_f1") == 0) {
 		  return _f1;
 		}
-		if (strcmp(&num[0], "_f2") == 0) {
+		if (strcmp(&key[0], "_f2") == 0) {
 		  return _f2;
 		}
-		if (strcmp(&num[0], "_f3") == 0) {
+		if (strcmp(&key[0], "_f3") == 0) {
 		  return _f3;
 		}
-		if (strcmp(&num[0], "_f4") == 0) {
+		if (strcmp(&key[0], "_f4") == 0) {
 		  return _f4;
 		}
-		if (strcmp(&num[0], "_f5") == 0) {
+		if (strcmp(&key[0], "_f5") == 0) {
 		  return _f5;
 		}
-		if (strcmp(&num[0], "_f6") == 0) {
+		if (strcmp(&key[0], "_f6") == 0) {
 		  return _f6;
 		}
-		if (strcmp(&num[0], "_f7") == 0) {
+		if (strcmp(&key[0], "_f7") == 0) {
 		  return _f7;
 		}
-		if (strcmp(&num[0], "_f8") == 0) {
+		if (strcmp(&key[0], "_f8") == 0) {
 		  return _f8;
 		}
-		if (strcmp(&num[0], "_f9") == 0) {
+		if (strcmp(&key[0], "_f9") == 0) {
 		  return _f9;
 		}
-		if (strcmp(&num[0], "_f10") == 0) {
+		if (strcmp(&key[0], "_f10") == 0) {
 		  return _f10;
 		}
-		if (strcmp(&num[0], "_f11") == 0) {
+		if (strcmp(&key[0], "_f11") == 0) {
 		  return _f1;
 		}
-		if (strcmp(&num[0], "_f12") == 0) {
+		if (strcmp(&key[0], "_f12") == 0) {
 		  return _f12;
 		}
 
-		if (strcmp(&num[0], "_space") == 0) {
+		if (strcmp(&key[0], "_space") == 0) {
 		  return _space;
 		}
 
 
-		if (strcmp(&num[0], "_lshift") == 0) {
+		if (strcmp(&key[0], "_lshift") == 0) {
 		  return _lshift;
 		}
-		if (strcmp(&num[0], "_lctrl") == 0) {
+		if (strcmp(&key[0], "_lctrl") == 0) {
 		  return _lctrl;
 		}
-		if (strcmp(&num[0], "_lalt") == 0) {
+		if (strcmp(&key[0], "_lalt") == 0) {
 		  return _lalt;
 		}
 
-		if (strcmp(&num[0], "_rshift") == 0) {
+		if (strcmp(&key[0], "_rshift") == 0) {
 		  return _rshift;
 		}
-		if (strcmp(&num[0], "_rctrl") == 0) {
+		if (strcmp(&key[0], "_rctrl") == 0) {
 		  return _rctrl;
 		}
-		if (strcmp(&num[0], "_ralt") == 0) {
+		if (strcmp(&key[0], "_ralt") == 0) {
 		  return _ralt;
 		}
 

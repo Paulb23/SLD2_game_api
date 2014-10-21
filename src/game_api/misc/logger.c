@@ -6,6 +6,13 @@
 int LOGGIN = 1;
 static char *file_path = "../extras/log.txt";
 
+/**************************
+ *
+ *  Write to the log
+ *
+ *  @param text - text to write
+ *
+ *************************/
 void log_write(char *text) {
 	if (LOGGIN) {
 		FILE *f = fopen(file_path, "ab");
