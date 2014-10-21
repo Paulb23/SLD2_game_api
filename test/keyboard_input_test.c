@@ -13,7 +13,7 @@
 void keybord_input_test() {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-	Window *window = window_create("This is the Sdl image test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
+	Window *window = window_create("This is the Sdl keyboard input test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
 	Image *image = image_load("../extras/resources/test_image.png", 10, 10, window);
 
 	Font *font = font_load("../extras/resources/debug.ttf", 65);
