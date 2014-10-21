@@ -16,7 +16,7 @@ A simple hashmap system.
 
 #### Ini parser
 
-Parses standered ini files # NOTE CURRENTLY CAN'T READ FILES 
+Parses standered ini files ## NOTE CURRENTLY CAN'T READ FILES 
 
 #### Window Handler
 
