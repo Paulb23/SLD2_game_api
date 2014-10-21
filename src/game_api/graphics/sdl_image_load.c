@@ -5,19 +5,31 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/* function prototyping */
 SDL_Texture *image_load_file(char file[], Image *image, Window *window);
 
-Image *image_load(char *file, int width, int height, Window *window) {
-	Image *image = malloc(sizeof(Image));
-	if (!image) return (Image *)-1;
+/**************************
+ *
+ * Loads an image and returns it.
+ * returns -1 on fail
+ *
+ * @param file - path to the image
+ * @param frameWidth - height of each frame
+ * @param frameHeight - width of each frame
+ * @param window - window to use
+ *
+ *************************/
+Image *image_load(char *file, int frameWidth, int frameHeight, Window *window) {
+	Image *image = malloc(sizeof(Image));																	/* Allocate memory */
+	if (!image) return (Image *)-1;																			/* return of failed allocation */
 
-	image->Image = image_load_file(file, image,window);
-	image->frame_width = width;
-	image->frame_height = height;
+	image->Image = image_load_file(file, image,window);														/* actually load the texture */
+	image->frame_width = frameWidth;																		/* init the frame variables */
+	image->frame_height = frameHeight;
 
-	if (SDL_QueryTexture(image->Image, NULL, NULL, &image->texture_width, &image->texture_height) != 0) {
+	if (SDL_QueryTexture(image->Image, NULL, NULL, &image->texture_width, &image->texture_height) != 0) {	/* check texture is valid else return */
 		return (Image *)-1;
-	} else if (width != 0 && height != 0) {
+	} else if (frameWidth != 0 && frameHeight != 0) {														/* Calculate the amount of frame in the image */
 
 		int amountOfColumns = image->texture_width / image->frame_width;
 		int amountOfRows    = image->texture_height/ image->frame_height;
@@ -28,23 +40,34 @@ Image *image_load(char *file, int width, int height, Window *window) {
 		image->amount_of_frames = 0;
 	}
 
-	return image;
+	return image;																							/* return the image */
 }
 
+
+/**************************
+ *
+ * Loads the image file
+ * SHOULD NOT HAVE TO CALL USED BY IMAGE_LOAD
+ *
+ * @param file - path to the image
+ * @param image - image to store it in
+ * @param window - window to use
+ *
+ *************************/
 SDL_Texture *image_load_file(char file[], Image *image, Window *window) {
-	SDL_Surface *surface = NULL;
+	SDL_Surface *surface = NULL;																		/* Create surface and texture */
 	SDL_Texture *texture = NULL;
 
-	surface = IMG_Load(file);
+	surface = IMG_Load(file);																			/* Load the file */
 
-	if (surface != NULL) {
-		SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 255, 255, 255) );
+	if (surface != NULL) {																				/* if we could load the file  */
+		SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 255, 255, 255) );				/* remove all white and convert to a texture */
 		texture = SDL_CreateTextureFromSurface( window->renderer, surface );
 
-		image->texture_height = surface->h;
+		image->texture_height = surface->h;																/* update the image width, height */
 		image->texture_width = surface->w;
 
-		SDL_FreeSurface( surface );
+		SDL_FreeSurface( surface );																		/* free the surface */
 	}
-	return texture;
+	return texture;																						/* return the texture */
 }

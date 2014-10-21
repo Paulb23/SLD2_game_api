@@ -4,6 +4,9 @@
 #include "../src/game_api/graphics/sdl_image_draw.h"
 #include <stdio.h>
 
+/**
+ *  Creates a window with a animated images until the user closes the window
+ */
 void sdl_image_test() {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -13,8 +16,10 @@ void sdl_image_test() {
 
 	int frame = 2;
 	int angle = 0;
+
 	SDL_Event event;
 	int running = 1;
+
 	while(running) {
 		SDL_PumpEvents();
 		SDL_RenderPresent(window->renderer);
@@ -23,7 +28,7 @@ void sdl_image_test() {
 		image_draw(image, 100, 100, angle, frame, SDL_FLIP_NONE, window);
 		frame++;
 		angle += 20;
-		if (frame == image->amount_of_frames) frame = 0;
+		if (frame == image->amount_of_frames + 1) frame = 0;
 		if (angle == 360) angle = 0;
 
 		while (SDL_PollEvent(&event))

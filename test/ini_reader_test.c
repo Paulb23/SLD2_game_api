@@ -3,6 +3,9 @@
 #include <string.h>
 #include "tests.h"
 
+/**
+ *  Creates and manipulates a ini reader
+ */
 void ini_reader_test() {
 	Ini_Reader *ini = ini_create();
 	ini_add_catorgory(ini, "test");

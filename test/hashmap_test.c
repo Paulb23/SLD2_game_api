@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include "tests.h"
 
+/**
+ *  Creates and manipulates a hashmap
+ */
 void hashmap_test() {
 	Hashmap *map = hashmap_create();
 

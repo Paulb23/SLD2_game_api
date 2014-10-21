@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include "../test/tests.h"
 
+/**
+ *  Runs all the tests
+ */
 int main(int argc, char *args[]) {
 	hello_world();
 	sdl_install_test();

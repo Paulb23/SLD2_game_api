@@ -1,6 +1,7 @@
 #ifndef TESTS_H_
 #define TESTS_H_
 
+/* all the test functions */
 void hello_world();
 void sdl_install_test();
 void hashmap_test();

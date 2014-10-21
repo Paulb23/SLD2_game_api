@@ -3,11 +3,12 @@
 
 /* Hashmap struct */
 typedef struct _Hashmap {
-	void *key;
-	void *value;
-	struct _Hashmap *next;
+	void *key;					/* unique key */
+	void *value;				/* value tied to the key */
+	struct _Hashmap *next;		/* next element in the hashmap */
 } Hashmap;
 
+/* function prototypes */
 Hashmap *hashmap_create();
 void hashmap_set(Hashmap *map, void *key, void *value);
 void *hashmap_get(Hashmap *map, void *key);

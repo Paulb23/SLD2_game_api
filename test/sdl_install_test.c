@@ -5,6 +5,9 @@
 #include "tests.h"
 #include <stdio.h>
 
+/*
+ *  Starts and stops everything in sdl
+ */
 void sdl_install_test() {
 
     //Start SDL

@@ -3,10 +3,13 @@
 
 #include "../misc/hashmap.h"
 
+/* ini reader struct  */
 typedef struct _ini_reader {
-	Hashmap *catogories;
+	Hashmap *categories; 		/* categories hashmap */
 } Ini_Reader;
 
+
+/* function prototyping */
 Ini_Reader *ini_create();
 void ini_read_file(Ini_Reader *ini, char *file);
 void ini_add_catorgory(Ini_Reader *ini, char *catorgory);

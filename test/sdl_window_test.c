@@ -2,6 +2,10 @@
 #include "../src/game_api/graphics/sdl_window.h"
 #include <stdio.h>
 
+
+/*
+ * Creates and destroys a window
+ */
 void sdl_window_test() {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
