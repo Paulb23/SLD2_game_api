@@ -7,6 +7,7 @@
 #include "misc/hashmap.h"
 #include "misc/sdl_color.h"
 #include "misc/sdl_rect.h"
+#include "misc/list.h"
 #include "files/ini_reader.h"
 
 #include "graphics/sdl_window.h"
