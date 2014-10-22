@@ -93,7 +93,7 @@ extern SDL_Scancode altk_jump;
 
 
 /* function prototyping */
-extern int GetCode(char *num);
+extern int GetCode(char *key);
 
 //TODO DEFINE MORE KEYS, AND CONTROL DEFINES,
 

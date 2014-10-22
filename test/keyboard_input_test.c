@@ -33,16 +33,16 @@ void keybord_input_test() {
 		font_draw(0, 0, 0, SDL_FLIP_NONE, "Use the arrow or wasd keys to move", font, *color_create(255,255,255,0), window);
 		image_draw(image, x, y, 0, 1, SDL_FLIP_NONE, window);
 
-		if (keybord_key_down(SDL_SCANCODE_LEFT) || keybord_key_down(SDL_SCANCODE_A)) {
+		if (keybord_keyname_down("_left") || keybord_key_down(SDL_SCANCODE_A)) {
 			x-=speed;
 		}
-		if (keybord_key_down(SDL_SCANCODE_RIGHT) || keybord_key_down(SDL_SCANCODE_D)) {
+		if (keybord_keyname_down("_right") || keybord_key_down(SDL_SCANCODE_D)) {
 			x+=speed;
 		}
-		if (keybord_key_down(SDL_SCANCODE_UP) || keybord_key_down(SDL_SCANCODE_W)) {
+		if (keybord_keyname_down("_up") || keybord_key_down(SDL_SCANCODE_W)) {
 			y-=speed;
 		}
-		if (keybord_key_down(SDL_SCANCODE_DOWN) || keybord_key_down(SDL_SCANCODE_S)) {
+		if (keybord_keyname_down("_down") || keybord_key_down(SDL_SCANCODE_S)) {
 			y+=speed;
 		}
 
