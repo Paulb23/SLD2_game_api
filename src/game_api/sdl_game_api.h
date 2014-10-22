@@ -6,6 +6,7 @@
 #include "misc/keys.h"
 #include "misc/hashmap.h"
 #include "misc/sdl_color.h"
+#include "misc/sdl_rect.h"
 #include "files/ini_reader.h"
 
 #include "graphics/sdl_window.h"
@@ -15,6 +16,9 @@
 
 #include "input/keyboard.h"
 #include "input/mouse.h"
+
+#include "gui/interface.h"
+#include "gui/button.h"
 
 
 #endif /* SDL_GAME_API_H_ */

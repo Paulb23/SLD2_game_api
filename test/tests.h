@@ -11,5 +11,7 @@ void sdl_image_test();
 void sdl_font_test();
 void keybord_input_test();
 void mouse_input_test();
+void user_interface_test();
+void list_test();
 
 #endif /* TESTS_H_ */

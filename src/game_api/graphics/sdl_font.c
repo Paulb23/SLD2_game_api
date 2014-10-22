@@ -26,8 +26,12 @@ Font *font_load(char *file, int size) {
  *
  *  @param x - x position to draw the text
  *  @param y - y position to draw the text
+ *  @param angle - angle of the text
+ *	@param flip - Filp the image one of the following:
+ *				  :: SDL_FLIP_NONE :: SDL_FLIP_HORIZONTAL :: SDL_FLIP_VERTICAL
  *  @param text - text to draw
  *  @param font - font to draw
+ *  @param fontcolor - color of the font
  *  @param window to draw to
  *
  *************************/
