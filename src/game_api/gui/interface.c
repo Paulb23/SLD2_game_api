@@ -30,10 +30,15 @@ void interface_add_image_button(Interface *interface, Image_Button *image_button
 	list_set(interface->buttons, image_button);
 }
 
+void interface_add_check_box(Interface *interface, Check_box *check_box) {
+	list_set(interface->buttons, check_box);
+}
+
 void interface_draw(Interface *interface, Window *window) {
 	int i = 1;
 	Text_Button * text_button;
 	Image_Button * image_button;
+	Check_box * check_box;
 
 	while (list_get(interface->buttons, i) != (void *)-1) {
 
@@ -47,6 +52,18 @@ void interface_draw(Interface *interface, Window *window) {
 				SDL_RenderFillRect(window->renderer, &text_button->button->position);
 				SDL_SetRenderDrawColor(window->renderer, c->r, c->g, c->b, c->a);
 				font_draw(text_button->button->position.x + 5, text_button->button->position.y - 5, 0, SDL_FLIP_NONE, text_button->button_text_info->text, text_button->button_text_info->font, text_button->button_text_info->color, window);
+		} else if (text_button->button->type == CHECK_BOX) {
+			check_box = list_get(interface->buttons, i);
+
+			if (check_box->check_box_status->active) {
+				image_draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->check_box_image_info->active_frame, SDL_FLIP_NONE, window);
+			} else if (check_box->button_status->pressed) {
+				image_draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
+			} else if (check_box->button_status->hovered) {
+				image_draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->hovered_frame, SDL_FLIP_NONE, window);
+			} else {
+				image_draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->default_frame, SDL_FLIP_NONE, window);
+			}
 		} else {
 			image_button = list_get(interface->buttons, i);
 
@@ -107,6 +124,14 @@ void interface_update(Interface *interface, SDL_Event event) {
 			} else {
 				button->button_status->pressed = 0;
 			}
+		}
+
+		if (button->button->type == CHECK_BOX && button->button_status->clicked) {
+			Check_box *box = list_get(interface->buttons, i);
+			box->check_box_status->active = !box->check_box_status->active;
+			button->button_status->pressed = 0;
+			button->button_status->hovered = 0;
+			button->button_status->clicked = 0;
 		}
 	 i++;
 	}

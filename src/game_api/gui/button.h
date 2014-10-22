@@ -48,15 +48,26 @@ typedef struct _Image_Button {
 	Button_status * button_status;
 } Image_Button;
 
+typedef struct _check_box_status {
+	int active;
+} Check_Box_Status;
+
+typedef struct _check_box_image_info {
+	int active_frame;
+} Check_Box_Image_Info;
+
 typedef struct _check_box {
 	Button *button;
 	Button_Image_Info * button_image_info;
-	Button_status * button_status;
+	Button_status *button_status;
+	Check_Box_Status *check_box_status;
+	Check_Box_Image_Info *check_box_image_info;
 } Check_box;
 
 
 /* function prototyping */
 Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text);
 Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame);
+Check_box *check_box_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame);
 
 #endif /* BUTTON_H_ */

@@ -41,3 +41,26 @@ Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_
 
 	return (button) ? button : (Image_Button *) -1;
 }
+
+Check_box *check_box_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame) {
+	Check_box *button = malloc(sizeof(Check_box));
+	button->button = malloc(sizeof(Button));
+	button->button_status = malloc(sizeof(Button_status));
+	button->check_box_status = malloc(sizeof(Check_Box_Status));
+	button->button_image_info = malloc(sizeof(Button_Image_Info));
+	button->check_box_image_info = malloc(sizeof(Check_Box_Image_Info));
+
+	button->button->type = CHECK_BOX;
+	button->button->position = *position;
+	button->button_status->clicked = 0;
+	button->button_status->hovered = 0;
+	button->button_status->pressed = 0;
+	button->check_box_status->active = 0;
+	button->button_image_info->image = image;
+	button->button_image_info->default_frame = default_frame;
+	button->button_image_info->hovered_frame = hovered_frame;
+	button->button_image_info->pressed_frame = pressed_frame;
+	button->check_box_image_info->active_frame = active_frame;
+
+	return (button) ? button : (Check_box *) -1;
+}
