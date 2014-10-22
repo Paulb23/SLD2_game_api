@@ -10,5 +10,6 @@ void sdl_window_test();
 void sdl_image_test();
 void sdl_font_test();
 void keybord_input_test();
+void mouse_input_test();
 
 #endif /* TESTS_H_ */

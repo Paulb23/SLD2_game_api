@@ -63,7 +63,7 @@ static SDL_Texture *image_load_file(char file[], Image *image, Window *window) {
 	surface = IMG_Load(file);																			/* Load the file */
 
 	if (surface != NULL) {																				/* if we could load the file  */
-		SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 255, 255, 255) );				/* remove all white and convert to a texture */
+		//SDL_SetColorKey( surface, SDL_TRUE, SDL_MapRGB( surface->format, 255, 255, 255) );				/* remove all white and convert to a texture TODO: FIX REMOVES YELLOW? */
 		texture = SDL_CreateTextureFromSurface( window->renderer, surface );
 
 		image->texture_height = surface->h;																/* update the image width, height */

@@ -14,6 +14,7 @@
 #include "graphics/sdl_font.h"
 
 #include "input/keyboard.h"
+#include "input/mouse.h"
 
 
 #endif /* SDL_GAME_API_H_ */
