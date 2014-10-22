@@ -14,6 +14,7 @@ Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_
 	button->button->position = *position;
 	button->button_status->clicked = 0;
 	button->button_status->hovered = 0;
+	button->button_status->pressed = 0;
 	button->button_text_info->text = text;
 	button->button_text_info->font = font;
 	button->button_text_info->color = *font_color;
@@ -32,6 +33,7 @@ Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_
 	button->button->position = *position;
 	button->button_status->clicked = 0;
 	button->button_status->hovered = 0;
+	button->button_status->pressed = 0;
 	button->button_image_info->image = image;
 	button->button_image_info->default_frame = default_frame;
 	button->button_image_info->hovered_frame = hovered_frame;

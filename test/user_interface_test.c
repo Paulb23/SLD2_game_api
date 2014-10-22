@@ -31,7 +31,9 @@ void user_interface_test() {
 			interface_draw(interface, window);
 			interface_update(interface, event);
 
-			if (text_button->button_status->hovered) {
+			if (text_button->button_status->pressed) {
+				text_button->button_text_info->background_color = color_create(0, 0, 255 ,255);
+			} else if (text_button->button_status->hovered) {
 				text_button->button_text_info->background_color = color_create(0, 255, 0 ,255);
 			} else {
 				text_button->button_text_info->background_color = color_create(255, 0, 0 ,255);

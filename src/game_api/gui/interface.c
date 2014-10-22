@@ -91,6 +91,21 @@ void interface_update(Interface *interface, SDL_Event event) {
 		} else {
 			button->button_status->clicked = 0;
 		}
+
+		if (event.type == SDL_MOUSEBUTTONDOWN) {
+			if(event.button.button == SDL_BUTTON_LEFT) {						// Left Button
+				if (( x > button->button->position.x ) && ( x < button->button->position.x + button->button->position.w ) && ( y > button->button->position.y ) && ( y < button->button->position.y + button->button->position.h )) {
+						event.button.button = 0;
+						button->button_status->pressed = 1;
+				} else {
+						button->button_status->pressed = 0;
+				}
+			} else {
+				button->button_status->pressed = 0;
+			}
+		} else {
+			button->button_status->pressed = 0;
+		}
 	 i++;
 	}
 }

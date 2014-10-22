@@ -19,6 +19,7 @@ typedef struct _Button {
 typedef struct _button_status {
 	int hovered;
 	int clicked;
+	int pressed;
 } Button_status;
 
 typedef struct _Button_Image_Info {
