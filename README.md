@@ -33,3 +33,7 @@ Loads and draws .ttf fonts
 #### logger
 
 Log errors to a file
+
+#### Input
+
+Mouse and keyboard
