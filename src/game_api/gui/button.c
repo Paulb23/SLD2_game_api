@@ -23,7 +23,7 @@ Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_
 	return (button) ? button : (Text_Button *) -1;
 }
 
-Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame) {
+Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame) {
 	Image_Button *button = malloc(sizeof(Image_Button));
 	button->button = malloc(sizeof(Button));
 	button->button_status = malloc(sizeof(Button_status));
@@ -37,6 +37,7 @@ Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_
 	button->button_image_info->image = image;
 	button->button_image_info->default_frame = default_frame;
 	button->button_image_info->hovered_frame = hovered_frame;
+	button->button_image_info->pressed_frame = pressed_frame;
 
 	return (button) ? button : (Image_Button *) -1;
 }

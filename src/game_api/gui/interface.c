@@ -50,7 +50,9 @@ void interface_draw(Interface *interface, Window *window) {
 		} else {
 			image_button = list_get(interface->buttons, i);
 
-			if (image_button->button_status->hovered) {
+			if (image_button->button_status->pressed) {
+				image_draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
+			} else if (image_button->button_status->hovered) {
 				image_draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->hovered_frame, SDL_FLIP_NONE, window);
 			} else {
 				image_draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->default_frame, SDL_FLIP_NONE, window);
@@ -79,6 +81,8 @@ void interface_update(Interface *interface, SDL_Event event) {
 
 		if (event.type == SDL_MOUSEBUTTONUP) {
 			if(event.button.button == SDL_BUTTON_LEFT) {						// Left Button
+				button->button_status->pressed = 0;
+
 				if (( x > button->button->position.x ) && ( x < button->button->position.x + button->button->position.w ) && ( y > button->button->position.y ) && ( y < button->button->position.y + button->button->position.h )) {
 						event.button.button = 0;
 						button->button_status->clicked = 1;
@@ -92,7 +96,7 @@ void interface_update(Interface *interface, SDL_Event event) {
 			button->button_status->clicked = 0;
 		}
 
-		if (event.type == SDL_MOUSEBUTTONDOWN) {
+		if (event.type == SDL_MOUSEBUTTONDOWN || button->button_status->pressed == 1) {
 			if(event.button.button == SDL_BUTTON_LEFT) {						// Left Button
 				if (( x > button->button->position.x ) && ( x < button->button->position.x + button->button->position.w ) && ( y > button->button->position.y ) && ( y < button->button->position.y + button->button->position.h )) {
 						event.button.button = 0;
@@ -103,8 +107,6 @@ void interface_update(Interface *interface, SDL_Event event) {
 			} else {
 				button->button_status->pressed = 0;
 			}
-		} else {
-			button->button_status->pressed = 0;
 		}
 	 i++;
 	}

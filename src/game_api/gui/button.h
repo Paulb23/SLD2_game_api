@@ -26,6 +26,7 @@ typedef struct _Button_Image_Info {
 	Image *image;
 	int default_frame;
 	int hovered_frame;
+	int pressed_frame;
 } Button_Image_Info;
 
 typedef struct _Button_Text_Info {
@@ -56,6 +57,6 @@ typedef struct _check_box {
 
 /* function prototyping */
 Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text);
-Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame);
+Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame);
 
 #endif /* BUTTON_H_ */
