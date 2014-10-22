@@ -28,6 +28,16 @@ int mouse_right_clicked () {
 
 /**************************
  *
+ *  has the middle mouse been clicked
+ *
+ *************************/
+int mouse_button_clicked () {
+	return (SDL_GetMouseState(NULL,NULL) & SDL_BUTTON(SDL_BUTTON_MIDDLE));
+}
+
+
+/**************************
+ *
  *  is the mouse hovering in an area
  *
  *  @param x - x position of the object
