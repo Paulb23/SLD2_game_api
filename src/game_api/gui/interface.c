@@ -34,6 +34,18 @@ void interface_add_check_box(Interface *interface, Check_box *check_box) {
 	list_set(interface->buttons, check_box);
 }
 
+void interface_remove_text_button(Interface *interface, Text_Button *text_button) {
+	list_remove(interface->buttons, text_button);
+}
+
+void interface_remove_image_button(Interface *interface, Image_Button *image_button) {
+	list_remove(interface->buttons, image_button);
+}
+
+void interface_remove_check_box(Interface *interface, Check_box *check_box) {
+	list_remove(interface->buttons, check_box);
+}
+
 void interface_draw(Interface *interface, Window *window) {
 	int i = 1;
 	Text_Button * text_button;
