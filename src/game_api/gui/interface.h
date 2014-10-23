@@ -13,6 +13,7 @@ typedef struct _Interface {
 
 /* function prototyping */
 Interface *interface_create();
+
 void interface_add_text_button(Interface *interface, Text_Button *text_button);
 void interface_add_image_button(Interface *interface, Image_Button *image_Button);
 void interface_add_check_box(Interface *interface, Check_box *check_box);

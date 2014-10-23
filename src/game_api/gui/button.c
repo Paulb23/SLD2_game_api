@@ -4,6 +4,18 @@
 #include "../misc/sdl_color.h"
 #include <stdlib.h>
 
+
+/**************************
+ *
+ *  Creates button without an image
+ *
+ *  @param position - position and size of the button
+ *  @param font - font to draw with
+ *  @param font color - color of the font
+ *  @param background color - color behind the font
+ *  @param text - text to draw on the button
+ *
+ *************************/
 Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text) {
 	Text_Button *button = malloc(sizeof(Text_Button));
 	button->button = malloc(sizeof(Button));
@@ -23,6 +35,18 @@ Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_
 	return (button) ? button : (Text_Button *) -1;
 }
 
+
+/**************************
+ *
+ *  Creates button with a image
+ *
+ *  @param position - position and size of the button
+ *  @param image - image to use
+ *  @param default frame - default frame to draw
+ *  @param hovered_frame - frame to draw when mouse is hovered
+ *  @param pressed_frame - frame to draw when the left button is held on the button
+ *
+ *************************/
 Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame) {
 	Image_Button *button = malloc(sizeof(Image_Button));
 	button->button = malloc(sizeof(Button));
@@ -42,6 +66,19 @@ Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_
 	return (button) ? button : (Image_Button *) -1;
 }
 
+
+/**************************
+ *
+ *  Creates button with a image
+ *
+ *  @param position - position and size of the button
+ *  @param image - image to use
+ *  @param default frame - default frame to draw
+ *  @param hovered_frame - frame to draw when mouse is hovered
+ *  @param pressed_frame - frame to draw when the left button is held on the button
+ *  @param active_frame - frame to draw when check box is ticked
+ *
+ *************************/
 Check_box *check_box_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame) {
 	Check_box *button = malloc(sizeof(Check_box));
 	button->button = malloc(sizeof(Button));

@@ -6,6 +6,7 @@
 #include "../graphics/sdl_image_draw.h"
 #include <stdlib.h>
 
+
 /**************************
  *
  * Creates a Interface an returns it
@@ -22,30 +23,93 @@ Interface *interface_create() {
 	return interface;
 }
 
+
+/**************************
+ *
+ * Adds a button without an image to the interface
+ *
+ * @param interface - the interface to add the button to
+ * @param text_button - the text button to add to the interface
+ *
+ *************************/
 void interface_add_text_button(Interface *interface, Text_Button *text_button) {
 	list_set(interface->buttons, text_button);
 }
 
+
+/**************************
+ *
+ * Adds a image based button to the interface
+ *
+ * @param interface - the interface to add the button to
+ * @param image_button - the image button to add to the interface
+ *
+ *************************/
 void interface_add_image_button(Interface *interface, Image_Button *image_button) {
 	list_set(interface->buttons, image_button);
 }
 
+
+/**************************
+ *
+ * Adds a image based button to the interface
+ *
+ * @param interface - the interface to add the button to
+ * @param check_box - the check box to add to the interface
+ *
+ *************************/
 void interface_add_check_box(Interface *interface, Check_box *check_box) {
 	list_set(interface->buttons, check_box);
 }
 
+
+/**************************
+ *
+ * removes a button without an image from the interface
+ *
+ * @param interface - the interface to add the button to
+ * @param text_button - the text button to remove from the interface
+ *
+ *************************/
 void interface_remove_text_button(Interface *interface, Text_Button *text_button) {
 	list_remove(interface->buttons, text_button);
 }
 
+
+/**************************
+ *
+ * removes a image based button from the interface
+ *
+ * @param interface - the interface to add the button to
+ * @param image_button - the image button to remove from the interface
+ *
+ *************************/
 void interface_remove_image_button(Interface *interface, Image_Button *image_button) {
 	list_remove(interface->buttons, image_button);
 }
 
+
+/**************************
+ *
+ * removes a check box from the interface
+ *
+ * @param interface - the interface to add the button to
+ * @param check_box - the check box to remove from the interface
+ *
+ *************************/
 void interface_remove_check_box(Interface *interface, Check_box *check_box) {
 	list_remove(interface->buttons, check_box);
 }
 
+
+/**************************
+ *
+ * draws the interface
+ *
+ * @param interface - the interface to draw
+ * @param window - the window to draw to
+ *
+ *************************/
 void interface_draw(Interface *interface, Window *window) {
 	int i = 1;
 	Text_Button * text_button;
@@ -91,6 +155,15 @@ void interface_draw(Interface *interface, Window *window) {
 	}
 }
 
+
+/**************************
+ *
+ * updates the interface
+ *
+ * @param interface - the interface to update
+ * @param event - the event queue
+ *
+ *************************/
 void interface_update(Interface *interface, SDL_Event event) {
 	Text_Button *button;
 
