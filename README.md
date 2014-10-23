@@ -20,7 +20,7 @@ A simple hashmap system.
 
 #### Ini parser
 
-Parses standered ini files <h6> NOTE CURRENTLY CAN'T READ FILES <h6>
+Parses standered ini files
 
 #### Window Handler
 
