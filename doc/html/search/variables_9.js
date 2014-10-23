@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loggin',['LOGGIN',['../logger_8c.html#a641d8e213a027218908a194b19e99377',1,'LOGGIN():&#160;logger.c'],['../logger_8h.html#a641d8e213a027218908a194b19e99377',1,'LOGGIN():&#160;logger.c']]]
+  ['renderer',['renderer',['../struct__window.html#a966da7a60c4ea3ba301e26ccc5efe452',1,'_window']]]
 ];

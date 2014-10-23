@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['next',['next',['../struct___hashmap.html#afe8643b19e0dfa0caf6f55b466b0263f',1,'_Hashmap::next()'],['../struct___list.html#a81debf80d483b20cf92dc02b1e43c3a4',1,'_List::next()']]]
+  ['size',['size',['../struct__dictionary__.html#a439227feff9d7f55384e8780cfc2eb82',1,'_dictionary_']]]
 ];

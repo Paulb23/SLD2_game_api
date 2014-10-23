@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['position',['position',['../struct___button.html#ac06cf6a292dc0e70e28b394fa481aef2',1,'_Button']]],
-  ['pressed',['pressed',['../struct__button__status.html#a9a8271834e4fd4341e41a0e182d6cdff',1,'_button_status']]],
-  ['pressed_5fframe',['pressed_frame',['../struct___button___image___info.html#ae1f9cd93a73ff8eff6bdd7319b79e794',1,'_Button_Image_Info']]]
+  ['text',['text',['../struct___button___text___info.html#a5633b1433389cec21ade3811bbe9ca5b',1,'_Button_Text_Info']]],
+  ['textboxes',['textboxes',['../struct___interface.html#afe02db5bce1405040b669fd456fb8825',1,'_Interface']]],
+  ['texture_5fheight',['texture_height',['../struct___image.html#a22e910452b37a1bcd9b35c927236af20',1,'_Image']]],
+  ['texture_5fwidth',['texture_width',['../struct___image.html#ae4f71de45f0a2263d14930dcf8691f5d',1,'_Image']]]
 ];

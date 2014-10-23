@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['active',['active',['../struct__check__box__status.html#aa5805c5e936174e5092bf7a5b78e7e64',1,'_check_box_status']]],
-  ['active_5fframe',['active_frame',['../struct__check__box__image__info.html#ab9f5f69e3cdf7b73b9e13348e0755ff3',1,'_check_box_image_info']]],
-  ['altk_5fjump',['altk_jump',['../keys_8c.html#a76618ad9783d6dc11adbe873bbd92d27',1,'altk_jump():&#160;keys.c'],['../keys_8h.html#a76618ad9783d6dc11adbe873bbd92d27',1,'altk_jump():&#160;keys.c']]],
-  ['altk_5fleft',['altk_left',['../keys_8c.html#aeecfbfbc8ab0a1dadddfba6d3516c5f5',1,'altk_left():&#160;keys.c'],['../keys_8h.html#aeecfbfbc8ab0a1dadddfba6d3516c5f5',1,'altk_left():&#160;keys.c']]],
-  ['altk_5fright',['altk_right',['../keys_8c.html#a0c69bf6f154364e3e1a6c9b22a5cddf2',1,'altk_right():&#160;keys.c'],['../keys_8h.html#a0c69bf6f154364e3e1a6c9b22a5cddf2',1,'altk_right():&#160;keys.c']]],
-  ['amount_5fof_5fframes',['amount_of_frames',['../struct___image.html#a2a2e85b75bd743d491247027f5ff7a21',1,'_Image']]]
+  ['background_5fcolor',['background_color',['../struct___button___text___info.html#a32aa566db158516db085c8abc793cf33',1,'_Button_Text_Info']]],
+  ['button_5fimage_5finfo',['button_image_info',['../struct___image___button.html#abe7ec1033c8966c23ea31920649178bf',1,'_Image_Button::button_image_info()'],['../struct__check__box.html#abe7ec1033c8966c23ea31920649178bf',1,'_check_box::button_image_info()']]],
+  ['button_5fstatus',['button_status',['../struct___text___button.html#af1ab6c7287e67a55a8e855e08302f8be',1,'_Text_Button::button_status()'],['../struct___image___button.html#af1ab6c7287e67a55a8e855e08302f8be',1,'_Image_Button::button_status()'],['../struct__check__box.html#af1ab6c7287e67a55a8e855e08302f8be',1,'_check_box::button_status()']]],
+  ['button_5ftext_5finfo',['button_text_info',['../struct___text___button.html#ab64035e509bab4503a5e1798bcd3d94f',1,'_Text_Button']]]
 ];

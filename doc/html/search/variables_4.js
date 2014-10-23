@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['data',['data',['../struct___list.html#a735984d41155bc1032e09bece8f8d66d',1,'_List']]],
-  ['default_5fframe',['default_frame',['../struct___button___image___info.html#ae230b35bb2d14768abde2227b5cbc699',1,'_Button_Image_Info']]]
+  ['frame_5fheight',['frame_height',['../struct___image.html#ac2614f43e36df461d5e4729be3ad04b4',1,'_Image']]],
+  ['frame_5fwidth',['frame_width',['../struct___image.html#a4f1bbe063dc390226d56e9eb79afc663',1,'_Image']]]
 ];
