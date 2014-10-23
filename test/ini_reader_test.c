@@ -1,19 +1,17 @@
-#include "../src/game_api/files/ini_reader.h"
+//#include "../src/game_api/files/ini_reader.h"
+#include "../src/game_api/files/iniparser.h"
+#include "../lib/SDL2/SDL.h"
 #include <stdio.h>
 #include <string.h>
 #include "tests.h"
+
 
 /**
  *  Creates and manipulates a ini reader
  */
 void ini_reader_test() {
-	Ini_Reader *ini = ini_create();
-	ini_add_catorgory(ini, "test");
-	ini_add_value(ini, "test", "test", "10");
-	ini_read_file(ini, "../conf/config.ini");
-	if (strcmp(ini_get_value(ini, "test", "test"), "10")) {printf("\n Ini reader falied to get value \n"); return;};
+	dictionary *d = iniparser_load("../conf/config.ini");
 
-
-	//if (strcmp(ini_get_value(ini, "animal", "cat"), "lion")) {printf("\n Ini reader falied to get value \n"); return;};
+	if (strcmp(iniparser_getstring(d, "animal:cat", "cat"), "lion")) {printf("\n Ini reader falied to get value \n"); return;};
 	printf("\n ini reader test passed...\n");
 }
