@@ -2,7 +2,7 @@
 #include "logger.h"
 #include <stdlib.h>
 
-/**************************
+/**************************//**
  *
  * Creates a Hashmap an returns it
  * If it fails to create return -1
@@ -16,7 +16,7 @@ Hashmap *hashmap_create() {
 }
 
 
-/**************************
+/**************************//**
  *
  * Adds a value to the hash map
  *
@@ -49,7 +49,7 @@ void hashmap_set(Hashmap *map, void *key, void *value) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Gets a value from the hashmap
  * returns -1 if key is not found
@@ -68,7 +68,7 @@ void *hashmap_get(Hashmap *map, void *key) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Removes a key from the Hashmap
  *
@@ -92,7 +92,7 @@ void hashmap_remove(Hashmap *map, void *key) {
 	free(curr);
 }
 
-/**************************
+/**************************//**
  *
  * Destroys the hashmap
  *

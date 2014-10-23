@@ -1,10 +1,10 @@
 #ifndef LIST_H_
 #define LIST_H_
 
-/* List struct */
+/** List struct */
 typedef struct _List {
-	void *data;				/* data in the element */
-	struct _List *next;		/* next element */
+	void *data;				/** data in the element */
+	struct _List *next;		/** next element */
 } List;
 
 

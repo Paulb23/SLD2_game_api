@@ -7,7 +7,7 @@
 #include <stdlib.h>
 
 
-/**************************
+/**************************//**
  *
  * Creates a Interface an returns it
  * If it fails to create return -1
@@ -24,7 +24,7 @@ Interface *interface_create() {
 }
 
 
-/**************************
+/**************************//**
  *
  * Adds a button without an image to the interface
  *
@@ -37,7 +37,7 @@ void interface_add_text_button(Interface *interface, Text_Button *text_button) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Adds a image based button to the interface
  *
@@ -50,7 +50,7 @@ void interface_add_image_button(Interface *interface, Image_Button *image_button
 }
 
 
-/**************************
+/**************************//**
  *
  * Adds a image based button to the interface
  *
@@ -63,7 +63,7 @@ void interface_add_check_box(Interface *interface, Check_box *check_box) {
 }
 
 
-/**************************
+/**************************//**
  *
  * removes a button without an image from the interface
  *
@@ -76,7 +76,7 @@ void interface_remove_text_button(Interface *interface, Text_Button *text_button
 }
 
 
-/**************************
+/**************************//**
  *
  * removes a image based button from the interface
  *
@@ -89,7 +89,7 @@ void interface_remove_image_button(Interface *interface, Image_Button *image_but
 }
 
 
-/**************************
+/**************************//**
  *
  * removes a check box from the interface
  *
@@ -102,7 +102,7 @@ void interface_remove_check_box(Interface *interface, Check_box *check_box) {
 }
 
 
-/**************************
+/**************************//**
  *
  * draws the interface
  *
@@ -156,7 +156,7 @@ void interface_draw(Interface *interface, Window *window) {
 }
 
 
-/**************************
+/**************************//**
  *
  * updates the interface
  *

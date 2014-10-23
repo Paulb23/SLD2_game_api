@@ -2,7 +2,7 @@
 #include "logger.h"
 #include <stdlib.h>
 
-/**************************
+/**************************//**
  *
  * Creates a List an returns it
  * If it fails to create return -1
@@ -16,7 +16,7 @@ List *list_create() {
 }
 
 
-/**************************
+/**************************//**
  *
  * Adds a value to the list
  *
@@ -39,7 +39,7 @@ void list_set(List *list, void *data) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Gets a value from the List
  * returns -1 if key is not found
@@ -60,7 +60,7 @@ void *list_get(List *list, int pos) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Removes a key from the List
  *
@@ -84,7 +84,7 @@ void list_remove(List *list, void *data) {
 	free(curr);
 }
 
-/**************************
+/**************************//**
  *
  * Destroys the List
  *

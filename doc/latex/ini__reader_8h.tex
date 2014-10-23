@@ -1,0 +1,120 @@
+\hypertarget{ini__reader_8h}{\section{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/files/ini\+\_\+reader.h File Reference}
+\label{ini__reader_8h}\index{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/files/ini\+\_\+reader.\+h@{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/files/ini\+\_\+reader.\+h}}
+}
+{\ttfamily \#include \char`\"{}../misc/hashmap.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__ini__reader}{\+\_\+ini\+\_\+reader}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__ini__reader}{\+\_\+ini\+\_\+reader} \hyperlink{ini__reader_8h_a612fd1faea7c04766947c99dcaa30079}{Ini\+\_\+\+Reader}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ini__reader_8h_a612fd1faea7c04766947c99dcaa30079}{Ini\+\_\+\+Reader} $\ast$ \hyperlink{ini__reader_8h_aaae0b231a3ac1939bf2f58317a10eedc}{ini\+\_\+create} ()
+\item 
+void \hyperlink{ini__reader_8h_ae0b7586cdd68976d1cf61d2bc60e11d3}{ini\+\_\+read\+\_\+file} (\hyperlink{ini__reader_8h_a612fd1faea7c04766947c99dcaa30079}{Ini\+\_\+\+Reader} $\ast$ini, char $\ast$file)
+\item 
+void \hyperlink{ini__reader_8h_adf9fbd1b398ebafba59a2ac432a30c65}{ini\+\_\+add\+\_\+catorgory} (\hyperlink{ini__reader_8h_a612fd1faea7c04766947c99dcaa30079}{Ini\+\_\+\+Reader} $\ast$ini, char $\ast$catorgory)
+\item 
+void \hyperlink{ini__reader_8h_a51c641e171e4427f15cab88eb72f5c55}{ini\+\_\+add\+\_\+value} (\hyperlink{ini__reader_8h_a612fd1faea7c04766947c99dcaa30079}{Ini\+\_\+\+Reader} $\ast$ini, char $\ast$catorgory, void $\ast$key, void $\ast$value)
+\item 
+void $\ast$ \hyperlink{ini__reader_8h_a08d3e5e8d826e5f5e508acc7215c5e42}{ini\+\_\+get\+\_\+value} (\hyperlink{ini__reader_8h_a612fd1faea7c04766947c99dcaa30079}{Ini\+\_\+\+Reader} $\ast$ini, char $\ast$catorgory, void $\ast$key)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{ini__reader_8h_a612fd1faea7c04766947c99dcaa30079}{\index{ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}!Ini\+\_\+\+Reader@{Ini\+\_\+\+Reader}}
+\index{Ini\+\_\+\+Reader@{Ini\+\_\+\+Reader}!ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}}
+\subsubsection[{Ini\+\_\+\+Reader}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \+\_\+ini\+\_\+reader}  {\bf Ini\+\_\+\+Reader}}}\label{ini__reader_8h_a612fd1faea7c04766947c99dcaa30079}
+ini reader struct 
+
+\subsection{Function Documentation}
+\hypertarget{ini__reader_8h_adf9fbd1b398ebafba59a2ac432a30c65}{\index{ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}!ini\+\_\+add\+\_\+catorgory@{ini\+\_\+add\+\_\+catorgory}}
+\index{ini\+\_\+add\+\_\+catorgory@{ini\+\_\+add\+\_\+catorgory}!ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}}
+\subsubsection[{ini\+\_\+add\+\_\+catorgory}]{\setlength{\rightskip}{0pt plus 5cm}void ini\+\_\+add\+\_\+catorgory (
+\begin{DoxyParamCaption}
+\item[{{\bf Ini\+\_\+\+Reader} $\ast$}]{ini, }
+\item[{char $\ast$}]{catorgory}
+\end{DoxyParamCaption}
+)}}\label{ini__reader_8h_adf9fbd1b398ebafba59a2ac432a30c65}
+Adds a category to the reader
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini} & -\/ ini to add the category to \\
+\hline
+{\em category} & -\/ name of the category \\
+\hline
+\end{DoxyParams}
+\hypertarget{ini__reader_8h_a51c641e171e4427f15cab88eb72f5c55}{\index{ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}!ini\+\_\+add\+\_\+value@{ini\+\_\+add\+\_\+value}}
+\index{ini\+\_\+add\+\_\+value@{ini\+\_\+add\+\_\+value}!ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}}
+\subsubsection[{ini\+\_\+add\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}void ini\+\_\+add\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{{\bf Ini\+\_\+\+Reader} $\ast$}]{ini, }
+\item[{char $\ast$}]{catorgory, }
+\item[{void $\ast$}]{key, }
+\item[{void $\ast$}]{value}
+\end{DoxyParamCaption}
+)}}\label{ini__reader_8h_a51c641e171e4427f15cab88eb72f5c55}
+Adds a value to the reader
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini} & -\/ ini to add the category to \\
+\hline
+{\em category} & -\/ name of the category \\
+\hline
+{\em key} & -\/ name of the key \\
+\hline
+{\em value} & -\/ value to store at the key \\
+\hline
+\end{DoxyParams}
+\hypertarget{ini__reader_8h_aaae0b231a3ac1939bf2f58317a10eedc}{\index{ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}!ini\+\_\+create@{ini\+\_\+create}}
+\index{ini\+\_\+create@{ini\+\_\+create}!ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}}
+\subsubsection[{ini\+\_\+create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Ini\+\_\+\+Reader}$\ast$ ini\+\_\+create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{ini__reader_8h_aaae0b231a3ac1939bf2f58317a10eedc}
+Creates and returns a new Ini reader return -\/1 on fail \hypertarget{ini__reader_8h_a08d3e5e8d826e5f5e508acc7215c5e42}{\index{ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}!ini\+\_\+get\+\_\+value@{ini\+\_\+get\+\_\+value}}
+\index{ini\+\_\+get\+\_\+value@{ini\+\_\+get\+\_\+value}!ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}}
+\subsubsection[{ini\+\_\+get\+\_\+value}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ ini\+\_\+get\+\_\+value (
+\begin{DoxyParamCaption}
+\item[{{\bf Ini\+\_\+\+Reader} $\ast$}]{ini, }
+\item[{char $\ast$}]{catorgory, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{ini__reader_8h_a08d3e5e8d826e5f5e508acc7215c5e42}
+Gets and returns a value returns -\/1 on fail
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini} & -\/ ini to add the category to \\
+\hline
+{\em category} & -\/ name of the category \\
+\hline
+{\em key} & -\/ name of the key \\
+\hline
+\end{DoxyParams}
+\hypertarget{ini__reader_8h_ae0b7586cdd68976d1cf61d2bc60e11d3}{\index{ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}!ini\+\_\+read\+\_\+file@{ini\+\_\+read\+\_\+file}}
+\index{ini\+\_\+read\+\_\+file@{ini\+\_\+read\+\_\+file}!ini\+\_\+reader.\+h@{ini\+\_\+reader.\+h}}
+\subsubsection[{ini\+\_\+read\+\_\+file}]{\setlength{\rightskip}{0pt plus 5cm}void ini\+\_\+read\+\_\+file (
+\begin{DoxyParamCaption}
+\item[{{\bf Ini\+\_\+\+Reader} $\ast$}]{ini, }
+\item[{char $\ast$}]{file}
+\end{DoxyParamCaption}
+)}}\label{ini__reader_8h_ae0b7586cdd68976d1cf61d2bc60e11d3}
+Reads a ini file
+
+
+\begin{DoxyParams}{Parameters}
+{\em ini} & -\/ the ini to sore into \\
+\hline
+{\em file} & -\/ the file read from \\
+\hline
+\end{DoxyParams}

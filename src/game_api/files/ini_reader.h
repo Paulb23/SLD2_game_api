@@ -3,9 +3,9 @@
 
 #include "../misc/hashmap.h"
 
-/* ini reader struct  */
+/** ini reader struct  */
 typedef struct _ini_reader {
-	Hashmap *categories; 		/* categories hashmap */
+	Hashmap *categories; 		/** categories hashmap */
 } Ini_Reader;
 
 

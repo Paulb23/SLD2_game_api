@@ -1,0 +1,64 @@
+\hypertarget{sdl__window_8c}{\section{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/graphics/sdl\+\_\+window.c File Reference}
+\label{sdl__window_8c}\index{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/graphics/sdl\+\_\+window.\+c@{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/graphics/sdl\+\_\+window.\+c}}
+}
+{\ttfamily \#include \char`\"{}sdl\+\_\+window.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../../../lib/\+S\+D\+L2/\+S\+D\+L\+\_\+image.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../misc/logger.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sdl__window_8h_abe08d2c8dcdb909042427bfe5d771110}{Window} $\ast$ \hyperlink{sdl__window_8c_af56de9219ba4bcc18fd1ff4c82ef8ee2}{window\+\_\+create} (char $\ast$title, int x, int y, int width, int height, uint32\+\_\+t flags)
+\item 
+void \hyperlink{sdl__window_8c_a6a68304472d2bcae36e9cd731df03170}{window\+\_\+set\+\_\+icon} (\hyperlink{sdl__window_8h_abe08d2c8dcdb909042427bfe5d771110}{Window} $\ast$window, char $\ast$icon)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{sdl__window_8c_af56de9219ba4bcc18fd1ff4c82ef8ee2}{\index{sdl\+\_\+window.\+c@{sdl\+\_\+window.\+c}!window\+\_\+create@{window\+\_\+create}}
+\index{window\+\_\+create@{window\+\_\+create}!sdl\+\_\+window.\+c@{sdl\+\_\+window.\+c}}
+\subsubsection[{window\+\_\+create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Window}$\ast$ window\+\_\+create (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{title, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{width, }
+\item[{int}]{height, }
+\item[{uint32\+\_\+t}]{flags}
+\end{DoxyParamCaption}
+)}}\label{sdl__window_8c_af56de9219ba4bcc18fd1ff4c82ef8ee2}
+Creates a new window and returns it. else -\/1 on failed creation
+
+
+\begin{DoxyParams}{Parameters}
+{\em title} & -\/ title of the window \\
+\hline
+{\em x} & -\/ x position to create the window \\
+\hline
+{\em y} & -\/ y position to create the window \\
+\hline
+{\em width} & -\/ width of the window \\
+\hline
+{\em height} & -\/ height of the window \\
+\hline
+{\em flags} & -\/ The flags for the window, can use multiple like so\+: F\+L\+A\+G\+\_\+1 $\vert$$\vert$ F\+L\+A\+G\+\_\+2 $\vert$$\vert$ F\+L\+A\+G\+\_\+3 \+::\+S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+F\+U\+L\+L\+S\+C\+R\+E\+E\+N, \+::\+S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+O\+P\+E\+N\+G\+L, \+::\+S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+H\+I\+D\+D\+E\+N, \+::\+S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+B\+O\+R\+D\+E\+R\+L\+E\+S\+S, \+::\+S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+R\+E\+S\+I\+Z\+A\+B\+L\+E, \+::\+S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+M\+A\+X\+I\+M\+I\+Z\+E\+D, \+::\+S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+M\+I\+N\+I\+M\+I\+Z\+E\+D, \+::\+S\+D\+L\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+I\+N\+P\+U\+T\+\_\+\+G\+R\+A\+B\+B\+E\+D. \\
+\hline
+\end{DoxyParams}
+\hypertarget{sdl__window_8c_a6a68304472d2bcae36e9cd731df03170}{\index{sdl\+\_\+window.\+c@{sdl\+\_\+window.\+c}!window\+\_\+set\+\_\+icon@{window\+\_\+set\+\_\+icon}}
+\index{window\+\_\+set\+\_\+icon@{window\+\_\+set\+\_\+icon}!sdl\+\_\+window.\+c@{sdl\+\_\+window.\+c}}
+\subsubsection[{window\+\_\+set\+\_\+icon}]{\setlength{\rightskip}{0pt plus 5cm}void window\+\_\+set\+\_\+icon (
+\begin{DoxyParamCaption}
+\item[{{\bf Window} $\ast$}]{window, }
+\item[{char $\ast$}]{icon}
+\end{DoxyParamCaption}
+)}}\label{sdl__window_8c_a6a68304472d2bcae36e9cd731df03170}
+Changes the window icon to the one provided
+
+
+\begin{DoxyParams}{Parameters}
+{\em window} & -\/ the window to add the icon to \\
+\hline
+{\em icon} & -\/ path to the icon image \\
+\hline
+\end{DoxyParams}

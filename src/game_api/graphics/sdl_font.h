@@ -3,7 +3,7 @@
 
 #include "../../../lib/SDL2/SDL_ttf.h"
 
-/* Font struct */
+/** Font struct */
 typedef struct _font {
 	TTF_Font *font;
 } Font;

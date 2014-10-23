@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 
-/**************************
+/**************************//**
  *
  *  Creates button without an image
  *
@@ -36,7 +36,7 @@ Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_
 }
 
 
-/**************************
+/**************************//**
  *
  *  Creates button with a image
  *
@@ -67,7 +67,7 @@ Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_
 }
 
 
-/**************************
+/**************************//**
  *
  *  Creates button with a image
  *

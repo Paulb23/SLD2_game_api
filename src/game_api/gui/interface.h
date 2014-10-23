@@ -5,10 +5,10 @@
 #include "../misc/list.h"
 #include "../graphics/sdl_window.h"
 
-/* interface struct  */
+/** interface struct  */
 typedef struct _Interface {
-	List *buttons;			/* list of buttons on the interface */
-	List *textboxes;		/* list of textboxes on the interface */
+	List *buttons;			/** list of buttons on the interface */
+	List *textboxes;		/** list of textboxes on the interface */
 } Interface;
 
 /* function prototyping */

@@ -2,7 +2,7 @@
 #include "sdl_color.h"
 #include <stdlib.h>
 
-/**************************
+/**************************//**
  *
  *  Creates a SDL solor
  *

@@ -9,7 +9,7 @@
 /* function prototyping */
 static SDL_Texture *image_load_file(char file[], Image *image, Window *window);
 
-/**************************
+/**************************//**
  *
  * Loads an image and returns it.
  * returns -1 on fail
@@ -46,7 +46,7 @@ Image *image_load(char *file, int frameWidth, int frameHeight, Window *window) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Loads the image file
  * SHOULD NOT HAVE TO CALL USED BY IMAGE_LOAD

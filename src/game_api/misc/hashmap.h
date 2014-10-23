@@ -1,11 +1,11 @@
 #ifndef HASHMAP_H_
 #define HASHMAP_H_
 
-/* Hashmap struct */
+/** Hashmap struct */
 typedef struct _Hashmap {
-	void *key;					/* unique key */
-	void *value;				/* value tied to the key */
-	struct _Hashmap *next;		/* next element in the hashmap */
+	void *key;					/** unique key */
+	void *value;				/** value tied to the key */
+	struct _Hashmap *next;		/** next element in the hashmap */
 } Hashmap;
 
 /* function prototypes */

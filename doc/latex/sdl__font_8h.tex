@@ -1,0 +1,82 @@
+\hypertarget{sdl__font_8h}{\section{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/graphics/sdl\+\_\+font.h File Reference}
+\label{sdl__font_8h}\index{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/graphics/sdl\+\_\+font.\+h@{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/graphics/sdl\+\_\+font.\+h}}
+}
+{\ttfamily \#include \char`\"{}../../../lib/\+S\+D\+L2/\+S\+D\+L\+\_\+ttf.\+h\char`\"{}}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__font}{\+\_\+font}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct__font}{\+\_\+font} \hyperlink{sdl__font_8h_ae46a84f424fb0ff6b8650f3a09014880}{Font}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sdl__font_8h_ae46a84f424fb0ff6b8650f3a09014880}{Font} $\ast$ \hyperlink{sdl__font_8h_aab30256f6b28e21e8165305d114577d6}{font\+\_\+load} (char $\ast$file, int size)
+\item 
+void \hyperlink{sdl__font_8h_af643ef02b38f12907a890c253aa42303}{font\+\_\+draw} (int x, int y, int angle, S\+D\+L\+\_\+\+Renderer\+Flip flip, char $\ast$text, \hyperlink{sdl__font_8h_ae46a84f424fb0ff6b8650f3a09014880}{Font} $\ast$font, S\+D\+L\+\_\+\+Color font\+Color, \hyperlink{sdl__window_8h_abe08d2c8dcdb909042427bfe5d771110}{Window} $\ast$window)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{sdl__font_8h_ae46a84f424fb0ff6b8650f3a09014880}{\index{sdl\+\_\+font.\+h@{sdl\+\_\+font.\+h}!Font@{Font}}
+\index{Font@{Font}!sdl\+\_\+font.\+h@{sdl\+\_\+font.\+h}}
+\subsubsection[{Font}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \+\_\+font}  {\bf Font}}}\label{sdl__font_8h_ae46a84f424fb0ff6b8650f3a09014880}
+Font struct 
+
+\subsection{Function Documentation}
+\hypertarget{sdl__font_8h_af643ef02b38f12907a890c253aa42303}{\index{sdl\+\_\+font.\+h@{sdl\+\_\+font.\+h}!font\+\_\+draw@{font\+\_\+draw}}
+\index{font\+\_\+draw@{font\+\_\+draw}!sdl\+\_\+font.\+h@{sdl\+\_\+font.\+h}}
+\subsubsection[{font\+\_\+draw}]{\setlength{\rightskip}{0pt plus 5cm}void font\+\_\+draw (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{angle, }
+\item[{S\+D\+L\+\_\+\+Renderer\+Flip}]{flip, }
+\item[{char $\ast$}]{text, }
+\item[{{\bf Font} $\ast$}]{font, }
+\item[{S\+D\+L\+\_\+\+Color}]{font\+Color, }
+\item[{{\bf Window} $\ast$}]{window}
+\end{DoxyParamCaption}
+)}}\label{sdl__font_8h_af643ef02b38f12907a890c253aa42303}
+draws a T\+T\+F font
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & -\/ x position to draw the text \\
+\hline
+{\em y} & -\/ y position to draw the text \\
+\hline
+{\em angle} & -\/ angle of the text \\
+\hline
+{\em flip} & -\/ Filp the image one of the following\+: \+:\+: S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+N\+O\+N\+E \+:\+: S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+H\+O\+R\+I\+Z\+O\+N\+T\+A\+L \+:\+: S\+D\+L\+\_\+\+F\+L\+I\+P\+\_\+\+V\+E\+R\+T\+I\+C\+A\+L \\
+\hline
+{\em text} & -\/ text to draw \\
+\hline
+{\em font} & -\/ font to draw \\
+\hline
+{\em fontcolor} & -\/ color of the font \\
+\hline
+{\em window} & to draw to \\
+\hline
+\end{DoxyParams}
+\hypertarget{sdl__font_8h_aab30256f6b28e21e8165305d114577d6}{\index{sdl\+\_\+font.\+h@{sdl\+\_\+font.\+h}!font\+\_\+load@{font\+\_\+load}}
+\index{font\+\_\+load@{font\+\_\+load}!sdl\+\_\+font.\+h@{sdl\+\_\+font.\+h}}
+\subsubsection[{font\+\_\+load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Font}$\ast$ font\+\_\+load (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{file, }
+\item[{int}]{size}
+\end{DoxyParamCaption}
+)}}\label{sdl__font_8h_aab30256f6b28e21e8165305d114577d6}
+Loads and returns a T\+T\+F font
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & -\/ path to the font \\
+\hline
+{\em size} & -\/ size of the font \\
+\hline
+\end{DoxyParams}

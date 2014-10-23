@@ -5,7 +5,7 @@
 static int in_area(int x1, int y1, int x2, int y2, int w2, int h2);
 
 
-/**************************
+/**************************//**
  *
  *  has the left mouse been clicked
  *
@@ -16,7 +16,7 @@ int mouse_left_clicked() {
 }
 
 
-/**************************
+/**************************//**
  *
  *  has the right mouse been clicked
  *
@@ -26,7 +26,7 @@ int mouse_right_clicked () {
 }
 
 
-/**************************
+/**************************//**
  *
  *  has the middle mouse been clicked
  *
@@ -36,7 +36,7 @@ int mouse_button_clicked () {
 }
 
 
-/**************************
+/**************************//**
  *
  *  is the mouse hovering in an area
  *
@@ -61,7 +61,7 @@ int mouse_hover_in_area(int x, int y, int w, int h, SDL_Event event) {
 }
 
 
-/**************************
+/**************************//**
  *
  *  is the mouse left clicked in an area
  *
@@ -89,7 +89,7 @@ int mouse_left_click_in_area(int x, int y, int w, int h, SDL_Event event) {
 }
 
 
-/**************************
+/**************************//**
  *
  *  is the mouse right clicked in an area
  *
@@ -117,7 +117,7 @@ int mouse_right_click_in_area(int x, int y, int w, int h, SDL_Event event) {
 }
 
 
-/**************************
+/**************************//**
  *
  *  is x1 and y1 inside an area
  *

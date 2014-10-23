@@ -10,7 +10,7 @@
 static char *trim_whitespace(char *str);
 
 
-/**************************
+/**************************//**
  *
  * Creates and returns a new Ini reader
  * return -1 on fail
@@ -26,7 +26,7 @@ Ini_Reader *ini_create() {
 }
 
 
-/**************************
+/**************************//**
  *
  * Reads a ini file
  *
@@ -61,7 +61,7 @@ void ini_read_file(Ini_Reader *ini, char *file) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Adds a category to the reader
  *
@@ -74,7 +74,7 @@ void ini_add_catorgory(Ini_Reader *ini, char *catorgory) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Adds a value to the reader
  *
@@ -91,7 +91,7 @@ void ini_add_value(Ini_Reader *ini, char *catorgory, void *key, void *value) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Gets and returns a value
  * returns -1 on fail
@@ -108,7 +108,7 @@ void *ini_get_value(Ini_Reader *ini, char *catorgory, void *key) {
 }
 
 
-/**************************
+/**************************//**
  *
  * Trims whitespace from a string
  *

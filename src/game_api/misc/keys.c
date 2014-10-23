@@ -92,7 +92,7 @@ SDL_Scancode k_jump = 26;
 SDL_Scancode altk_jump = 82;
 
 
-/**************************
+/**************************//**
  *
  *  converts text key code to SDL_SCANCODE
  *

@@ -2,7 +2,7 @@
 #include "sdl_rect.h"
 #include <stdlib.h>
 
-/**************************
+/**************************//**
  *
  *  Creates a SDL solor
  *

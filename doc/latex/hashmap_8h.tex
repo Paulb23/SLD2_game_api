@@ -1,0 +1,108 @@
+\hypertarget{hashmap_8h}{\section{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/misc/hashmap.h File Reference}
+\label{hashmap_8h}\index{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/misc/hashmap.\+h@{C\+:/\+Users/\+Paul/\+\_\+programming/c/programms/\+S\+L\+D2\+\_\+game\+\_\+api/src/game\+\_\+api/misc/hashmap.\+h}}
+}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct___hashmap}{\+\_\+\+Hashmap}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct___hashmap}{\+\_\+\+Hashmap} \hyperlink{hashmap_8h_ad6df83529647c10a2add0472ff0ad367}{Hashmap}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{hashmap_8h_ad6df83529647c10a2add0472ff0ad367}{Hashmap} $\ast$ \hyperlink{hashmap_8h_a1efe2d2146108b8bcfafb2c7fb00c44e}{hashmap\+\_\+create} ()
+\item 
+void \hyperlink{hashmap_8h_ab7b43dad45bc5a3fb37b5557a1fd3057}{hashmap\+\_\+set} (\hyperlink{hashmap_8h_ad6df83529647c10a2add0472ff0ad367}{Hashmap} $\ast$map, void $\ast$key, void $\ast$value)
+\item 
+void $\ast$ \hyperlink{hashmap_8h_afae8fd8c9b5336c81ffa7da8a735de1b}{hashmap\+\_\+get} (\hyperlink{hashmap_8h_ad6df83529647c10a2add0472ff0ad367}{Hashmap} $\ast$map, void $\ast$key)
+\item 
+void \hyperlink{hashmap_8h_ab334830beedf2afd494112d18ca27830}{hashmap\+\_\+remove} (\hyperlink{hashmap_8h_ad6df83529647c10a2add0472ff0ad367}{Hashmap} $\ast$map, void $\ast$key)
+\item 
+void \hyperlink{hashmap_8h_a71ed0c4342c79793b2f50cc5017b0288}{hashmap\+\_\+destroy} (\hyperlink{hashmap_8h_ad6df83529647c10a2add0472ff0ad367}{Hashmap} $\ast$map)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{hashmap_8h_ad6df83529647c10a2add0472ff0ad367}{\index{hashmap.\+h@{hashmap.\+h}!Hashmap@{Hashmap}}
+\index{Hashmap@{Hashmap}!hashmap.\+h@{hashmap.\+h}}
+\subsubsection[{Hashmap}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf \+\_\+\+Hashmap}  {\bf Hashmap}}}\label{hashmap_8h_ad6df83529647c10a2add0472ff0ad367}
+Hashmap struct 
+
+\subsection{Function Documentation}
+\hypertarget{hashmap_8h_a1efe2d2146108b8bcfafb2c7fb00c44e}{\index{hashmap.\+h@{hashmap.\+h}!hashmap\+\_\+create@{hashmap\+\_\+create}}
+\index{hashmap\+\_\+create@{hashmap\+\_\+create}!hashmap.\+h@{hashmap.\+h}}
+\subsubsection[{hashmap\+\_\+create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Hashmap}$\ast$ hashmap\+\_\+create (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{hashmap_8h_a1efe2d2146108b8bcfafb2c7fb00c44e}
+Creates a Hashmap an returns it If it fails to create return -\/1 \hypertarget{hashmap_8h_a71ed0c4342c79793b2f50cc5017b0288}{\index{hashmap.\+h@{hashmap.\+h}!hashmap\+\_\+destroy@{hashmap\+\_\+destroy}}
+\index{hashmap\+\_\+destroy@{hashmap\+\_\+destroy}!hashmap.\+h@{hashmap.\+h}}
+\subsubsection[{hashmap\+\_\+destroy}]{\setlength{\rightskip}{0pt plus 5cm}void hashmap\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Hashmap} $\ast$}]{map}
+\end{DoxyParamCaption}
+)}}\label{hashmap_8h_a71ed0c4342c79793b2f50cc5017b0288}
+Destroys the hashmap
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & -\/ Hashmap to destroy \\
+\hline
+\end{DoxyParams}
+\hypertarget{hashmap_8h_afae8fd8c9b5336c81ffa7da8a735de1b}{\index{hashmap.\+h@{hashmap.\+h}!hashmap\+\_\+get@{hashmap\+\_\+get}}
+\index{hashmap\+\_\+get@{hashmap\+\_\+get}!hashmap.\+h@{hashmap.\+h}}
+\subsubsection[{hashmap\+\_\+get}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ hashmap\+\_\+get (
+\begin{DoxyParamCaption}
+\item[{{\bf Hashmap} $\ast$}]{map, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hashmap_8h_afae8fd8c9b5336c81ffa7da8a735de1b}
+Gets a value from the hashmap returns -\/1 if key is not found
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & -\/ Hashmap to search \\
+\hline
+{\em key} & -\/ key to look for \\
+\hline
+\end{DoxyParams}
+\hypertarget{hashmap_8h_ab334830beedf2afd494112d18ca27830}{\index{hashmap.\+h@{hashmap.\+h}!hashmap\+\_\+remove@{hashmap\+\_\+remove}}
+\index{hashmap\+\_\+remove@{hashmap\+\_\+remove}!hashmap.\+h@{hashmap.\+h}}
+\subsubsection[{hashmap\+\_\+remove}]{\setlength{\rightskip}{0pt plus 5cm}void hashmap\+\_\+remove (
+\begin{DoxyParamCaption}
+\item[{{\bf Hashmap} $\ast$}]{map, }
+\item[{void $\ast$}]{key}
+\end{DoxyParamCaption}
+)}}\label{hashmap_8h_ab334830beedf2afd494112d18ca27830}
+Removes a key from the Hashmap
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & -\/ Hashmap with the key to remove \\
+\hline
+{\em key} & -\/ key to remove \\
+\hline
+\end{DoxyParams}
+\hypertarget{hashmap_8h_ab7b43dad45bc5a3fb37b5557a1fd3057}{\index{hashmap.\+h@{hashmap.\+h}!hashmap\+\_\+set@{hashmap\+\_\+set}}
+\index{hashmap\+\_\+set@{hashmap\+\_\+set}!hashmap.\+h@{hashmap.\+h}}
+\subsubsection[{hashmap\+\_\+set}]{\setlength{\rightskip}{0pt plus 5cm}void hashmap\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{{\bf Hashmap} $\ast$}]{map, }
+\item[{void $\ast$}]{key, }
+\item[{void $\ast$}]{value}
+\end{DoxyParamCaption}
+)}}\label{hashmap_8h_ab7b43dad45bc5a3fb37b5557a1fd3057}
+Adds a value to the hash map
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & -\/ Hashmap to add to \\
+\hline
+{\em key} & -\/ Key to add  value -\/ Value to add \\
+\hline
+\end{DoxyParams}

@@ -3,7 +3,7 @@
 #include "sdl_window.h"
 #include "sdl_image_load.h"
 
-/**************************
+/**************************//**
  *
  *	Draws an image to a window
  *

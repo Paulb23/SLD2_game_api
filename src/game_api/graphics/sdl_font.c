@@ -5,7 +5,7 @@
 #include "sdl_font.h"
 #include <stdlib.h>
 
-/**************************
+/**************************//**
  *
  *  Loads and returns a TTF font
  *
@@ -20,7 +20,7 @@ Font *font_load(char *file, int size) {
 }
 
 
-/**************************
+/**************************//**
  *
  *  draws a TTF font
  *

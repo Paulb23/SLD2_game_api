@@ -2,7 +2,7 @@
 #include "../misc/keys.h"
 #include "../../../lib/SDL2/SDL.h"
 
-/**************************
+/**************************//**
  *
  *  gets whether a key is down or not
  *
@@ -15,7 +15,7 @@ int keybord_key_down(SDL_Keycode key) {
 	return keystates[key];
 }
 
-/**************************
+/**************************//**
  *
  *  gets whether a key is down or not
  *

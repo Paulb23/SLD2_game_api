@@ -6,7 +6,7 @@
 int LOGGIN = 1;
 static char *file_path = "../extras/log.txt";
 
-/**************************
+/**************************//**
  *
  *  Write to the log
  *

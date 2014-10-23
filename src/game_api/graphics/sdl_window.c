@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-/**************************
+/**************************//**
  *
  * Creates a new window and returns it.
  * else -1 on failed creation
@@ -36,7 +36,7 @@ Window *window_create(char *title, int x, int y, int width, int height, uint32_t
 }
 
 
-/**************************
+/**************************//**
  *
  * Changes the window icon to the one provided
  *

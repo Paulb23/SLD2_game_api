@@ -4,10 +4,10 @@
 #include "../../../lib/SDL2/SDL.h"
 #include <stdint.h>
 
-/* window struct */
+/** window struct */
 typedef struct _window {
-	SDL_Window *window;			/* Sdl window */
-	SDL_Renderer *renderer;		/* Sdl renderer */
+	SDL_Window *window;			/** Sdl window */
+	SDL_Renderer *renderer;		/** Sdl renderer */
 } Window;
 
 /* function prototypes */
