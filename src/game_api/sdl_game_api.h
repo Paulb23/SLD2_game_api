@@ -8,7 +8,7 @@
 #include "misc/sdl_color.h"
 #include "misc/sdl_rect.h"
 #include "misc/list.h"
-#include "files/ini_reader.h"
+#include "files/iniparser.h"
 
 #include "graphics/sdl_window.h"
 #include "graphics/sdl_image_load.h"
