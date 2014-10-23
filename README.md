@@ -7,6 +7,10 @@ Installation
 -----------
 Simply download a use the file system in the repo.
 
+Documentation
+-----------
+Documentation can be found under doc/html
+
 Features
 -----------
 
@@ -37,3 +41,7 @@ Log errors to a file
 #### Input
 
 Mouse and keyboard
+
+#### Interfaces and buttons
+
+button and check box support
