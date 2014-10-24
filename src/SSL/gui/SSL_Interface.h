@@ -18,7 +18,7 @@
                                 Includes
  ---------------------------------------------------------------------------*/
 
-#include "button.h"
+#include "SSL_Button.h"
 #include "../misc/SSL_List.h"
 #include "../graphics/SSL_window.h"
 
@@ -65,7 +65,7 @@ SSL_Interface *SSL_Interface_Create();
 |  Adds a text button to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Add_Text_Button(SSL_Interface *interface, Text_Button *text_button);
+void SSL_Interface_Add_Text_Button(SSL_Interface *interface, SSL_Text_Button *text_button);
 
 
 /*!--------------------------------------------------------------------------
@@ -77,7 +77,7 @@ void SSL_Interface_Add_Text_Button(SSL_Interface *interface, Text_Button *text_b
 |  Adds a image button to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Add_Image_Button(SSL_Interface *interface, Image_Button *image_Button);
+void SSL_Interface_Add_Image_Button(SSL_Interface *interface, SSL_Image_Button *image_Button);
 
 
 /*!--------------------------------------------------------------------------
@@ -89,7 +89,7 @@ void SSL_Interface_Add_Image_Button(SSL_Interface *interface, Image_Button *imag
 |  Adds a check box  to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Add_Check_Box(SSL_Interface *interface, Check_box *check_box);
+void SSL_Interface_Add_Check_Box(SSL_Interface *interface, SSL_Check_box *check_box);
 
 
 /*!--------------------------------------------------------------------------
@@ -101,7 +101,7 @@ void SSL_Interface_Add_Check_Box(SSL_Interface *interface, Check_box *check_box)
 |  Removes a text button to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Remove_Text_Button(SSL_Interface *interface, Text_Button *text_button);
+void SSL_Interface_Remove_Text_Button(SSL_Interface *interface, SSL_Text_Button *text_button);
 
 /*!--------------------------------------------------------------------------
 |  @brief    Removes a image button to the interface
@@ -112,7 +112,7 @@ void SSL_Interface_Remove_Text_Button(SSL_Interface *interface, Text_Button *tex
 |  Removes a image button to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Remove_Image_Button(SSL_Interface *interface, Image_Button *image_button);
+void SSL_Interface_Remove_Image_Button(SSL_Interface *interface, SSL_Image_Button *image_button);
 
 
 /*!--------------------------------------------------------------------------
@@ -124,7 +124,7 @@ void SSL_Interface_Remove_Image_Button(SSL_Interface *interface, Image_Button *i
 |  Removes a check box  to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Remove_Check_Box(SSL_Interface *interface, Check_box *check_box);
+void SSL_Interface_Remove_Check_Box(SSL_Interface *interface, SSL_Check_box *check_box);
 
 
 /*!--------------------------------------------------------------------------

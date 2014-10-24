@@ -78,7 +78,7 @@ SSL_Interface *SSL_Interface_Create() {
 |  Adds a text button to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Add_Text_Button(SSL_Interface *interface, Text_Button *text_button) {
+void SSL_Interface_Add_Text_Button(SSL_Interface *interface, SSL_Text_Button *text_button) {
 	SSL_List_Add(interface->buttons, text_button);
 }
 
@@ -92,7 +92,7 @@ void SSL_Interface_Add_Text_Button(SSL_Interface *interface, Text_Button *text_b
 |  Adds a image button to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Add_Image_Button(SSL_Interface *interface, Image_Button *image_button) {
+void SSL_Interface_Add_Image_Button(SSL_Interface *interface, SSL_Image_Button *image_button) {
 	SSL_List_Add(interface->buttons, image_button);
 }
 
@@ -106,7 +106,7 @@ void SSL_Interface_Add_Image_Button(SSL_Interface *interface, Image_Button *imag
 |  Adds a check box  to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Add_Check_Box(SSL_Interface *interface, Check_box *check_box) {
+void SSL_Interface_Add_Check_Box(SSL_Interface *interface, SSL_Check_box *check_box) {
 	SSL_List_Add(interface->buttons, check_box);
 }
 
@@ -120,7 +120,7 @@ void SSL_Interface_Add_Check_Box(SSL_Interface *interface, Check_box *check_box)
 |  Removes a text button to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Remove_Text_Button(SSL_Interface *interface, Text_Button *text_button) {
+void SSL_Interface_Remove_Text_Button(SSL_Interface *interface, SSL_Text_Button *text_button) {
 	SSL_List_Remove(interface->buttons, text_button);
 }
 
@@ -134,7 +134,7 @@ void SSL_Interface_Remove_Text_Button(SSL_Interface *interface, Text_Button *tex
 |  Removes a image button to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Remove_Image_Button(SSL_Interface *interface, Image_Button *image_button) {
+void SSL_Interface_Remove_Image_Button(SSL_Interface *interface, SSL_Image_Button *image_button) {
 	SSL_List_Remove(interface->buttons, image_button);
 }
 
@@ -148,7 +148,7 @@ void SSL_Interface_Remove_Image_Button(SSL_Interface *interface, Image_Button *i
 |  Removes a check box  to the interface.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Interface_Remove_Check_Box(SSL_Interface *interface, Check_box *check_box) {
+void SSL_Interface_Remove_Check_Box(SSL_Interface *interface, SSL_Check_box *check_box) {
 	SSL_List_Remove(interface->buttons, check_box);
 }
 
@@ -164,9 +164,9 @@ void SSL_Interface_Remove_Check_Box(SSL_Interface *interface, Check_box *check_b
 \-----------------------------------------------------------------------------*/
 void interface_draw(SSL_Interface *interface, SSL_Window *window) {
 	int i = 1;
-	Text_Button * text_button;
-	Image_Button * image_button;
-	Check_box * check_box;
+	SSL_Text_Button * text_button;
+	SSL_Image_Button * image_button;
+	SSL_Check_box * check_box;
 
 	while (SSL_List_Get(interface->buttons, i) != (void *)-1) {
 
@@ -179,7 +179,7 @@ void interface_draw(SSL_Interface *interface, SSL_Window *window) {
 				SDL_SetRenderDrawColor(window->renderer, text_button->button_text_info->background_color->r, text_button->button_text_info->background_color->g, text_button->button_text_info->background_color->b, text_button->button_text_info->background_color->a);
 				SDL_RenderFillRect(window->renderer, &text_button->button->position);
 				SDL_SetRenderDrawColor(window->renderer, c->r, c->g, c->b, c->a);
-				SSL_Font_Draw(text_button->button->position.x + 5, text_button->button->position.y - 5, 0, SDL_FLIP_NONE, text_button->button_text_info->text, text_button->button_text_info->font, text_button->button_text_info->color, window);
+				SSL_Font_Draw(text_button->button->position.x + 5, text_button->button->position.y - 5, 0, SDL_FLIP_NONE, text_button->button_text_info->text, text_button->button_text_info->font, text_button->button_text_info->font_color, window);
 		} else if (text_button->button->type == CHECK_BOX) {
 			check_box = SSL_List_Get(interface->buttons, i);
 
@@ -218,7 +218,7 @@ void interface_draw(SSL_Interface *interface, SSL_Window *window) {
 |
 \-----------------------------------------------------------------------------*/
 void interface_update(SSL_Interface *interface, SDL_Event event) {
-	Text_Button *button;
+	SSL_Text_Button *button;
 
 	int i = 1;
 	int x = event.button.x;
@@ -265,7 +265,7 @@ void interface_update(SSL_Interface *interface, SDL_Event event) {
 		}
 
 		if (button->button->type == CHECK_BOX && button->button_status->clicked) {
-			Check_box *box = SSL_List_Get(interface->buttons, i);
+			SSL_Check_box *box = SSL_List_Get(interface->buttons, i);
 			box->check_box_status->active = !box->check_box_status->active;
 			button->button_status->pressed = 0;
 			button->button_status->hovered = 0;
