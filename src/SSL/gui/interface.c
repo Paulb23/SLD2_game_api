@@ -1,6 +1,6 @@
 #include "interface.h"
 #include "../misc/SSL_Logger.h"
-#include "../misc/list.h"
+#include "../misc/SSL_List.h"
 #include "../misc/SSL_Color.h"
 #include "../graphics/SSL_window.h"
 #include "../graphics/SSL_Image.h"
@@ -17,8 +17,8 @@ Interface *interface_create() {
 	Interface *interface = malloc(sizeof(Interface));
 	if (!interface) {SSL_Log_Write("Failed to allocate memory for new Interface! "); return (Interface *)-1;}
 
-	interface->buttons = list_create();
-	interface->textboxes = list_create();
+	interface->buttons = SSL_List_Create();
+	interface->textboxes = SSL_List_Create();
 
 	return interface;
 }
@@ -33,7 +33,7 @@ Interface *interface_create() {
  *
  *************************/
 void interface_add_text_button(Interface *interface, Text_Button *text_button) {
-	list_set(interface->buttons, text_button);
+	SSL_List_Add(interface->buttons, text_button);
 }
 
 
@@ -46,7 +46,7 @@ void interface_add_text_button(Interface *interface, Text_Button *text_button) {
  *
  *************************/
 void interface_add_image_button(Interface *interface, Image_Button *image_button) {
-	list_set(interface->buttons, image_button);
+	SSL_List_Add(interface->buttons, image_button);
 }
 
 
@@ -59,7 +59,7 @@ void interface_add_image_button(Interface *interface, Image_Button *image_button
  *
  *************************/
 void interface_add_check_box(Interface *interface, Check_box *check_box) {
-	list_set(interface->buttons, check_box);
+	SSL_List_Add(interface->buttons, check_box);
 }
 
 
@@ -72,7 +72,7 @@ void interface_add_check_box(Interface *interface, Check_box *check_box) {
  *
  *************************/
 void interface_remove_text_button(Interface *interface, Text_Button *text_button) {
-	list_remove(interface->buttons, text_button);
+	SSL_List_Remove(interface->buttons, text_button);
 }
 
 
@@ -85,7 +85,7 @@ void interface_remove_text_button(Interface *interface, Text_Button *text_button
  *
  *************************/
 void interface_remove_image_button(Interface *interface, Image_Button *image_button) {
-	list_remove(interface->buttons, image_button);
+	SSL_List_Remove(interface->buttons, image_button);
 }
 
 
@@ -98,7 +98,7 @@ void interface_remove_image_button(Interface *interface, Image_Button *image_but
  *
  *************************/
 void interface_remove_check_box(Interface *interface, Check_box *check_box) {
-	list_remove(interface->buttons, check_box);
+	SSL_List_Remove(interface->buttons, check_box);
 }
 
 
@@ -116,9 +116,9 @@ void interface_draw(Interface *interface, SSL_Window *window) {
 	Image_Button * image_button;
 	Check_box * check_box;
 
-	while (list_get(interface->buttons, i) != (void *)-1) {
+	while (SSL_List_Get(interface->buttons, i) != (void *)-1) {
 
-		text_button = list_get(interface->buttons, i);
+		text_button = SSL_List_Get(interface->buttons, i);
 
 		if (text_button->button->type == TEXT_BUTTON) {
 				SDL_Color *c;
@@ -129,7 +129,7 @@ void interface_draw(Interface *interface, SSL_Window *window) {
 				SDL_SetRenderDrawColor(window->renderer, c->r, c->g, c->b, c->a);
 				SSL_Font_Draw(text_button->button->position.x + 5, text_button->button->position.y - 5, 0, SDL_FLIP_NONE, text_button->button_text_info->text, text_button->button_text_info->font, text_button->button_text_info->color, window);
 		} else if (text_button->button->type == CHECK_BOX) {
-			check_box = list_get(interface->buttons, i);
+			check_box = SSL_List_Get(interface->buttons, i);
 
 			if (check_box->check_box_status->active) {
 				SSL_Image_Draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->check_box_image_info->active_frame, SDL_FLIP_NONE, window);
@@ -141,7 +141,7 @@ void interface_draw(Interface *interface, SSL_Window *window) {
 				SSL_Image_Draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->default_frame, SDL_FLIP_NONE, window);
 			}
 		} else {
-			image_button = list_get(interface->buttons, i);
+			image_button = SSL_List_Get(interface->buttons, i);
 
 			if (image_button->button_status->pressed) {
 				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
@@ -171,9 +171,9 @@ void interface_update(Interface *interface, SDL_Event event) {
 	int x = event.button.x;
 	int y = event.button.y;
 
-	while (list_get(interface->buttons, i) != (void *)-1) {
+	while (SSL_List_Get(interface->buttons, i) != (void *)-1) {
 
-		button = list_get(interface->buttons, i);
+		button = SSL_List_Get(interface->buttons, i);
 
 		if (( x > button->button->position.x ) && ( x < button->button->position.x + button->button->position.w ) && ( y > button->button->position.y ) && ( y < button->button->position.y + button->button->position.h )) {
 				button->button_status->hovered = 1;
@@ -212,7 +212,7 @@ void interface_update(Interface *interface, SDL_Event event) {
 		}
 
 		if (button->button->type == CHECK_BOX && button->button_status->clicked) {
-			Check_box *box = list_get(interface->buttons, i);
+			Check_box *box = SSL_List_Get(interface->buttons, i);
 			box->check_box_status->active = !box->check_box_status->active;
 			button->button_status->pressed = 0;
 			button->button_status->hovered = 0;

@@ -2,13 +2,13 @@
 #define INTERFACE_H_
 
 #include "button.h"
-#include "../misc/list.h"
+#include "../misc/SSL_List.h"
 #include "../graphics/SSL_window.h"
 
 /** interface struct  */
 typedef struct _Interface {
-	List *buttons;			/** list of buttons on the interface */
-	List *textboxes;		/** list of textboxes on the interface */
+	SSL_List *buttons;			/** list of buttons on the interface */
+	SSL_List *textboxes;		/** list of textboxes on the interface */
 } Interface;
 
 /* function prototyping */
