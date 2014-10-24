@@ -13,13 +13,13 @@ Documentation can be found under doc/ open in any browser.
 
 File System
 -----------
-.seetings/       eclipse project settings
-conf/            testing config files
-doc/             documentation
-extras/          images ect
-lib/             SDL2 headers and dlls needed
-ssl_debug_build/ the complied binaries
-test/            unit tests
+.seetings/       eclipse project settings⋅⋅
+conf/            testing config files⋅⋅
+doc/             documentation⋅⋅
+extras/          images ect⋅⋅
+lib/             SDL2 headers and dlls needed⋅⋅
+ssl_debug_build/ the complied binaries⋅⋅
+test/            unit tests⋅⋅
 
 Features
 -----------
