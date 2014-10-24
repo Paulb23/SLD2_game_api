@@ -2,22 +2,23 @@
 #ifndef SDL_GAME_API_H_
 #define SDL_GAME_API_H_
 
+#include "files/iniparser.h"
+
 #include "misc/SSL_Logger.h"
 #include "misc/SSL_Keys.h"
-#include "misc/hashmap.h"
+#include "misc/SSL_Hashmap.h"
 #include "misc/SSL_Color.h"
 #include "misc/SSL_Rectangle.h"
-#include "misc/list.h"
-#include "files/iniparser.h"
+#include "misc/SSL_List.h"
 
 #include "graphics/SSL_Window.h"
 #include "graphics/SSL_Image.h"
 #include "graphics/SSL_Font.h"
 
-#include "input/keyboard.h"
-#include "input/mouse.h"
+#include "input/SSL_Keyboard.h"
+#include "input/SSL_Mouse.h"
 
-#include "gui/interface.h"
+#include "gui/SSL_Interface.h"
 #include "gui/button.h"
 
 
