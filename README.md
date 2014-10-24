@@ -5,11 +5,21 @@ A simple abstraction from SDL2 that handles a lot of the hard work.
 
 Installation
 -----------
-Simply download a use the file system in the repo.
+Simply download, and import the project into C/C++ eclipse.
 
 Documentation
 -----------
-Documentation can be found under doc/html
+Documentation can be found under doc/ open in any browser.
+
+File System
+-----------
+.seetings/       eclipse project settings
+conf/            testing config files
+doc/             documentation
+extras/          images ect
+lib/             SDL2 headers and dlls needed
+ssl_debug_build/ the complied binaries
+test/            unit tests
 
 Features
 -----------
