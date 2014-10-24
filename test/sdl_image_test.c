@@ -1,7 +1,6 @@
 #include "tests.h"
 #include "../src/game_api/graphics/SSL_window.h"
-#include "../src/game_api/graphics/sdl_image_load.h"
-#include "../src/game_api/graphics/sdl_image_draw.h"
+#include "../src/game_api/graphics/SSL_Image.h"
 #include "../src/game_api/graphics/sdl_font.h"
 #include <stdio.h>
 
@@ -12,7 +11,7 @@ void sdl_image_test() {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	SSL_Window *window = SSL_Window_Create("This is the Sdl image test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0,0,0);
-	Image *image = image_load("../extras/resources/test_image.png", 100, 100, window);
+	SSL_Image *image = SSL_Image_Load("../extras/resources/test_image.png", 100, 100, window);
 
 	int frame = 2;
 	int angle = 0;
@@ -25,7 +24,7 @@ void sdl_image_test() {
 		SDL_RenderPresent(window->renderer);
 		SDL_RenderClear( window->renderer );
 
-		image_draw(image, 100, 100, angle, frame, SDL_FLIP_NONE, window);
+		SSL_Image_Draw(image, 100, 100, angle, frame, SDL_FLIP_NONE, window);
 		frame++;
 		angle += 20;
 		if (frame == image->amount_of_frames + 1) frame = 0;

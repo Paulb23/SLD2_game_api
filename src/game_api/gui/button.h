@@ -2,7 +2,7 @@
 #define BUTTON_H_
 
 #include "../../../lib/SDL2/SDL.h"
-#include "../graphics/sdl_image_load.h"
+#include "../graphics/SSL_Image.h"
 #include "../graphics/sdl_font.h"
 
 /** Diffrent button types */
@@ -28,7 +28,7 @@ typedef struct _button_status {
 
 /** button image info */
 typedef struct _Button_Image_Info {
-	Image *image;						/** the image to draw with */
+	SSL_Image *image;						/** the image to draw with */
 	int default_frame;					/** default frame to draw */
 	int hovered_frame;					/** frame to draw when mouse is hovered */
 	int pressed_frame;					/** frame to draw when the left button is held on the button */
@@ -78,7 +78,7 @@ typedef struct _check_box {
 
 /* function prototyping */
 Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text);
-Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame);
-Check_box *check_box_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame);
+Image_Button *image_button_create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame);
+Check_box *check_box_create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame);
 
 #endif /* BUTTON_H_ */

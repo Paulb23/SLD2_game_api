@@ -11,8 +11,7 @@
 #include "files/iniparser.h"
 
 #include "graphics/SSL_window.h"
-#include "graphics/sdl_image_load.h"
-#include "graphics/sdl_image_draw.h"
+#include "graphics/SSL_Image.h"
 #include "graphics/sdl_font.h"
 
 #include "input/keyboard.h"

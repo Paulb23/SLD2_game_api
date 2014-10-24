@@ -47,7 +47,7 @@ Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_
  *  @param pressed_frame - frame to draw when the left button is held on the button
  *
  *************************/
-Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame) {
+Image_Button *image_button_create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame) {
 	Image_Button *button = malloc(sizeof(Image_Button));
 	button->button = malloc(sizeof(Button));
 	button->button_status = malloc(sizeof(Button_status));
@@ -79,7 +79,7 @@ Image_Button *image_button_create(SDL_Rect *position, Image *image, int default_
  *  @param active_frame - frame to draw when check box is ticked
  *
  *************************/
-Check_box *check_box_create(SDL_Rect *position, Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame) {
+Check_box *check_box_create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame) {
 	Check_box *button = malloc(sizeof(Check_box));
 	button->button = malloc(sizeof(Button));
 	button->button_status = malloc(sizeof(Button_status));

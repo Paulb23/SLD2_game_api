@@ -1,7 +1,6 @@
 #include "tests.h"
 #include "../src/game_api/graphics/SSL_window.h"
-#include "../src/game_api/graphics/sdl_image_load.h"
-#include "../src/game_api/graphics/sdl_image_draw.h"
+#include "../src/game_api/graphics/SSL_Image.h"
 #include "../src/game_api/graphics/sdl_font.h"
 #include "../src/game_api/misc/sdl_color.h"
 #include "../src/game_api/input/mouse.h"
@@ -14,7 +13,7 @@ void mouse_input_test() {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	SSL_Window *window = SSL_Window_Create("This is the Sdl image test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0, 0, 0);
-	Image *image = image_load("../extras/resources/test_image.png", 100, 100, window);
+	SSL_Image *image = SSL_Image_Load("../extras/resources/test_image.png", 100, 100, window);
 	Font *font = font_load("../extras/resources/debug.ttf", 55);
 
 	int frame = 1;
@@ -28,7 +27,7 @@ void mouse_input_test() {
 		SDL_RenderClear( window->renderer );
 
 		font_draw(0, 0, 0, SDL_FLIP_NONE, "Hover, Left and Right click on the image", font, *color_create(255,255,255,0), window);
-		image_draw(image, 100, 100, 0, frame, SDL_FLIP_NONE, window);
+		SSL_Image_Draw(image, 100, 100, 0, frame, SDL_FLIP_NONE, window);
 
 		if (mouse_hover_in_area(100, 100, 100, 100, event)) {
 			frame = 2;

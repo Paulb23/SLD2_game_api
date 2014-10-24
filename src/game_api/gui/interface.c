@@ -3,7 +3,7 @@
 #include "../misc/list.h"
 #include "../misc/sdl_color.h"
 #include "../graphics/SSL_window.h"
-#include "../graphics/sdl_image_draw.h"
+#include "../graphics/SSL_Image.h"
 #include <stdlib.h>
 
 
@@ -132,23 +132,23 @@ void interface_draw(Interface *interface, SSL_Window *window) {
 			check_box = list_get(interface->buttons, i);
 
 			if (check_box->check_box_status->active) {
-				image_draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->check_box_image_info->active_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->check_box_image_info->active_frame, SDL_FLIP_NONE, window);
 			} else if (check_box->button_status->pressed) {
-				image_draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
 			} else if (check_box->button_status->hovered) {
-				image_draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->hovered_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->hovered_frame, SDL_FLIP_NONE, window);
 			} else {
-				image_draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->default_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(check_box->button_image_info->image, check_box->button->position.x, check_box->button->position.y, 0,check_box->button_image_info->default_frame, SDL_FLIP_NONE, window);
 			}
 		} else {
 			image_button = list_get(interface->buttons, i);
 
 			if (image_button->button_status->pressed) {
-				image_draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
 			} else if (image_button->button_status->hovered) {
-				image_draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->hovered_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->hovered_frame, SDL_FLIP_NONE, window);
 			} else {
-				image_draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->default_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->default_frame, SDL_FLIP_NONE, window);
 			}
 		}
 	 i++;
