@@ -2,7 +2,7 @@
 #include "../misc/logger.h"
 #include "../misc/list.h"
 #include "../misc/sdl_color.h"
-#include "../graphics/sdl_window.h"
+#include "../graphics/SSL_window.h"
 #include "../graphics/sdl_image_draw.h"
 #include <stdlib.h>
 
@@ -110,7 +110,7 @@ void interface_remove_check_box(Interface *interface, Check_box *check_box) {
  * @param window - the window to draw to
  *
  *************************/
-void interface_draw(Interface *interface, Window *window) {
+void interface_draw(Interface *interface, SSL_Window *window) {
 	int i = 1;
 	Text_Button * text_button;
 	Image_Button * image_button;

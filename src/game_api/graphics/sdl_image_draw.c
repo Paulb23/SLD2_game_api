@@ -1,6 +1,6 @@
 #include "../../../lib/SDL2/SDL.h"
 #include "../misc/logger.h"
-#include "sdl_window.h"
+#include "SSL_window.h"
 #include "sdl_image_load.h"
 
 /**************************//**
@@ -17,7 +17,7 @@
  *	@param window - window to draw on
  *
  *************************/
-void image_draw(Image *Image, int x, int y, int angle, int frame, SDL_RendererFlip flip, Window *window) {
+void image_draw(Image *Image, int x, int y, int angle, int frame, SDL_RendererFlip flip, SSL_Window *window) {
 		SDL_Rect imageFrame;															/* image frame, rectangle inside the image to draw */
 		imageFrame.x = 0;
 		imageFrame.y = 0;

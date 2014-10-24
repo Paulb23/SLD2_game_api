@@ -2,12 +2,12 @@
 #include "../../../lib/SDL2/SDL.h"
 #include "../../../lib/SDL2/SDL_image.h"
 #include "../misc/logger.h"
-#include "sdl_window.h"
+#include "SSL_window.h"
 #include <stdlib.h>
 #include <stdio.h>
 
 /* function prototyping */
-static SDL_Texture *image_load_file(char file[], Image *image, Window *window);
+static SDL_Texture *image_load_file(char file[], Image *image, SSL_Window *window);
 
 /**************************//**
  *
@@ -20,7 +20,7 @@ static SDL_Texture *image_load_file(char file[], Image *image, Window *window);
  * @param window - window to use
  *
  *************************/
-Image *image_load(char *file, int frameWidth, int frameHeight, Window *window) {
+Image *image_load(char *file, int frameWidth, int frameHeight, SSL_Window *window) {
 	Image *image = malloc(sizeof(Image));														/* Allocate memory */
 	if (!image) {log_write("Failed to allocate memory, loading image! "); return (Image *)-1;}	/* return of failed allocation */
 
@@ -56,7 +56,7 @@ Image *image_load(char *file, int frameWidth, int frameHeight, Window *window) {
  * @param window - window to use
  *
  *************************/
-static SDL_Texture *image_load_file(char file[], Image *image, Window *window) {
+static SDL_Texture *image_load_file(char file[], Image *image, SSL_Window *window) {
 	SDL_Surface *surface = NULL;																		/* Create surface and texture */
 	SDL_Texture *texture = NULL;
 

@@ -10,7 +10,7 @@
 #include "misc/list.h"
 #include "files/iniparser.h"
 
-#include "graphics/sdl_window.h"
+#include "graphics/SSL_window.h"
 #include "graphics/sdl_image_load.h"
 #include "graphics/sdl_image_draw.h"
 #include "graphics/sdl_font.h"

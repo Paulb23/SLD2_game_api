@@ -10,6 +10,6 @@ typedef struct _font {
 
 /* function prototyping */
 Font *font_load(char *file, int size);
-void font_draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, Font *font, SDL_Color fontColor, Window *window);
+void font_draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, Font *font, SDL_Color fontColor, SSL_Window *window);
 
 #endif /* SDL_FONT_H_ */

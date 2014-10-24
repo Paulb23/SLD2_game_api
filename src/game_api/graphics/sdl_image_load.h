@@ -2,7 +2,7 @@
 #define SDL_API_IMAGE_H_
 
 #include "../../../lib/SDL2/SDL.h"
-#include "sdl_window.h"
+#include "SSL_Window.h"
 
 /** Image struct */
 typedef struct _Image {
@@ -17,6 +17,6 @@ typedef struct _Image {
 } Image;
 
 /* function prototyping */
-Image *image_load(char *file, int frameWidth, int frameHeight, Window *window);
+Image *image_load(char *file, int frameWidth, int frameHeight, SSL_Window *window);
 
 #endif /* SDL_API_IMAGE_H_ */

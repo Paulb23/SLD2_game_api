@@ -1,5 +1,5 @@
 #include "tests.h"
-#include "../src/game_api/graphics/sdl_window.h"
+#include "../src/game_api/graphics/SSL_window.h"
 #include "../src/game_api/graphics/sdl_font.h"
 #include "../src/game_api/misc/sdl_color.h"
 #include <stdio.h>
@@ -10,7 +10,7 @@
 void sdl_font_test() {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-	Window *window = window_create("This is the Sdl font test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0);
+	SSL_Window *window = SSL_Window_Create("This is the Sdl font test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0,0, 0);
 	Font *font = font_load("../extras/resources/debug.ttf", 100);
 
 	int angle = 0;

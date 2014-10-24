@@ -1,7 +1,7 @@
 #include "../../../lib/SDL2/SDL.h"
 #include "../../../lib/SDL2/SDL_ttf.h"
 #include "../misc/logger.h"
-#include "sdl_window.h"
+#include "SSL_window.h"
 #include "sdl_font.h"
 #include <stdlib.h>
 
@@ -35,7 +35,7 @@ Font *font_load(char *file, int size) {
  *  @param window to draw to
  *
  *************************/
-void font_draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, Font *font, SDL_Color fontColor, Window *window) {
+void font_draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, Font *font, SDL_Color fontColor, SSL_Window *window) {
 
 	SDL_Surface *textSurface = TTF_RenderText_Solid(font->font, text, fontColor);				/* create the font texture */
 	SDL_Texture *textTexture = SDL_CreateTextureFromSurface(window->renderer, textSurface);

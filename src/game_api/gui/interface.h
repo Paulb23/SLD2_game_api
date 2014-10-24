@@ -3,7 +3,7 @@
 
 #include "button.h"
 #include "../misc/list.h"
-#include "../graphics/sdl_window.h"
+#include "../graphics/SSL_window.h"
 
 /** interface struct  */
 typedef struct _Interface {
@@ -22,7 +22,7 @@ void interface_remove_text_button(Interface *interface, Text_Button *text_button
 void interface_remove_image_button(Interface *interface, Image_Button *image_button);
 void interface_remove_check_box(Interface *interface, Check_box *check_box);
 
-void interface_draw(Interface *interface, Window *window);
+void interface_draw(Interface *interface, SSL_Window *window);
 void interface_update(Interface *interface, SDL_Event event);
 
 #endif /* INTERFACE_H_ */
