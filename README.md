@@ -1,4 +1,4 @@
-SLD2 game api
+SLD2 game api AKA SSL - Simple SDL library
 =============
 
 A simple abstraction from SDL2 that handles a lot of the hard work.
