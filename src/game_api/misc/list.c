@@ -1,5 +1,5 @@
 #include "list.h"
-#include "logger.h"
+#include "SSL_Logger.h"
 #include <stdlib.h>
 
 /**************************//**
@@ -26,7 +26,7 @@ List *list_create() {
  *************************/
 void list_set(List *list, void *data) {
 	List *tmp = malloc(sizeof(List));					/* allocate memory */
-	if (!tmp) {log_write("Failed to allocate memory for List! "); return;}
+	if (!tmp) {SSL_Log_Write("Failed to allocate memory for List! "); return;}
 
 	tmp->data = data;									/* fill in the data */
 	tmp->next = 0;

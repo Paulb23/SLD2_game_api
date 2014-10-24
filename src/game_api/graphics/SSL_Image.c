@@ -14,7 +14,7 @@
  ---------------------------------------------------------------------------*/
 #include "SSL_Image.h"
 #include "SSL_window.h"
-#include "../misc/logger.h"
+#include "../misc/SSL_Logger.h"
 
 #include "../../../lib/SDL2/SDL.h"
 #include "../../../lib/SDL2/SDL_image.h"
@@ -90,7 +90,7 @@ SSL_Image *SSL_Image_Load(char *file, int frameWidth, int frameHeight, SSL_Windo
 
 	/* return if failed allocation */
 	if (!image) {
-		log_write("Failed to allocate memory, loading image! ");
+		SSL_Log_Write("Failed to allocate memory, loading image! ");
 		return 0;
 	}
 
@@ -104,7 +104,7 @@ SSL_Image *SSL_Image_Load(char *file, int frameWidth, int frameHeight, SSL_Windo
 	/* check texture is valid else return */
 	if (SDL_QueryTexture(image->Image, NULL, NULL, &image->texture_width, &image->texture_height) != 0) {
 		free(image);
-		log_write("Failed to create image texture! ");
+		SSL_Log_Write("Failed to create image texture! ");
 		return 0;
 
 	/* Else calculate the amount of frame in the image */

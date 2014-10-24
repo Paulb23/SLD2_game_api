@@ -10,9 +10,9 @@
 #include "misc/list.h"
 #include "files/iniparser.h"
 
-#include "graphics/SSL_window.h"
+#include "graphics/SSL_Window.h"
 #include "graphics/SSL_Image.h"
-#include "graphics/sdl_font.h"
+#include "graphics/SSL_Font.h"
 
 #include "input/keyboard.h"
 #include "input/mouse.h"

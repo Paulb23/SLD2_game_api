@@ -15,7 +15,7 @@
 
 #include "SSL_window.h"
 #include "SSL_Font.h"
-#include "../misc/logger.h"
+#include "../misc/SSL_Logger.h"
 
 #include "../../../lib/SDL2/SDL.h"
 #include "../../../lib/SDL2/SDL_ttf.h"
@@ -52,7 +52,7 @@ SSL_Font *SSL_Font_Load(char *file, int size) {
 
 	/* return if failed allocation */
 	if (!font) {
-		log_write("Failed to allocate memory, loading font! ");
+		SSL_Log_Write("Failed to allocate memory, loading font! ");
 		return 0;
 	}
 
@@ -88,7 +88,7 @@ void SSL_Font_Draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, S
 
 	/* check that it's valid */
 	if (SDL_QueryTexture(textTexture, NULL, NULL, &textSurface->w, &textSurface->h) != 0) {
-		log_write("Failed to create font texture! ");
+		SSL_Log_Write("Failed to create font texture! ");
 		return;
 	} else {
 

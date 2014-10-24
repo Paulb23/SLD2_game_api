@@ -13,7 +13,7 @@
                                 Includes
  ---------------------------------------------------------------------------*/
 #include "SSL_window.h"
-#include "../misc/logger.h"
+#include "../misc/SSL_Logger.h"
 
 #include <stdlib.h>
 #include <stdint.h>
@@ -60,7 +60,7 @@ SSL_Window *SSL_Window_Create(char *title, int xPosition, int yPosition, int wid
 	 * Log the error an return 0.
 	 */
 	if (!window) {
-		log_write("Failed to find allocate memory for SSL_Window!");
+		SSL_Log_Write("Failed to find allocate memory for SSL_Window!");
 		return 0;
 	}
 
@@ -70,7 +70,7 @@ SSL_Window *SSL_Window_Create(char *title, int xPosition, int yPosition, int wid
 
 	/* check that the window and renderer where created */
 	if (window->window == NULL || window->renderer == NULL ) {
-		log_write("Failed to create SDL_Window OR SDL_Renderer!");
+		SSL_Log_Write("Failed to create SDL_Window OR SDL_Renderer!");
 		return 0;
 	}
 

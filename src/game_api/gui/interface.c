@@ -1,5 +1,5 @@
 #include "interface.h"
-#include "../misc/logger.h"
+#include "../misc/SSL_Logger.h"
 #include "../misc/list.h"
 #include "../misc/sdl_color.h"
 #include "../graphics/SSL_window.h"
@@ -15,7 +15,7 @@
  *************************/
 Interface *interface_create() {
 	Interface *interface = malloc(sizeof(Interface));
-	if (!interface) {log_write("Failed to allocate memory for new Interface! "); return (Interface *)-1;}
+	if (!interface) {SSL_Log_Write("Failed to allocate memory for new Interface! "); return (Interface *)-1;}
 
 	interface->buttons = list_create();
 	interface->textboxes = list_create();
