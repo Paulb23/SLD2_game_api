@@ -1,9 +1,9 @@
 #include "tests.h"
-#include "../src/game_api/graphics/SSL_Window.h"
-#include "../src/game_api/graphics/SSL_Image.h"
-#include "../src/game_api/graphics/SSL_Font.h"
-#include "../src/game_api/misc/SSL_Color.h"
-#include "../src/game_api/input/keyboard.h"
+#include "../src/SSL/graphics/SSL_Window.h"
+#include "../src/SSL/graphics/SSL_Image.h"
+#include "../src/SSL/graphics/SSL_Font.h"
+#include "../src/SSL/misc/SSL_Color.h"
+#include "../src/SSL/input/keyboard.h"
 #include <stdio.h>
 
 /**

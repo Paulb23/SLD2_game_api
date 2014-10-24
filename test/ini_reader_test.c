@@ -1,5 +1,4 @@
-//#include "../src/game_api/files/ini_reader.h"
-#include "../src/game_api/files/iniparser.h"
+#include "../src/SSL/files/iniparser.h"
 #include "../lib/SDL2/SDL.h"
 #include <stdio.h>
 #include <string.h>

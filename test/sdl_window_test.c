@@ -1,5 +1,5 @@
 #include "tests.h"
-#include "../src/game_api/graphics/SSL_Window.h"
+#include "../src/SSL/graphics/SSL_Window.h"
 #include <stdio.h>
 
 

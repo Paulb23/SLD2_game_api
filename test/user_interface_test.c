@@ -1,10 +1,10 @@
 #include "tests.h"
-#include "../src/game_api/graphics/SSL_Window.h"
-#include "../src/game_api/graphics/SSL_Font.h"
-#include "../src/game_api/misc/SSL_Color.h"
-#include "../src/game_api/misc/SSL_Rectangle.h"
-#include "../src/game_api/gui/interface.h"
-#include "../src/game_api/gui/button.h"
+#include "../src/SSL/graphics/SSL_Window.h"
+#include "../src/SSL/graphics/SSL_Font.h"
+#include "../src/SSL/misc/SSL_Color.h"
+#include "../src/SSL/misc/SSL_Rectangle.h"
+#include "../src/SSL/gui/interface.h"
+#include "../src/SSL/gui/button.h"
 #include <stdio.h>
 
 void user_interface_test() {

@@ -1,7 +1,7 @@
 #include "tests.h"
-#include "../src/game_api/graphics/SSL_window.h"
-#include "../src/game_api/graphics/SSL_Font.h"
-#include "../src/game_api/misc/SSL_Color.h"
+#include "../src/SSL/graphics/SSL_window.h"
+#include "../src/SSL/graphics/SSL_Font.h"
+#include "../src/SSL/misc/SSL_Color.h"
 #include <stdio.h>
 
 /**
