@@ -14,7 +14,7 @@ void user_interface_test() {
 	Interface *interface = interface_create();
 
 	Text_Button *text_button = text_button_create(rect_create(100, 100, 150, 50), font_load("../extras/resources/debug.ttf", 50), color_create(255,255,255,255), color_create(255,0,0,255), "button?");
-	Image_Button *image_button = image_button_create(rect_create(100, 200, 100, 100), SSL_Image_Load("../extras/resources/test_image.png", 100, 100, window), 0, 2, 3);
+	Image_Button *image_button = image_button_create(rect_create(100, 200, 100, 100), SSL_Image_Load("../extras/resources/test_image.png", 100, 100, window), 1, 2, 3);
 	Check_box *check_box = check_box_create(rect_create(100, 400, 100, 100), SSL_Image_Load("../extras/resources/check_box.png", 50, 50, window), 1, 1, 2, 3);
 
 	interface_add_text_button(interface, text_button);

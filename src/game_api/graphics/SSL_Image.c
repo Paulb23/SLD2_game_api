@@ -103,6 +103,7 @@ SSL_Image *SSL_Image_Load(char *file, int frameWidth, int frameHeight, SSL_Windo
 
 	/* check texture is valid else return */
 	if (SDL_QueryTexture(image->Image, NULL, NULL, &image->texture_width, &image->texture_height) != 0) {
+		free(image);
 		log_write("Failed to create image texture! ");
 		return 0;
 
@@ -137,34 +138,34 @@ SSL_Image *SSL_Image_Load(char *file, int frameWidth, int frameHeight, SSL_Windo
 |  Draws an SSL_Image to the SSL_Window passed.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Image_Draw(SSL_Image *Image, int x, int y, int angle, int frame, SDL_RendererFlip flip, SSL_Window *window) {
+void SSL_Image_Draw(SSL_Image *image, int x, int y, int angle, int frame, SDL_RendererFlip flip, SSL_Window *window) {
 
 		/* image frame, rectangle inside the image to draw */
 		SDL_Rect imageFrame;
 		imageFrame.x = 0;
 		imageFrame.y = 0;
-		imageFrame.w = Image->texture_width;
-		imageFrame.h = Image->texture_height;
+		imageFrame.w = image->texture_width;
+		imageFrame.h = image->texture_height;
 
 		/* if they want a frame, not the whole image */
-		if ((Image->frame_height != 0 && Image->frame_width != 0) || frame != 0) {
+		if (frame != 0) {
 
 			/* Calculate the coordinated of the frame */
-			int amountOfColumns = Image->texture_width / Image->frame_width;
+			int amountOfColumns = image->texture_width / image->frame_width;
 
-			imageFrame.w = Image->frame_width;
-			imageFrame.h = Image->frame_height;
+			imageFrame.w = image->frame_width;
+			imageFrame.h = image->frame_height;
 
 			if (frame != 1) {
 
 				int i = 0;
 
 				for (i = 1; i <= frame - 1; i ++) {
-					imageFrame.x = imageFrame.x + Image->frame_width;
+					imageFrame.x = imageFrame.x + image->frame_width;
 
 					if (!(i % amountOfColumns)) {
 						imageFrame.x = 0;
-						imageFrame.y = imageFrame.y + Image->frame_height;
+						imageFrame.y = imageFrame.y + image->frame_height;
 					}
 				}
 			}
@@ -174,8 +175,8 @@ void SSL_Image_Draw(SSL_Image *Image, int x, int y, int angle, int frame, SDL_Re
 		SDL_Rect offset;
 		offset.x = x;
 		offset.y = y;
-		offset.w = Image->frame_width;
-		offset.h = Image->frame_height;
+		offset.w = image->frame_width;
+		offset.h = image->frame_height;
 
 		/* find the centre of the frame */
 		SDL_Point centre;
@@ -183,7 +184,7 @@ void SSL_Image_Draw(SSL_Image *Image, int x, int y, int angle, int frame, SDL_Re
 		centre.y = imageFrame.h / 2;
 
 		/* draw the image */
-		SDL_RenderCopyEx( window->renderer, Image->Image, &imageFrame, &offset, angle, &centre, flip);
+		SDL_RenderCopyEx( window->renderer, image->Image, &imageFrame, &offset, angle, &centre, flip);
 }
 
 /*!--------------------------------------------------------------------------

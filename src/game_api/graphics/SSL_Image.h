@@ -79,7 +79,7 @@ SSL_Image *SSL_Image_Load(char *file, int frameWidth, int frameHeight, SSL_Windo
 |  Draws an SSL_Image to the SSL_Window passed.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_Image_Draw(SSL_Image *Image, int x, int y, int angle, int frame, SDL_RendererFlip flip, SSL_Window *window);
+void SSL_Image_Draw(SSL_Image *image, int x, int y, int angle, int frame, SDL_RendererFlip flip, SSL_Window *window);
 
 /*!--------------------------------------------------------------------------
 |  @brief    Destroys the SSL_Image Object.

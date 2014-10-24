@@ -27,7 +27,7 @@ void sdl_image_test() {
 		SSL_Image_Draw(image, 100, 100, angle, frame, SDL_FLIP_NONE, window);
 		frame++;
 		angle += 20;
-		if (frame == image->amount_of_frames + 1) frame = 0;
+		if (frame == image->amount_of_frames + 1) frame = 1;
 		if (angle == 360) angle = 0;
 
 		while (SDL_PollEvent(&event))
