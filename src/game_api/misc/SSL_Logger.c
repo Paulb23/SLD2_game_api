@@ -15,7 +15,6 @@
 #include "SSL_Logger.h"
 
 #include <time.h>
-#include <stdlib.h>
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -24,8 +23,8 @@
                             Private functions
  ---------------------------------------------------------------------------*/
 
-int LOGGIN = 1;
-static char *file_path = "../extras/log.txt";
+int LOGGIN = 1;									/**< are we logging  */
+static char *file_path = "../extras/log.txt";	/**< path to the file */
 
 
 /*---------------------------------------------------------------------------
