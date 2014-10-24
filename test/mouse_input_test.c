@@ -2,7 +2,7 @@
 #include "../src/game_api/graphics/SSL_window.h"
 #include "../src/game_api/graphics/SSL_Image.h"
 #include "../src/game_api/graphics/SSL_Font.h"
-#include "../src/game_api/misc/sdl_color.h"
+#include "../src/game_api/misc/SSL_Color.h"
 #include "../src/game_api/input/mouse.h"
 #include <stdio.h>
 
@@ -26,7 +26,7 @@ void mouse_input_test() {
 		SDL_RenderPresent(window->renderer);
 		SDL_RenderClear( window->renderer );
 
-		SSL_Font_Draw(0, 0, 0, SDL_FLIP_NONE, "Hover, Left and Right click on the image", font, *color_create(255,255,255,0), window);
+		SSL_Font_Draw(0, 0, 0, SDL_FLIP_NONE, "Hover, Left and Right click on the image", font, *SSL_Color_Create(255,255,255,0), window);
 		SSL_Image_Draw(image, 100, 100, 0, frame, SDL_FLIP_NONE, window);
 
 		if (mouse_hover_in_area(100, 100, 100, 100, event)) {

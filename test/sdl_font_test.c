@@ -1,7 +1,7 @@
 #include "tests.h"
 #include "../src/game_api/graphics/SSL_window.h"
 #include "../src/game_api/graphics/SSL_Font.h"
-#include "../src/game_api/misc/sdl_color.h"
+#include "../src/game_api/misc/SSL_Color.h"
 #include <stdio.h>
 
 /**
@@ -23,7 +23,7 @@ void sdl_font_test() {
 			SDL_RenderPresent(window->renderer);
 			SDL_RenderClear( window->renderer );
 
-			SSL_Font_Draw(200, 200, angle, SDL_FLIP_NONE, "Exit to Continue", font, *color_create(255,255,255,0), window);
+			SSL_Font_Draw(200, 200, angle, SDL_FLIP_NONE, "Exit to Continue", font, *SSL_Color_Create(255,255,255,0), window);
 			angle += 20;
 			if (angle == 360) angle = 0;
 

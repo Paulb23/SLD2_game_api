@@ -5,8 +5,8 @@
 #include "misc/SSL_Logger.h"
 #include "misc/SSL_Keys.h"
 #include "misc/hashmap.h"
-#include "misc/sdl_color.h"
-#include "misc/sdl_rect.h"
+#include "misc/SSL_Color.h"
+#include "misc/SSL_Rectangle.h"
 #include "misc/list.h"
 #include "files/iniparser.h"
 

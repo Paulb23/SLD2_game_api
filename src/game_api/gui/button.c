@@ -1,7 +1,7 @@
 #include "button.h"
 #include "../misc/SSL_Logger.h"
 #include "../../../lib/SDL2/SDL.h"
-#include "../misc/sdl_color.h"
+#include "../misc/SSL_Color.h"
 #include <stdlib.h>
 
 

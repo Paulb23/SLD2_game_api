@@ -2,7 +2,7 @@
 #include "../src/game_api/graphics/SSL_Window.h"
 #include "../src/game_api/graphics/SSL_Image.h"
 #include "../src/game_api/graphics/SSL_Font.h"
-#include "../src/game_api/misc/sdl_color.h"
+#include "../src/game_api/misc/SSL_Color.h"
 #include "../src/game_api/input/keyboard.h"
 #include <stdio.h>
 
@@ -29,7 +29,7 @@ void keybord_input_test() {
 		SDL_RenderPresent(window->renderer);
 		SDL_RenderClear( window->renderer );
 
-		SSL_Font_Draw(0, 0, 0, SDL_FLIP_NONE, "Use the arrow or wasd keys to move", font, *color_create(255,255,255,0), window);
+		SSL_Font_Draw(0, 0, 0, SDL_FLIP_NONE, "Use the arrow or wasd keys to move", font, *SSL_Color_Create(255,255,255,0), window);
 		SSL_Image_Draw(image, x, y, 0, 1, SDL_FLIP_NONE, window);
 
 		if (keybord_keyname_down("_left") || keybord_key_down(SDL_SCANCODE_A)) {

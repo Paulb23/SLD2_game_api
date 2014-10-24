@@ -1,7 +1,7 @@
 #include "interface.h"
 #include "../misc/SSL_Logger.h"
 #include "../misc/list.h"
-#include "../misc/sdl_color.h"
+#include "../misc/SSL_Color.h"
 #include "../graphics/SSL_window.h"
 #include "../graphics/SSL_Image.h"
 #include <stdlib.h>
@@ -122,7 +122,7 @@ void interface_draw(Interface *interface, SSL_Window *window) {
 
 		if (text_button->button->type == TEXT_BUTTON) {
 				SDL_Color *c;
-				c = (SDL_Color *)color_create(255, 255, 255, 255);
+				c = (SDL_Color *)SSL_Color_Create(255, 255, 255, 255);
 				SDL_GetRenderDrawColor(window->renderer, &c->r, &c->g, &c->b, &c->a);
 				SDL_SetRenderDrawColor(window->renderer, text_button->button_text_info->background_color->r, text_button->button_text_info->background_color->g, text_button->button_text_info->background_color->b, text_button->button_text_info->background_color->a);
 				SDL_RenderFillRect(window->renderer, &text_button->button->position);
