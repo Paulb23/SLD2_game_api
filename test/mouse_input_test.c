@@ -3,7 +3,7 @@
 #include "../src/SSL/graphics/SSL_Image.h"
 #include "../src/SSL/graphics/SSL_Font.h"
 #include "../src/SSL/misc/SSL_Color.h"
-#include "../src/SSL/input/mouse.h"
+#include "../src/SSL/input/SSL_Mouse.h"
 #include <stdio.h>
 
 /**
@@ -29,16 +29,16 @@ void mouse_input_test() {
 		SSL_Font_Draw(0, 0, 0, SDL_FLIP_NONE, "Hover, Left and Right click on the image", font, *SSL_Color_Create(255,255,255,0), window);
 		SSL_Image_Draw(image, 100, 100, 0, frame, SDL_FLIP_NONE, window);
 
-		if (mouse_hover_in_area(100, 100, 100, 100, event)) {
+		if (SSL_Mouse_Hover_In_Area(100, 100, 100, 100, event)) {
 			frame = 2;
 		} else {
 			frame = 1;
 		}
 
-		if (mouse_left_click_in_area(100, 100, 100, 100, event)) {
+		if (SSL_Mouse_Left_Down_In_Area(100, 100, 100, 100, event)) {
 			frame = 3;
 		}
-		if (mouse_right_click_in_area(100, 100, 100, 100, event)) {
+		if (SSL_Mouse_Right_Down_In_Area(100, 100, 100, 100, event)) {
 			frame = 4;
 		}
 
