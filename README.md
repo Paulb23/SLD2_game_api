@@ -50,22 +50,22 @@ Parses standed ini files
 
 Manage a lot of windows with ease.
 
-**  Image / sprite handler**  
+**Image / sprite handler**  
 
 Loads and draw images and animationsl
 
-**  Font handler**  
+**Font handler**  
 
 Loads and draws .ttf fonts
 
-**  logger**  
+**logger**  
 
 Log errors to a file
 
-**  Input**  
+**Input**  
 
 Mouse and keyboard
 
-**  Interfaces and buttons**  
+**Interfaces and buttons**  
 
 button and check box support
