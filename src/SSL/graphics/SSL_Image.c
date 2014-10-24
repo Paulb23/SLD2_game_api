@@ -12,12 +12,13 @@
 /*---------------------------------------------------------------------------
                                 Includes
  ---------------------------------------------------------------------------*/
-#include "SSL_Image.h"
-#include "SSL_window.h"
-#include "../misc/SSL_Logger.h"
 
 #include "../../../lib/SDL2/SDL.h"
 #include "../../../lib/SDL2/SDL_image.h"
+
+#include "SSL_Image.h"
+#include "SSL_window.h"
+#include "../misc/SSL_Logger.h"
 
 #include <stdlib.h>
 
@@ -179,9 +180,10 @@ void SSL_Image_Draw(SSL_Image *image, int x, int y, int angle, int frame, SDL_Re
 		offset.h = image->frame_height;
 
 		/* find the centre of the frame */
-		SDL_Point centre;
-		centre.x = imageFrame.w / 2;
-		centre.y = imageFrame.h / 2;
+		SDL_Point centre = {
+			imageFrame.w / 2,
+			imageFrame.h / 2
+		};
 
 		/* draw the image */
 		SDL_RenderCopyEx( window->renderer, image->Image, &imageFrame, &offset, angle, &centre, flip);
