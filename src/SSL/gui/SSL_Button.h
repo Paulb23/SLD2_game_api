@@ -185,7 +185,7 @@ typedef struct _SSL_Check_Box_ {
 |  If it cannot create the object it will return 0.
 |
 \-----------------------------------------------------------------------------*/
-SSL_Text_Button *text_button_create(SDL_Rect *position, SSL_Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text);
+SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text);
 
 
 /*!--------------------------------------------------------------------------
@@ -203,7 +203,7 @@ SSL_Text_Button *text_button_create(SDL_Rect *position, SSL_Font *font, SDL_Colo
 |  If it cannot create the object it will return 0.
 |
 \-----------------------------------------------------------------------------*/
-SSL_Image_Button *image_button_create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame);
+SSL_Image_Button *SSL_Image_Button_Create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame);
 
 
 /*!--------------------------------------------------------------------------
@@ -214,7 +214,7 @@ SSL_Image_Button *image_button_create(SDL_Rect *position, SSL_Image *image, int 
 |  @param    hovered_frame 	  frame when mouse is hovering
 |  @param    pressed_frame 	  frame to draw when the mouse button is down on the button
 |  @param    active_frame 	  frame to draw when the box is ticked
-|  @return Pointer to a SSL_Image_Button object on successful creation otherwise 0.
+|  @return Pointer to a SSL_Check_box object on successful creation otherwise 0.
 |
 |  Creates a new SSL_Check_box object with allocated memory destroy with
 |  SSL_Check_Box_Destroy.
@@ -222,6 +222,40 @@ SSL_Image_Button *image_button_create(SDL_Rect *position, SSL_Image *image, int 
 |  If it cannot create the object it will return 0.
 |
 \-----------------------------------------------------------------------------*/
-SSL_Check_box *check_box_create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame);
+SSL_Check_box *SSL_Check_Box_Create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame);
+
+
+/*!--------------------------------------------------------------------------
+|  @brief    Destroys the SSL_Text_Button Object.
+|  @param    button      The SSL_Text_Button object to destroy.
+|  @return 	 1 on success else 0.
+|
+|  Destroys the SSL_Text_Button object.
+|
+|  If it cannot destroy the object it will return 0.
+\-----------------------------------------------------------------------------*/
+int SSL_Text_Button_Destroy(SSL_Text_Button *button);
+
+/*!--------------------------------------------------------------------------
+|  @brief    Destroys the SSL_Image_Button Object.
+|  @param    button      The SSL_Image_Button object to destroy.
+|  @return 	 1 on success else 0.
+|
+|  Destroys the SSL_Image_Button object.
+|
+|  If it cannot destroy the object it will return 0.
+\-----------------------------------------------------------------------------*/
+int SSL_Image_Button_Destroy(SSL_Image_Button *button);
+
+/*!--------------------------------------------------------------------------
+|  @brief    Destroys the SSL_Check_box Object.
+|  @param    button      The SSL_Check_box object to destroy.
+|  @return 	 1 on success else 0.
+|
+|  Destroys the SSL_Check_box object.
+|
+|  If it cannot destroy the object it will return 0.
+\-----------------------------------------------------------------------------*/
+int SSL_Check_Box_Destroy(SSL_Check_box *button);
 
 #endif
