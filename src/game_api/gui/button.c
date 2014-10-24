@@ -16,7 +16,7 @@
  *  @param text - text to draw on the button
  *
  *************************/
-Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text) {
+Text_Button *text_button_create(SDL_Rect *position, SSL_Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text) {
 	Text_Button *button = malloc(sizeof(Text_Button));
 	button->button = malloc(sizeof(Button));
 	button->button_status = malloc(sizeof(Button_status));

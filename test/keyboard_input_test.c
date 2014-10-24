@@ -1,7 +1,7 @@
 #include "tests.h"
 #include "../src/game_api/graphics/SSL_Window.h"
 #include "../src/game_api/graphics/SSL_Image.h"
-#include "../src/game_api/graphics/sdl_font.h"
+#include "../src/game_api/graphics/SSL_Font.h"
 #include "../src/game_api/misc/sdl_color.h"
 #include "../src/game_api/input/keyboard.h"
 #include <stdio.h>
@@ -15,7 +15,7 @@ void keybord_input_test() {
 	SSL_Window *window = SSL_Window_Create("This is the Sdl keyboard input test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0, 0, 0);
 	SSL_Image *image = SSL_Image_Load("../extras/resources/test_image.png", 10, 10, window);
 
-	Font *font = font_load("../extras/resources/debug.ttf", 65);
+	SSL_Font *font = SSL_Font_Load("../extras/resources/debug.ttf", 65);
 
 	SDL_Event event;
 	int running = 1;
@@ -29,7 +29,7 @@ void keybord_input_test() {
 		SDL_RenderPresent(window->renderer);
 		SDL_RenderClear( window->renderer );
 
-		font_draw(0, 0, 0, SDL_FLIP_NONE, "Use the arrow or wasd keys to move", font, *color_create(255,255,255,0), window);
+		SSL_Font_Draw(0, 0, 0, SDL_FLIP_NONE, "Use the arrow or wasd keys to move", font, *color_create(255,255,255,0), window);
 		SSL_Image_Draw(image, x, y, 0, 1, SDL_FLIP_NONE, window);
 
 		if (keybord_keyname_down("_left") || keybord_key_down(SDL_SCANCODE_A)) {

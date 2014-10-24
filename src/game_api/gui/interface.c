@@ -127,7 +127,7 @@ void interface_draw(Interface *interface, SSL_Window *window) {
 				SDL_SetRenderDrawColor(window->renderer, text_button->button_text_info->background_color->r, text_button->button_text_info->background_color->g, text_button->button_text_info->background_color->b, text_button->button_text_info->background_color->a);
 				SDL_RenderFillRect(window->renderer, &text_button->button->position);
 				SDL_SetRenderDrawColor(window->renderer, c->r, c->g, c->b, c->a);
-				font_draw(text_button->button->position.x + 5, text_button->button->position.y - 5, 0, SDL_FLIP_NONE, text_button->button_text_info->text, text_button->button_text_info->font, text_button->button_text_info->color, window);
+				SSL_Font_Draw(text_button->button->position.x + 5, text_button->button->position.y - 5, 0, SDL_FLIP_NONE, text_button->button_text_info->text, text_button->button_text_info->font, text_button->button_text_info->color, window);
 		} else if (text_button->button->type == CHECK_BOX) {
 			check_box = list_get(interface->buttons, i);
 

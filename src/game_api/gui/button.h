@@ -3,7 +3,7 @@
 
 #include "../../../lib/SDL2/SDL.h"
 #include "../graphics/SSL_Image.h"
-#include "../graphics/sdl_font.h"
+#include "../graphics/SSL_Font.h"
 
 /** Diffrent button types */
 typedef enum Button_type {
@@ -36,7 +36,7 @@ typedef struct _Button_Image_Info {
 
 /** button text info */
 typedef struct _Button_Text_Info {
-	Font *font;							/** font to draw with */
+	SSL_Font *font;							/** font to draw with */
 	SDL_Color color;					/** color of the font */
 	SDL_Color *background_color;		/** color behind the font */
 	char *text;							/** text to draw on the button */
@@ -77,7 +77,7 @@ typedef struct _check_box {
 
 
 /* function prototyping */
-Text_Button *text_button_create(SDL_Rect *position, Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text);
+Text_Button *text_button_create(SDL_Rect *position, SSL_Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text);
 Image_Button *image_button_create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame);
 Check_box *check_box_create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame);
 
