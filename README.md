@@ -5,53 +5,67 @@ A simple abstraction from SDL2 that handles a lot of the hard work.
 
 Installation
 -----------
-Simply download, and import the project into C/C++ eclipse.
+Simply download, and import the project into C/C++ eclipse.   
+Or Copy the src/SSL folder into your workspace.
 
 Documentation
 -----------
-Documentation can be found under doc/ open in any browser.
+Documentation can be found under doc/ and will open in any browser.
 
 File System
 -----------
-.seetings/       eclipse project settings  
-conf/            testing config files  
-doc/             documentation  
-extras/          images ect  
-lib/             SDL2 headers and dlls needed  
-ssl_debug_build/ the complied binaries  
-test/            unit tests  
+**.settings/**       
+eclipse project settings  
+
+**conf/**            
+Testing config files  
+
+**doc/**             
+documentation  
+
+**extras/**          
+images ect  
+
+**lib/**             
+SDL2 headers and dlls needed  
+
+**ssl_debug_build/**  
+the complied binaries 
+
+**test/**            
+unit tests  
 
 Features
 -----------
 
-#### Hashmap
+**Hashmap**  
 
 A simple hashmap system.
 
-#### Ini parser
+**Ini parser**  
 
-Parses standered ini files
+Parses standed ini files
 
-#### Window Handler
+**Window Handler**  
 
 Manage a lot of windows with ease.
 
-#### Image / sprite handler
+**  Image / sprite handler**  
 
 Loads and draw images and animationsl
 
-#### Font handler
+**  Font handler**  
 
 Loads and draws .ttf fonts
 
-#### logger
+**  logger**  
 
 Log errors to a file
 
-#### Input
+**  Input**  
 
 Mouse and keyboard
 
-#### Interfaces and buttons
+**  Interfaces and buttons**  
 
 button and check box support
