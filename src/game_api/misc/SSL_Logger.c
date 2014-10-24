@@ -1,6 +1,6 @@
 /*-------------------------------------------------------------------------*/
 /**
-   @file    SSL_Logger.h
+   @file    SSL_Logger.c
    @author  P. Batty
    @brief   Implements a Logging function.
 

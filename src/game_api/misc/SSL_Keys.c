@@ -1,6 +1,6 @@
 /*-------------------------------------------------------------------------*/
 /**
-   @file    SSL_Keys.h
+   @file    SSL_Keys.c
    @author  P. Batty
    @brief   Allows you to get SDL keys code with a string.
 
