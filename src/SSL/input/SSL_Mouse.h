@@ -100,4 +100,4 @@ int SSL_Mouse_Left_Down_In_Area(int x, int y, int w, int h, SDL_Event event);
 \-----------------------------------------------------------------------------*/
 int SSL_Mouse_Right_Down_In_Area(int x, int y, int w, int h, SDL_Event event);
 
-#endif /* MOUSE_H_ */
+#endif

@@ -3,7 +3,7 @@
 #include "../src/SSL/graphics/SSL_Image.h"
 #include "../src/SSL/graphics/SSL_Font.h"
 #include "../src/SSL/misc/SSL_Color.h"
-#include "../src/SSL/input/keyboard.h"
+#include "../src/SSL/input/SSL_Keyboard.h"
 #include <stdio.h>
 
 /**
@@ -32,16 +32,16 @@ void keybord_input_test() {
 		SSL_Font_Draw(0, 0, 0, SDL_FLIP_NONE, "Use the arrow or wasd keys to move", font, *SSL_Color_Create(255,255,255,0), window);
 		SSL_Image_Draw(image, x, y, 0, 1, SDL_FLIP_NONE, window);
 
-		if (keybord_keyname_down("_left") || keybord_key_down(SDL_SCANCODE_A)) {
+		if (SSL_Keybord_Keyname_Down("_left") || SSL_Keybord_Key_Down(SDL_SCANCODE_A)) {
 			x-=speed;
 		}
-		if (keybord_keyname_down("_right") || keybord_key_down(SDL_SCANCODE_D)) {
+		if (SSL_Keybord_Keyname_Down("_right") || SSL_Keybord_Key_Down(SDL_SCANCODE_D)) {
 			x+=speed;
 		}
-		if (keybord_keyname_down("_up") || keybord_key_down(SDL_SCANCODE_W)) {
+		if (SSL_Keybord_Keyname_Down("_up") || SSL_Keybord_Key_Down(SDL_SCANCODE_W)) {
 			y-=speed;
 		}
-		if (keybord_keyname_down("_down") || keybord_key_down(SDL_SCANCODE_S)) {
+		if (SSL_Keybord_Keyname_Down("_down") || SSL_Keybord_Key_Down(SDL_SCANCODE_S)) {
 			y+=speed;
 		}
 
