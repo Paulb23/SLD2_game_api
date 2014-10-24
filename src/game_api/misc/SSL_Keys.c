@@ -1,6 +1,33 @@
+/*-------------------------------------------------------------------------*/
+/**
+   @file    SSL_Keys.h
+   @author  P. Batty
+   @brief   Allows you to get SDL keys code with a string.
+
+   This module implements a way to get SDL key codes with strings.
+
+*/
+/*--------------------------------------------------------------------------*/
+
+/*---------------------------------------------------------------------------
+                                Includes
+ ---------------------------------------------------------------------------*/
+
 #include "../../../lib/SDL2/SDL.h"
-#include "keys.h"
+
+#include "SSL_Keys.h"
+
 #include <String.h>
+
+
+/*---------------------------------------------------------------------------
+                            Private functions
+ ---------------------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------------------
+                            Function codes
+ ---------------------------------------------------------------------------*/
 
 const SDL_Scancode _a = SDL_SCANCODE_A;
 const SDL_Scancode _b = SDL_SCANCODE_B;
@@ -80,25 +107,16 @@ const SDL_Scancode _rshift = SDL_SCANCODE_RSHIFT;
 const SDL_Scancode _rctrl  = SDL_SCANCODE_RCTRL;
 const SDL_Scancode _ralt  = SDL_SCANCODE_RALT;
 
-SDL_Scancode k_debug = 60;
 
-SDL_Scancode k_left = 4;
-SDL_Scancode altk_left = 82;
-
-SDL_Scancode k_right  = 7;
-SDL_Scancode altk_right = 79;
-
-SDL_Scancode k_jump = 26;
-SDL_Scancode altk_jump = 82;
-
-
-/**************************//**
- *
- *  converts text key code to SDL_SCANCODE
- *
- *  @param key - key to get
- *
- *************************/
+/*!--------------------------------------------------------------------------
+|  @brief	 Gets the SDL key code from string.
+|  @param    key		  string variant of the key code
+|  @return 	 SDL Key code int value else -1.
+|
+|  Gets the SDL key code from string.
+|
+|
+\-----------------------------------------------------------------------------*/
   int GetCode(char *key) {
 
 	    if (strcmp(&key[0], "_a") == 0) {
@@ -319,5 +337,5 @@ SDL_Scancode altk_jump = 82;
 		  return _ralt;
 		}
 
-   return 0;
+   return -1;
   }

@@ -2,8 +2,8 @@
 #ifndef SDL_GAME_API_H_
 #define SDL_GAME_API_H_
 
-#include "misc/logger.h"
-#include "misc/keys.h"
+#include "misc/SSL_Logger.h"
+#include "misc/SSL_Keys.h"
 #include "misc/hashmap.h"
 #include "misc/sdl_color.h"
 #include "misc/sdl_rect.h"

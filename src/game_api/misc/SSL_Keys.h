@@ -1,5 +1,27 @@
+/*-------------------------------------------------------------------------*/
+/**
+   @file    SSL_Keys.h
+   @author  P. Batty
+   @brief   Allows you to get SDL keys code with a string.
+
+   This module implements a way to get SDL key codes with strings.
+
+*/
+/*--------------------------------------------------------------------------*/
+
 #ifndef KEYS_H_
 #define KEYS_H_
+
+
+/*---------------------------------------------------------------------------
+                                Includes
+ ---------------------------------------------------------------------------*/
+
+
+
+/*---------------------------------------------------------------------------
+                                New types
+ ---------------------------------------------------------------------------*/
 
 extern const SDL_Scancode _a ;
 extern const SDL_Scancode _b ;
@@ -80,21 +102,21 @@ extern const SDL_Scancode _rshift;
 extern const SDL_Scancode _rctrl ;
 extern const SDL_Scancode _ralt ;
 
-extern SDL_Scancode k_debug;
 
-extern SDL_Scancode k_left;
-extern SDL_Scancode altk_left;
-
-extern SDL_Scancode k_right;
-extern SDL_Scancode altk_right;
-
-extern SDL_Scancode k_jump;
-extern SDL_Scancode altk_jump;
+/*---------------------------------------------------------------------------
+                            Function prototypes
+ ---------------------------------------------------------------------------*/
 
 
-/* function prototyping */
-extern int GetCode(char *key);
+/*!--------------------------------------------------------------------------
+|  @brief	 Gets the SDL key code from string.
+|  @param    key		  string variant of the key code
+|  @return 	 SDL Key code int value else -1.
+|
+|  Gets the SDL key code from string.
+|
+|
+\-----------------------------------------------------------------------------*/
+int GetCode(char *key);
 
-//TODO DEFINE MORE KEYS, AND CONTROL DEFINES,
-
-#endif /* KEYS_H_ */
+#endif
