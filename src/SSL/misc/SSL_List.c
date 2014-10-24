@@ -29,14 +29,14 @@
  ---------------------------------------------------------------------------*/
 
 /*!--------------------------------------------------------------------------
-|  @brief    Creates a new SSL_List object.
-|  @return Pointer to a SSL_List object on successful creation otherwise 0.
-|
-|  Creates a new SSL_List object with allocated memory destroy with
-|  SSL_List_Destroy.
-|
-|  If it cannot create the object it will return 0.
-|
+  @brief    Creates a new SSL_List object.
+  @return Pointer to a SSL_List object on successful creation otherwise 0.
+
+  Creates a new SSL_List object with allocated memory destroy with
+  SSL_List_Destroy.
+
+  If it cannot create the object it will return 0.
+
 \-----------------------------------------------------------------------------*/
 SSL_List *SSL_List_Create() {
 
@@ -52,13 +52,13 @@ SSL_List *SSL_List_Create() {
 
 
 /*!--------------------------------------------------------------------------
-|  @brief    Adds a element to the list
-|  @param    list		  The list to add the data to
-|  @param    data		  The data to add
-|  @return   void
-|
-|  Adds the data passed in to the end of the list
-|
+  @brief    Adds a element to the list
+  @param    list		  The list to add the data to
+  @param    data		  The data to add
+  @return   void
+
+  Adds the data passed in to the end of the list
+
 \-----------------------------------------------------------------------------*/
 void SSL_List_Add(SSL_List *list, void *data) {
 
@@ -87,13 +87,13 @@ void SSL_List_Add(SSL_List *list, void *data) {
 
 
 /*!--------------------------------------------------------------------------
-|  @brief    Adds a element to the list
-|  @param    list		  The list to get the data from
-|  @param    pos		  Position in the list to get the data
-|  @return   the data stored at that location else -1
-|
-|  Returns the data at the given location. NOTE: DOES NOTE CAST TO A TYPE.
-|
+  @brief    Adds a element to the list
+  @param    list		  The list to get the data from
+  @param    pos		  Position in the list to get the data
+  @return   the data stored at that location else -1
+
+  Returns the data at the given location. NOTE: DOES NOTE CAST TO A TYPE.
+
 \-----------------------------------------------------------------------------*/
 void *SSL_List_Get(SSL_List *list, int pos) {
 
@@ -114,13 +114,13 @@ void *SSL_List_Get(SSL_List *list, int pos) {
 
 
 /*!--------------------------------------------------------------------------
-|  @brief    Removes a element to the list
-|  @param    list		  The list to get the data from
-|  @param    data		  The data to remove
-|  @return   void
-|
-|  Removes the data from the list.
-|
+  @brief    Removes a element to the list
+  @param    list		  The list to get the data from
+  @param    data		  The data to remove
+  @return   void
+
+  Removes the data from the list.
+
 \-----------------------------------------------------------------------------*/
 void SSL_List_Remove(SSL_List *list, void *data) {
 
@@ -145,11 +145,11 @@ void SSL_List_Remove(SSL_List *list, void *data) {
 }
 
 /*!--------------------------------------------------------------------------
-|  @brief    Destroys the list
-|  @return   void
-|
-|  Destroys the list.
-|
+  @brief    Destroys the list
+  @return   void
+
+  Destroys the list.
+
 \-----------------------------------------------------------------------------*/
 void SSL_List_Destroy(SSL_List *list) {
 

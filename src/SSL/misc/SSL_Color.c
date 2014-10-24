@@ -31,16 +31,16 @@
  ---------------------------------------------------------------------------*/
 
 /*!--------------------------------------------------------------------------
-|  @brief	 Creates a SDL_Color Object
-|  @param    r			  Amount of red 0 - 255.
-|  @param    g			  Amount of green 0 - 255.
-|  @param    b			  Amount of blue 0 - 255.
-|  @param    a			  Amount of alpha
-|  @return 	 A SDL_Color object or 0 if unsuccessful
-|
-|   Creates and returns a SDL_Color Object.
-|
-|
+  @brief	 Creates a SDL_Color Object
+  @param    r			  Amount of red 0 - 255.
+  @param    g			  Amount of green 0 - 255.
+  @param    b			  Amount of blue 0 - 255.
+  @param    a			  Amount of alpha
+  @return 	 A SDL_Color object or 0 if unsuccessful
+
+   Creates and returns a SDL_Color Object.
+
+
 \-----------------------------------------------------------------------------*/
 SDL_Color *SSL_Color_Create(int r, int g, int b, int a) {
 

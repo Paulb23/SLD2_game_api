@@ -19,7 +19,7 @@
 #include "input/SSL_Mouse.h"
 
 #include "gui/SSL_Interface.h"
-#include "gui/button.h"
+#include "gui/SSL_Button.h"
 
 
 #endif /* SDL_GAME_API_H_ */

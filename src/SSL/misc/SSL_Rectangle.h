@@ -30,16 +30,16 @@
  ---------------------------------------------------------------------------*/
 
 /*!--------------------------------------------------------------------------
-|  @brief	 Creates a SDL_Rect Object
-|  @param    x			  X position of the object.
-|  @param    y			  y position of the object.
-|  @param    w			  width of the object.
-|  @param    h			  height of the object.
-|  @return 	 A SDL_Rect object or 0 if unsuccessful
-|
-|   Creates and returns a SDL_Rect Object.
-|
-|
+  @brief	 Creates a SDL_Rect Object
+  @param    x			  X position of the object.
+  @param    y			  y position of the object.
+  @param    w			  width of the object.
+  @param    h			  height of the object.
+  @return 	 A SDL_Rect object or 0 if unsuccessful
+
+   Creates and returns a SDL_Rect Object.
+
+
 \-----------------------------------------------------------------------------*/
 SDL_Rect *SSL_Rectangle_Create(double x, double y, double w, double h);
 

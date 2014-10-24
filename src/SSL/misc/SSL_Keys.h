@@ -109,13 +109,13 @@ extern const SDL_Scancode _ralt ;
 
 
 /*!--------------------------------------------------------------------------
-|  @brief	 Gets the SDL key code from string.
-|  @param    key		  string variant of the key code
-|  @return 	 SDL Key code int value else -1.
-|
-|  Gets the SDL key code from string.
-|
-|
+  @brief	 Gets the SDL key code from string.
+  @param    key		  string variant of the key code
+  @return 	 SDL Key code int value else -1.
+
+  Gets the SDL key code from string.
+
+
 \-----------------------------------------------------------------------------*/
 int GetCode(char *key);
 

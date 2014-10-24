@@ -30,14 +30,14 @@
  ---------------------------------------------------------------------------*/
 
 /*!--------------------------------------------------------------------------
-|  @brief	 Writes a message to a file
-|  @param    text		  Text to write.
-|  @param    ...          printf arguments
-|  @return 	 void
-|
-|  Writes a message to a file, in the style of printf.
-|
-|
+  @brief	 Writes a message to a file
+  @param    text		  Text to write.
+  @param    ...          printf arguments
+  @return 	 void
+
+  Writes a message to a file, in the style of printf.
+
+
 \-----------------------------------------------------------------------------*/
 void SSL_Log_Write(char *text, ...);
 
