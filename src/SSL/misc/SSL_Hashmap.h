@@ -1,16 +1,17 @@
 /*-------------------------------------------------------------------------*/
 /**
-   @file    SSL_List.h
+   @file    SSL_Hashmap.h
    @author  P. Batty
-   @brief   Implements a list collection object.
+   @brief   Implements a simple hashmap structure
 
-   This module implements a simple list object, a structure containing a
-   and data, and a next pointer.
+   This module implements a simple hashmap structure, a structure containing a
+   key, data and a next element pointer.
 */
 /*--------------------------------------------------------------------------*/
 
-#ifndef LIST_H_
-#define LIST_H_
+#ifndef HASHMAP_H_
+#define HASHMAP_H_
+
 
 /*---------------------------------------------------------------------------
                                 Includes
@@ -23,17 +24,17 @@
  ---------------------------------------------------------------------------*/
 
 /*!--------------------------------------------------------------------------
-|  @brief    SSL_List
+|  @brief    SSL_Hashmap
 |
-|  This object contains a void pointer for the data and next point to the next
-|  element in the list
+|  This object contains a unique key, data tied to the key and a next pointer
+|  to the next element in the map.
 |
 \----------------------------------------------------------------------------*/
-typedef struct _SSL_List_ {
-	void 			  *data;		/**< data in the element */
-	struct _SSL_List_ *next;		/**< next element */
-} SSL_List;
-
+typedef struct _SSL_Hashmap_ {
+	void *key;					/**< unique key */
+	void *value;				/**< value tied to the key */
+	struct _SSL_Hashmap_ *next; /**< next element in the SSL_Hashmap */
+} SSL_Hashmap;
 
 
 /*---------------------------------------------------------------------------
@@ -41,58 +42,63 @@ typedef struct _SSL_List_ {
  ---------------------------------------------------------------------------*/
 
 /*!--------------------------------------------------------------------------
-|  @brief    Creates a new SSL_List object.
-|  @return Pointer to a SSL_List object on successful creation otherwise 0.
+|  @brief    Creates a new SSL_Hashmap object.
+|  @return Pointer to a SSL_Hashmap object on successful creation otherwise 0.
 |
-|  Creates a new SSL_List object with allocated memory destroy with
-|  SSL_List_Destroy.
+|  Creates a new SSL_Hashmap object with allocated memory destroy with
+|  SSL_Hashmap_Destroy.
 |
 |  If it cannot create the object it will return 0.
 |
 \-----------------------------------------------------------------------------*/
-SSL_List *SSL_List_Create();
+SSL_Hashmap *SSL_Hashmap_Create();
+
 
 /*!--------------------------------------------------------------------------
-|  @brief    Adds a element to the list
-|  @param    list		  The list to add the data to
-|  @param    data		  The data to add
+|  @brief    Adds a element to the SSL_Hashmap
+|  @param    map		  The SSL_Hashmap to add the data to
+|  @param    key		  The key to add the data to
+|  @param    value		  The value to tie to the key
 |  @return   void
 |
-|  Adds the data passed in to the end of the list
+|  Adds the data passed in to the key inside the SSL_Hashmap
 |
 \-----------------------------------------------------------------------------*/
-void SSL_List_Add(SSL_List *list, void *data);
+void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value);
+
 
 /*!--------------------------------------------------------------------------
 |  @brief    Gets a element in the list
-|  @param    list		  The list to get the data from
-|  @param    pos		  Position in the list to get the data
-|  @return   the data stored at that location else -1
+|  @param    map		  The SSL_Hashmap to get the data from
+|  @param    key		  The key to search for
+|  @return   the value stored at that location else -1
 |
-|  Returns the data at the given location. NOTE: DOES NOTE CAST TO A TYPE.
+|  Returns the value at the given location. NOTE: DOES NOTE CAST TO A TYPE.
 |
 \-----------------------------------------------------------------------------*/
-void *SSL_List_Get(SSL_List *list, int pos);
+void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key);
+
 
 /*!--------------------------------------------------------------------------
-|  @brief    Removes a element to the list
-|  @param    list		  The list to get the data from
-|  @param    data		  The data to remove
+|  @brief    Removes a element in the list
+|  @param    map		  The SSL_Hashmap to remove the data from
+|  @param    key		  The key to search for
 |  @return   void
 |
-|  Removes the data from the list.
+|  remove the value in the SSL_Hashmap.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_List_Remove(SSL_List *list, void *data);
+void hashmap_remove(SSL_Hashmap *map, void *key);
+
 
 /*!--------------------------------------------------------------------------
-|  @brief    Destroys the list
-|  @param    list		  The SSL_List to destroy
+|  @brief    Destroys the SSL_Hashmap
+|  @param    map		  The SSL_Hashmap to destroy
 |  @return   void
 |
-|  Destroys the list.
+|  Destroys the SSL_Hashmap.
 |
 \-----------------------------------------------------------------------------*/
-void SSL_List_Destroy(SSL_List *list);
+void hashmap_destroy(SSL_Hashmap *map);
 
-#endif
+#endif /* HASHMAP_H_ */
