@@ -133,7 +133,7 @@ void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key) {
   remove the value in the SSL_Hashmap.
 
 \-----------------------------------------------------------------------------*/
-void hashmap_remove(SSL_Hashmap *map, void *key) {
+void SSL_Hashmap_Remove(SSL_Hashmap *map, void *key) {
 
 	/* Previous and next pointer to loop through the map */
 	SSL_Hashmap *pre;
@@ -164,7 +164,7 @@ void hashmap_remove(SSL_Hashmap *map, void *key) {
   Destroys the SSL_Hashmap.
 
 \-----------------------------------------------------------------------------*/
-void hashmap_destroy(SSL_Hashmap *map) {
+void SSL_Hashmap_Destroy(SSL_Hashmap *map) {
 
 	/* Previous and next pointer to loop through the map */
 	SSL_Hashmap *pre;

@@ -18,6 +18,7 @@ int main(int argc, char *args[]) {
 	keybord_input_test();
 	mouse_input_test();
 	user_interface_test();
+	tiled_reader_test();
 
 	printf("\n All Tests passed, Press any key to continue...");
 	getch();

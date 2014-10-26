@@ -13,5 +13,6 @@ void keybord_input_test();
 void mouse_input_test();
 void user_interface_test();
 void list_test();
+void tiled_reader_test();
 
 #endif /* TESTS_H_ */
