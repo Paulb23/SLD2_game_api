@@ -3,6 +3,7 @@
 #define SDL_GAME_API_H_
 
 #include "files/iniparser.h"
+#include "files/SSL_Tiled.h"
 
 #include "misc/SSL_Logger.h"
 #include "misc/SSL_Keys.h"

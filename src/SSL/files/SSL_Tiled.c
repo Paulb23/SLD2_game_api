@@ -1,4 +1,4 @@
-#include "SSL_Tiled_Reader.h"
+#include "SSL_Tiled.h"
 #include "../misc/SSL_Hashmap.h"
 #include "../graphics/SSL_Image.h"
 #include "../graphics/SSL_Window.h"

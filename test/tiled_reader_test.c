@@ -1,5 +1,5 @@
 #include "tests.h"
-#include "../src/SSL/files/SSL_Tiled_Reader.h"
+#include "../src/SSL/files/SSL_Tiled.h"
 #include <stdio.h>
 
 void tiled_reader_test() {
