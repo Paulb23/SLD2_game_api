@@ -7,30 +7,30 @@
 typedef struct _SSL_MAP_ {
 	const char *version;
 	const char *orientation;
-	const int *map_width;
-	const int *map_height;
-	const int *tile_width;
-	const int *tile_height;
+	int map_width;
+	int map_height;
+	int tile_width;
+	int tile_height;
 } SSL_Map;
 
 typedef struct _SSL_Tileset_ {
-	const int  *amount;
+	int  amount;
 	SSL_Hashmap *tilesets;
 	SSL_Hashmap *tiles;
 } SSL_Tileset;
 
 typedef struct _SSL_Tileset_Info_ {
-	const int  *firstGid;
+	const char  *firstGid;
 	const char *name;
-	const int  *tile_width;
-	const int  *tile_height;
-	const int  *spacing;
-	const int  *margin;
+	int  tile_width;
+	int  tile_height;
+	int  spacing;
+	int  margin;
 	SSL_Image *image;
 } SSL_Tileset_Info;
 
 typedef struct _SSL_Tile_ {
-	const int *id;
+	int id;
 	SSL_Hashmap *properties;
 } SSL_Tile;
 

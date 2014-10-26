@@ -22,7 +22,7 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 	map->tileset->tiles = SSL_Hashmap_Create();
 
 	FILE *fp;
-	mxml_node_t *tree, *node, *pre, *next;
+	mxml_node_t *tree, *node;
 
 	fp = fopen("../extras/resources/map.tmx", "r");
 	if (fp == NULL) {
@@ -37,10 +37,10 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 	node = mxmlFindElement(tree, tree, "map", NULL, NULL, MXML_DESCEND);
 	map->map->version = mxmlElementGetAttr(node, "version");
 	map->map->orientation = mxmlElementGetAttr(node, "orientation");
-	map->map->map_width = (int *)mxmlElementGetAttr(node, "width");
-	map->map->map_height = (int *)mxmlElementGetAttr(node, "height");
-	map->map->tile_width = (int *)mxmlElementGetAttr(node, "tilewidth");
-	map->map->tile_height = (int *)mxmlElementGetAttr(node, "tileheight");
+	map->map->map_width = atoi(mxmlElementGetAttr(node, "width"));
+	map->map->map_height = atoi(mxmlElementGetAttr(node, "height"));
+	map->map->tile_width = atoi(mxmlElementGetAttr(node, "tilewidth"));
+	map->map->tile_height = atoi(mxmlElementGetAttr(node, "tileheight"));
 	map->layer = SSL_Hashmap_Create();
 
 	node = mxmlFindElement(node, tree, "tileset", NULL, NULL, MXML_DESCEND);
@@ -52,28 +52,27 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 	while (node != NULL) {
 
 		if ( mxmlGetType(node) == MXML_ELEMENT) {
-		      fprintf(stdout,"Element = %s\n",node->value.element.name);
 
 		      if (!strcmp(node->value.element.name, "tileset")) {
 		  		SSL_Tileset_Info *tileset = malloc(sizeof(SSL_Tileset_Info));
 
-		  		tileset->firstGid = (int *)mxmlElementGetAttr(node, "firstgid");
+		  		tileset->firstGid = mxmlElementGetAttr(node, "firstgid");
 		  		tileset->name = mxmlElementGetAttr(node, "name");
-		  		tileset->tile_width = (int *)mxmlElementGetAttr(node, "tilewidth");
-		  		tileset->tile_height = (int *)mxmlElementGetAttr(node, "tileheight");
-		  		tileset->spacing = (int *)mxmlElementGetAttr(node, "spacing");
-		  		tileset->margin = (int *)mxmlElementGetAttr(node, "margin");
+		  		tileset->tile_width = atoi(mxmlElementGetAttr(node, "tilewidth"));
+		  		tileset->tile_height = atoi(mxmlElementGetAttr(node, "tileheight"));
+		  		tileset->spacing = atoi(mxmlElementGetAttr(node, "spacing"));
+		  		tileset->margin = atoi(mxmlElementGetAttr(node, "margin"));
 
 		  		SSL_Hashmap_Add(map->tileset->tilesets, tileset->firstGid, tileset);
 
 		  		curr_tileset = tileset;
 		  		curr_tile = NULL;
 		      } else if (!strcmp(node->value.element.name, "image")) {
-			  		curr_tileset->image = SSL_Image_Load(mxmlElementGetAttr(node, "source"), 16,16, window);
+			  		curr_tileset->image = SSL_Image_Load(mxmlElementGetAttr(node, "source"), map->map->tile_width,map->map->tile_height, window);
 		      } else if (!strcmp(node->value.element.name, "tile")) {
 		    	  SSL_Tile *tile = malloc(sizeof(SSL_Tile));
 
-		    	  tile->id = mxmlElementGetAttr(node, "id");
+		    	  tile->id = atoi(mxmlElementGetAttr(node, "id"));
 		    	  tile->properties = SSL_Hashmap_Create();
 
 		    	  curr_tile = tile;
@@ -85,18 +84,18 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 		    	  char base64DecodeOutput[9999];
 		    	  b64_decode((char *)mxmlGetText(node, 0), base64DecodeOutput);
 
-		    	  int tile_map[16 * 16];
-		    	  int (*tiles)[16][16] = malloc (sizeof(16*16));
+		    	  int tile_map[map->map->map_width * map->map->map_height];
+		    	  int (*tiles)[map->map->map_width][map->map->map_height] = malloc (sizeof(map->map->map_width*map->map->map_height));
 
-		    	  uLongf outlen = 16 * 16 * 4;
+		    	  uLongf outlen = map->map->map_width * map->map->map_height * 4;
 		    	  uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
 
 
 		    	  int k = 0;
 		    	  int i, j;
-		    	  for ( i = 0; i < 16;i++)
+		    	  for ( i = 0; i < map->map->map_width;i++)
 		    	  {
-		    	      for ( j = 0; j < 16;j++)
+		    	      for ( j = 0; j < map->map->map_height;j++)
 		    	      {
 		    	    	  (*tiles)[i][j] = tile_map[k++];
 		    	      }
@@ -111,7 +110,6 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 		if ( next != NULL ) {
 		      node = next;
 		} else {
-			pre = next;
 		    next = mxmlGetNextSibling(node);
 		    if ( next != NULL ) {
 		    	node = next;
@@ -126,11 +124,5 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 			}
 		}
 	}
-
-	/*while((node = mxmlFindElement(node, tree, "tileset", NULL, NULL, MXML_DESCEND)) != NULL) {
-
-
-	}
-	//printf("\n%i\n", node->value.element.num_attrs);*/
 	return map;
 }
