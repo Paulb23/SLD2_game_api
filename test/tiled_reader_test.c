@@ -24,7 +24,7 @@ void tiled_reader_test() {
 		int i, j;
 		  for (i = 0; i <16; i++) {
 			  for (j = 0; j <16; j++) {
-				  SSL_Image_Draw(tileset->image, j * 16, i*16,0,(*tiles)[j][i],SDL_FLIP_NONE, window);
+				  SSL_Image_Draw(tileset->image, i * 16, j*16,0,(*tiles)[j][i],SDL_FLIP_NONE, window);
 			  }
 		  }
 		while (SDL_PollEvent(&event))
