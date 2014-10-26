@@ -77,29 +77,31 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 		      } else if (!strcmp(node->value.element.name, "layer")) {
 		    	  curr_layer =  mxmlElementGetAttr(node, "name");
 		      } else if (!strcmp(node->value.element.name, "data") && curr_layer != NULL) {
-		    	  char base64DecodeOutput[9999];
-		    	  b64_decode((char *)mxmlGetText(node, 0), base64DecodeOutput);
+		    	  if (SSL_Hashmap_Get(map->layer, curr_layer) == (void *)-1) {
+					  char base64DecodeOutput[9999];
+					  b64_decode((char *)mxmlGetText(node, 0), base64DecodeOutput);
 
-		    	  int tile_map[map->map->map_width * map->map->map_height];
-		    	  int (*tiles)[map->map->map_width][map->map->map_height] = malloc (sizeof(map->map->map_width*map->map->map_height));
+					  int tile_map[map->map->map_width * map->map->map_height];
+					  int (*tiles)[map->map->map_width][map->map->map_height] = malloc (sizeof(map->map->map_width*map->map->map_height));
 
-		    	  uLongf outlen = map->map->map_width * map->map->map_height * 4;
-		    	  uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
+					  uLongf outlen = map->map->map_width * map->map->map_height * 4;
+					  uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
 
 
-		    	  int k = 0;
-		    	  int i, j;
-		    	  for ( i = 0; i < map->map->map_width;i++)
-		    	  {
-		    	      for ( j = 0; j < map->map->map_height;j++)
-		    	      {
-		    	    	  (*tiles)[i][j] = tile_map[k++];
-		    	      }
+					  int k = 0;
+					  int i, j;
+					  for ( i = 0; i < map->map->map_width;i++)
+					  {
+						  for ( j = 0; j < map->map->map_height;j++)
+						  {
+							  (*tiles)[i][j] = tile_map[k++];
+						  }
 
+					  }
+
+					 SSL_Hashmap_Add(map->layer, curr_layer, (*tiles));
+					 curr_layer = NULL;
 		    	  }
-
-		    	 SSL_Hashmap_Add(map->layer, curr_layer, (*tiles));
-		    	 curr_layer = NULL;
 		      }
 		}
 		mxml_node_t* next = mxmlGetFirstChild(node);
@@ -136,7 +138,9 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, SSL_Window *window) {
 
 		for (i = 0; i <map->map->map_width; i++) {
 		  for (j = 0; j <map->map->map_height; j++) {
-				SSL_Image_Draw(tileset->image, i * map->map->tile_width, j*map->map->tile_height,0,(*tiles)[j][i],SDL_FLIP_NONE, window);
+			  	if ((*tiles)[j][i] != 0) {
+			  		SSL_Image_Draw(tileset->image, i * map->map->tile_width, j*map->map->tile_height,0,(*tiles)[j][i],SDL_FLIP_NONE, window);
+			  	}
 			}
 		 }
 
