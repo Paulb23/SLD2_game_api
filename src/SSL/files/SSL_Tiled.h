@@ -43,5 +43,6 @@ typedef struct _SSL_Tiled_Map_ {
 
 
 SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window);
+void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, SSL_Window *window);
 
 #endif /* SSL_TILED_READER_H_ */

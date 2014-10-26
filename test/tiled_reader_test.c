@@ -8,10 +8,7 @@ void tiled_reader_test() {
 	SSL_Window *window = SSL_Window_Create("This is the tile reader test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600,0,0, 0);
 	SSL_Tiled_Map *map = SSL_Tiled_Map_Load(window);
 
-	int (*tiles)[map->map->map_width][map->map->map_height];
-	tiles = map->layer->next->value;
 
-	SSL_Tileset_Info *tileset = map->tileset->tilesets->next->value;
 
 	SDL_Event event;
 	int running = 1;
@@ -21,12 +18,7 @@ void tiled_reader_test() {
 		SDL_RenderPresent(window->renderer);
 		SDL_RenderClear( window->renderer );
 
-		int i, j;
-		  for (i = 0; i <16; i++) {
-			  for (j = 0; j <16; j++) {
-				  SSL_Image_Draw(tileset->image, i * 16, j*16,0,(*tiles)[j][i],SDL_FLIP_NONE, window);
-			  }
-		  }
+		SSL_Tiled_Draw_Map(map, window);
 
 		while (SDL_PollEvent(&event))
 		{

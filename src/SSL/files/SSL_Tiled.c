@@ -9,10 +9,6 @@
 #include "zlib.h"
 #include "zconf.h"
 
-void sax_cb(mxml_node_t *node, mxml_sax_event_t event, void *data) {
-
-}
-
 SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 	SSL_Tiled_Map *map = malloc(sizeof(SSL_Tiled_Map));
 	map->map = malloc(sizeof(SSL_Map));
@@ -125,4 +121,25 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 		}
 	}
 	return map;
+}
+
+
+void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, SSL_Window *window) {
+	int (*tiles)[map->map->map_width][map->map->map_height];
+	tiles = map->layer->next->value;
+	SSL_Tileset_Info *tileset = map->tileset->tilesets->next->value;
+
+	SSL_Hashmap * curr = map->layer->next;
+	int i, j;
+	while (curr != 0) {
+		tiles = curr->value;
+
+		for (i = 0; i <map->map->map_width; i++) {
+		  for (j = 0; j <map->map->map_height; j++) {
+				SSL_Image_Draw(tileset->image, i * map->map->tile_width, j*map->map->tile_height,0,(*tiles)[j][i],SDL_FLIP_NONE, window);
+			}
+		 }
+
+		curr = curr->next;
+	}
 }
