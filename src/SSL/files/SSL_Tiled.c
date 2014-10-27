@@ -129,7 +129,7 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 }
 
 
-void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, SSL_Window *window) {
+void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window) {
 	int (*tiles)[map->map->map_width][map->map->map_height][10];
 	tiles = map->layer->next->value;
 	SSL_Tileset_Info *tileset = map->tileset->tilesets->next->value;
@@ -143,7 +143,7 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, SSL_Window *window) {
 		for (i = 0; i <map->map->map_width; i++) {
 		  for (j = 0; j <map->map->map_height; j++) {
 			  	if ((*tiles)[j][i][currLayNum] != 0) {
-			  		SSL_Image_Draw(tileset->image, i * map->map->tile_width, j*map->map->tile_height,0,(*tiles)[j][i][currLayNum],SDL_FLIP_NONE, window);
+			  		SSL_Image_Draw(tileset->image, i * map->map->tile_width + xOffset, j*map->map->tile_height +yOffset,0,(*tiles)[j][i][currLayNum],SDL_FLIP_NONE, window);
 			  	}
 			}
 		 }

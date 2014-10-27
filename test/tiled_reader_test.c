@@ -18,7 +18,7 @@ void tiled_reader_test() {
 		SDL_RenderPresent(window->renderer);
 		SDL_RenderClear( window->renderer );
 
-		SSL_Tiled_Draw_Map(map, window);
+		SSL_Tiled_Draw_Map(map, 100, 100, window);
 
 		while (SDL_PollEvent(&event))
 		{
