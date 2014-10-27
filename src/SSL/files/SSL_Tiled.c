@@ -44,7 +44,8 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 
 	SSL_Tileset_Info *curr_tileset;
 	SSL_Tile *curr_tile;
-	const char *curr_layer;
+	char *curr_layer;
+	int currLayNum = 0;
 	while (node != NULL) {
 
 		if ( mxmlGetType(node) == MXML_ELEMENT) {
@@ -82,11 +83,10 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 					  b64_decode((char *)mxmlGetText(node, 0), base64DecodeOutput);
 
 					  int tile_map[map->map->map_width * map->map->map_height];
-					  int (*tiles)[map->map->map_width][map->map->map_height] = malloc (sizeof(map->map->map_width*map->map->map_height));
+					  int (*tiles)[map->map->map_width][map->map->map_height][10] = malloc (sizeof(map->map->map_width*map->map->map_height));
 
 					  uLongf outlen = map->map->map_width * map->map->map_height * 4;
 					  uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
-
 
 					  int k = 0;
 					  int i, j;
@@ -94,13 +94,16 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 					  {
 						  for ( j = 0; j < map->map->map_height;j++)
 						  {
-							  (*tiles)[i][j] = tile_map[k++];
+							  (*tiles)[i][j][currLayNum] = tile_map[k++];
 						  }
 
 					  }
 
 					 SSL_Hashmap_Add(map->layer, curr_layer, (*tiles));
+					 currLayNum++;
 					 curr_layer = NULL;
+					 free(tiles);
+					 free(tile_map);
 		    	  }
 		      }
 		}
@@ -127,23 +130,24 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 
 
 void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, SSL_Window *window) {
-	int (*tiles)[map->map->map_width][map->map->map_height];
+	int (*tiles)[map->map->map_width][map->map->map_height][10];
 	tiles = map->layer->next->value;
 	SSL_Tileset_Info *tileset = map->tileset->tilesets->next->value;
 
 	SSL_Hashmap * curr = map->layer->next;
+	int currLayNum = 0;
 	int i, j;
 	while (curr != 0) {
 		tiles = curr->value;
 
 		for (i = 0; i <map->map->map_width; i++) {
 		  for (j = 0; j <map->map->map_height; j++) {
-			  	if ((*tiles)[j][i] != 0) {
-			  		SSL_Image_Draw(tileset->image, i * map->map->tile_width, j*map->map->tile_height,0,(*tiles)[j][i],SDL_FLIP_NONE, window);
+			  	if ((*tiles)[j][i][currLayNum] != 0) {
+			  		SSL_Image_Draw(tileset->image, i * map->map->tile_width, j*map->map->tile_height,0,(*tiles)[j][i][currLayNum],SDL_FLIP_NONE, window);
 			  	}
 			}
 		 }
-
+		currLayNum++;
 		curr = curr->next;
 	}
 }

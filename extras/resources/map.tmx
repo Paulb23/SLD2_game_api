@@ -8,4 +8,9 @@
    eJxzZGBgcKQQR5KJkfXnIOFIItg5WOzPIYKNzCekH5v9pOjHZict7ack/AeDfgs0Gl0cxoZhZP3oeomhidVvgYNPif3UDD9KMAByIlH/
   </data>
  </layer>
+ <layer name="wall" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIx04UYBBwA/NPD8kjC4+CgYXAADKtwVl
+  </data>
+ </layer>
 </map>
