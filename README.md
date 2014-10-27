@@ -68,4 +68,8 @@ Mouse and keyboard
 
 **Interfaces and buttons**  
 
-button and check box support
+button and check box support   
+
+**Tiled .tmx parser**  
+
+Load and draw maps made in tiled using zlib x64 compression
