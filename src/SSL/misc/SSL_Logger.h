@@ -39,6 +39,6 @@
 
 
 \-----------------------------------------------------------------------------*/
-void SSL_Log_Write(char *text, ...);
+void SSL_Log_Write(const char *text, ...);
 
 #endif

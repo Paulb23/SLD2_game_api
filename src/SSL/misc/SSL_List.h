@@ -64,6 +64,18 @@ SSL_List *SSL_List_Create();
 void SSL_List_Add(SSL_List *list, void *data);
 
 /*!--------------------------------------------------------------------------
+  @brief    Gets a position of the data in the list
+  @param    list		  The list to get the data from
+  @param    data		  the data to search for
+  @return   the position of the data stored at that location else -1
+
+  Returns the position data at the given location.
+
+\-----------------------------------------------------------------------------*/
+int SSL_List_Get_Pos(SSL_List *list, void *data);
+
+
+/*!--------------------------------------------------------------------------
   @brief    Gets a element in the list
   @param    list		  The list to get the data from
   @param    pos		  Position in the list to get the data
@@ -73,6 +85,52 @@ void SSL_List_Add(SSL_List *list, void *data);
 
 \-----------------------------------------------------------------------------*/
 void *SSL_List_Get(SSL_List *list, int pos);
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a string in the list
+  @param    list		  The list to get the data from
+  @param    pos		  Position in the list to get the data
+  @return   the data stored at that location else -1
+
+  Returns the data at the given location. as a string.
+
+\-----------------------------------------------------------------------------*/
+char *SSL_List_Get_String(SSL_List *list, int pos);
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a int in the list
+  @param    list		  The list to get the data from
+  @param    pos		  Position in the list to get the data
+  @return   the data stored at that location else -1
+
+  Returns the data at the given location. as a int.
+
+\-----------------------------------------------------------------------------*/
+int SSL_List_Get_Int(SSL_List *list, int pos);
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a float in the list
+  @param    list		  The list to get the data from
+  @param    pos		  Position in the list to get the data
+  @return   the data stored at that location else -1
+
+  Returns the data at the given location. as a float.
+
+\-----------------------------------------------------------------------------*/
+float SSL_List_Get_Float(SSL_List *list, int pos);
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets the size of the list.
+  @param    list		  The list to get the size of.
+  @return   the size of the list.
+
+  Returns the size or amount of elements in the list.
+
+\-----------------------------------------------------------------------------*/
+int SSL_List_Size(SSL_List *list);
+
 
 /*!--------------------------------------------------------------------------
   @brief    Removes a element to the list

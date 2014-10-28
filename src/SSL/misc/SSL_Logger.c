@@ -17,14 +17,29 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 
 /*---------------------------------------------------------------------------
                             Private functions
  ---------------------------------------------------------------------------*/
 
-int LOGGIN = 1;									/**< are we logging  */
-static char *file_path = "../extras/log.txt";	/**< path to the file */
+static int LOGGIN = 1;	 						/**< are we logging  */
+static const char *file_path = "../extras/log.txt";	/**< path to the file */
+
+
+/*!--------------------------------------------------------------------------
+  @brief	 Gets the current system time
+  @return 	 void string containing the current time.
+
+  Gets the current system and returns a string with the information.
+
+
+\-----------------------------------------------------------------------------*/
+static char *getTime() {
+	time_t current_time = time(NULL);
+	return ctime(&current_time);
+}
 
 
 /*---------------------------------------------------------------------------
@@ -41,42 +56,42 @@ static char *file_path = "../extras/log.txt";	/**< path to the file */
 
 
 \-----------------------------------------------------------------------------*/
-void SSL_Log_Write(char *text, ...) {
+void SSL_Log_Write(const char *text, ...) {
 
 	/* if we are logging */
 	if (LOGGIN) {
 
 		/* open the file */
-		FILE *f = fopen(file_path, "ab");
+		FILE *file = fopen(file_path, "ab");
 
 		/* if we could not open the file return */
-		if (f == NULL) {
+		if (file == NULL) {
+			free(file);
 			return;
 		}
 
 		/* get the current time */
-		time_t current_time;
-		char* c_time_string;
+		char* time = getTime();
+
+		/* print out the time */
+		fprintf(file, "%s: ", time);
 
 		/* get the argument list */
 		va_list arg;
 
-		/* calculate the current time */
-		current_time = time(NULL);
-		c_time_string = ctime(&current_time);
-
-		/* print out the time */
-		fprintf(f, "%s: ", c_time_string);
-
 		/* print out the message */
 		va_start(arg, text);
-		vfprintf(f, text, arg);
+		vfprintf(file, text, arg);
 		va_end(arg);
 
 		/* print a new line */
-		fprintf(f, "\r\n");
+		fprintf(file, "\r\n");
 
 		/* close the file and return */
-		fclose(f);
+		fclose(file);
+
+		/* free memory */
+		free(file);
+		free(time);
 	}
 }
