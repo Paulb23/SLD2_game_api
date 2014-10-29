@@ -3,6 +3,9 @@ SSL - Simple SDL library
 
 A simple abstraction from SDL2 that handles a lot of the hard work.
 
+**Attention!**  
+Supports windows only at the monment.
+ 
 Installation
 -----------
 Simply download, and import the project into C/C++ eclipse.   
