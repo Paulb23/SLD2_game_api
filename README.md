@@ -7,6 +7,17 @@ Installation
 -----------
 Simply download, and import the project into C/C++ eclipse.   
 Or Copy the src/SSL folder into your workspace.
+All the DLL's can be found under lib/dll's  
+
+**Libaries needed**  
+*SDL2    
+*SDL Image  
+*SDL TTF    
+*SDL Mixer  
+*ZLib   
+*Mini XML   
+
+All of them are contained inside this repo either under /lib or inside src/SSL.
 
 Documentation
 -----------
