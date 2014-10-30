@@ -205,7 +205,7 @@ int SSL_Mouse_Left_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
 
 	/* if the left button was clicked */
 	/* check if it is in the area */
-	if (SDL_GetMouseState(NULL,NULL) & SDL_BUTTON(SDL_BUTTON_LEFT) ) {
+	if (SSL_Mouse_Left_Down()) {
 		if (in_area(ex, ey, x, y, w, h)) {
 			event.button.button = 0;
 			state = 1;
@@ -239,7 +239,7 @@ int SSL_Mouse_Right_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
 
 	/* if the right button was clicked */
 	/* check if it is in the area */
-	if (SDL_GetMouseState(NULL,NULL) & SDL_BUTTON(SDL_BUTTON_RIGHT) ) {
+	if (SSL_Mouse_Right_Down()) {
 		if (in_area(ex, ey, x, y, w, h)) {
 			event.button.button = 0;
 			state = 1;
@@ -273,7 +273,7 @@ int SSL_Mouse_Middle_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
 
 	/* if the middle button was clicked */
 	/* check if it is in the area */
-	if (SDL_GetMouseState(NULL,NULL) & SDL_BUTTON(SDL_BUTTON_MIDDLE) ) {
+	if (SSL_Mouse_Middle_Down()) {
 		if (in_area(ex, ey, x, y, w, h)) {
 			event.button.button = 0;
 			state = 1;
