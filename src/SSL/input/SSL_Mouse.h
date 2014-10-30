@@ -107,6 +107,7 @@ int SSL_Mouse_Middle_Clicked(SDL_Event event);
 \-----------------------------------------------------------------------------*/
 int SSL_Mouse_Hover_In_Area(int x, int y, int w, int h, SDL_Event event);
 
+
 /*!--------------------------------------------------------------------------
   @brief    Gets whether the left mouse button is down is in an area
   @param    x         x Location of the area
@@ -120,6 +121,7 @@ int SSL_Mouse_Hover_In_Area(int x, int y, int w, int h, SDL_Event event);
 
 \-----------------------------------------------------------------------------*/
 int SSL_Mouse_Left_Down_In_Area(int x, int y, int w, int h, SDL_Event event);
+
 
 /*!--------------------------------------------------------------------------
   @brief    Gets whether the right mouse button is down is in an area
@@ -150,5 +152,49 @@ int SSL_Mouse_Right_Down_In_Area(int x, int y, int w, int h, SDL_Event event);
 \-----------------------------------------------------------------------------*/
 int SSL_Mouse_Middle_Down_In_Area(int x, int y, int w, int h, SDL_Event event);
 
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the left mouse button is clicked in an area
+  @param    x         x Location of the area
+  @param    y         y Location of the area
+  @param    w         width of the area
+  @param    h         height of the area
+  @param    event     the SDL_Event queue to use
+  @return true if the left mouse button is clicked inside the area else false
+
+  Gets whether the left mouse button is clicked in the area
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Left_Clicked_In_Area(int x, int y, int w, int h, SDL_Event event);
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the right mouse button is clicked in an area
+  @param    x         x Location of the area
+  @param    y         y Location of the area
+  @param    w         width of the area
+  @param    h         height of the area
+  @param    event     the SDL_Event queue to use
+  @return true if the right mouse button is clicked inside the area else false
+
+  Gets whether the right mouse button is clicked in the area
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Right_Clicked_In_Area(int x, int y, int w, int h, SDL_Event event);
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the middle mouse button is clicked in an area
+  @param    x         x Location of the area
+  @param    y         y Location of the area
+  @param    w         width of the area
+  @param    h         height of the area
+  @param    event     the SDL_Event queue to use
+  @return true if the middle mouse button is clicked inside the area else false
+
+  Gets whether the middle mouse button is clicked in the area
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Middle_Clicked_In_Area(int x, int y, int w, int h, SDL_Event event);
 
 #endif

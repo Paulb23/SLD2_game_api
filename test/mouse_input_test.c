@@ -42,7 +42,7 @@ void mouse_input_test() {
 			frame = 4;
 		}
 
-		if (SSL_Mouse_Middle_Clicked(event)) {
+		if (SSL_Mouse_Left_Clicked_In_Area(100,100,100,100,event)) {
 			printf("Clicked");
 		}
 

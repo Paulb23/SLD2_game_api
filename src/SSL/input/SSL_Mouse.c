@@ -263,7 +263,7 @@ int SSL_Mouse_Right_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
   Gets whether the middle mouse button is down in the area
 
 \-----------------------------------------------------------------------------*/
-int SSL_Mouse_Middlw_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
+int SSL_Mouse_Middle_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
 
 	int state = 0;
 
@@ -276,6 +276,105 @@ int SSL_Mouse_Middlw_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
 	if (SDL_GetMouseState(NULL,NULL) & SDL_BUTTON(SDL_BUTTON_MIDDLE) ) {
 		if (in_area(ex, ey, x, y, w, h)) {
 			event.button.button = 0;
+			state = 1;
+		}
+	}
+
+	/* return */
+	return state;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the left mouse button is clicked in an area
+  @param    x         x Location of the area
+  @param    y         y Location of the area
+  @param    w         width of the area
+  @param    h         height of the area
+  @param    event     the SDL_Event queue to use
+  @return true if the left mouse button is clicked inside the area else false
+
+  Gets whether the left mouse button is clicked in the area
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Left_Clicked_In_Area(int x, int y, int w, int h, SDL_Event event) {
+
+	int state = 0;
+
+	/* get mouse x and y */
+	int ex = event.button.x;
+	int ey = event.button.y;
+
+	/* if the middle button was clicked */
+	/* check if it is in the area */
+	if (SSL_Mouse_Left_Clicked(event)) {
+		if (in_area(ex, ey, x, y, w, h)) {
+			state = 1;
+		}
+	}
+
+	/* return */
+	return state;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the right mouse button is clicked in an area
+  @param    x         x Location of the area
+  @param    y         y Location of the area
+  @param    w         width of the area
+  @param    h         height of the area
+  @param    event     the SDL_Event queue to use
+  @return true if the right mouse button is clicked inside the area else false
+
+  Gets whether the right mouse button is clicked in the area
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Right_Clicked_In_Area(int x, int y, int w, int h, SDL_Event event) {
+
+	int state = 0;
+
+	/* get mouse x and y */
+	int ex = event.button.x;
+	int ey = event.button.y;
+
+	/* if the middle button was clicked */
+	/* check if it is in the area */
+	if (SSL_Mouse_Right_Clicked(event)) {
+		if (in_area(ex, ey, x, y, w, h)) {
+			state = 1;
+		}
+	}
+
+	/* return */
+	return state;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the middle mouse button is clicked in an area
+  @param    x         x Location of the area
+  @param    y         y Location of the area
+  @param    w         width of the area
+  @param    h         height of the area
+  @param    event     the SDL_Event queue to use
+  @return true if the middle mouse button is clicked inside the area else false
+
+  Gets whether the middle mouse button is clicked in the area
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Middle_Clicked_In_Area(int x, int y, int w, int h, SDL_Event event) {
+
+	int state = 0;
+
+	/* get mouse x and y */
+	int ex = event.button.x;
+	int ey = event.button.y;
+
+	/* if the middle button was clicked */
+	/* check if it is in the area */
+	if (SSL_Mouse_Middle_Clicked(event)) {
+		if (in_area(ex, ey, x, y, w, h)) {
 			state = 1;
 		}
 	}
