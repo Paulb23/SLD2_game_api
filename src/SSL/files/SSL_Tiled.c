@@ -96,9 +96,9 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 					  {
 						  for ( j = 0; j < map->map->map_height;j++)
 						  {
-							  (*tiles)[i][j][currLayNum] = tile_map[k++];
+							  (*tiles)[i][j][currLayNum] = tile_map[k];
+							  k++;
 						  }
-
 					  }
 
 					 SSL_Hashmap_Add(map->layer, curr_layer, (*tiles));
@@ -140,6 +140,7 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 	int currLayNum = 0;
 	int i, j;
 	while (curr != 0) {
+		(*tiles)[0][0][currLayNum] -= 600;
 		tiles = curr->value;
 
 		for (i = 0; i <map->map->map_width; i++) {
