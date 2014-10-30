@@ -305,7 +305,7 @@ int SSL_Mouse_Left_Clicked_In_Area(int x, int y, int w, int h, SDL_Event event) 
 	int ex = event.button.x;
 	int ey = event.button.y;
 
-	/* if the middle button was clicked */
+	/* if the left button was clicked */
 	/* check if it is in the area */
 	if (SSL_Mouse_Left_Clicked(event)) {
 		if (in_area(ex, ey, x, y, w, h)) {
@@ -338,7 +338,7 @@ int SSL_Mouse_Right_Clicked_In_Area(int x, int y, int w, int h, SDL_Event event)
 	int ex = event.button.x;
 	int ey = event.button.y;
 
-	/* if the middle button was clicked */
+	/* if the right button was clicked */
 	/* check if it is in the area */
 	if (SSL_Mouse_Right_Clicked(event)) {
 		if (in_area(ex, ey, x, y, w, h)) {
