@@ -42,10 +42,6 @@ void mouse_input_test() {
 			frame = 4;
 		}
 
-		if (SSL_Mouse_Left_Clicked_In_Area(100,100,100,100,event)) {
-			printf("Clicked");
-		}
-
 		while (SDL_PollEvent(&event))
 		 {
 		    if (event.type == SDL_QUIT) {

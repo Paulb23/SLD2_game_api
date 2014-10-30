@@ -4,6 +4,7 @@
 #include "../src/SSL/graphics/SSL_Font.h"
 #include "../src/SSL/misc/SSL_Color.h"
 #include "../src/SSL/input/SSL_Keyboard.h"
+#include "../lib/SDL2/SDL.h"
 #include <stdio.h>
 
 /**
@@ -57,6 +58,8 @@ void keybord_input_test() {
 		if (y > 600) {
 			y = 0;
 		}
+
+
 
 		while (SDL_PollEvent(&event))
 		 {
