@@ -79,6 +79,81 @@ int SSL_Mouse_Middle_Down () {
 
 
 /*!--------------------------------------------------------------------------
+  @brief    Gets whether the Left button is clicked#
+  @param    event     the SDL_Event queue to use
+  @return true if the left button is clicked else false
+
+  Gets whether the  Left button is clicked
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Left_Clicked(SDL_Event event) {
+
+	/* check it was a mouse up event */
+	if (event.type == SDL_MOUSEBUTTONUP) {
+
+		/* check it was the left button */
+		if (event.button.button == SDL_BUTTON_LEFT) {
+
+			/* remove the event and return */
+			event.button.button = 0;
+			return 1;
+		}
+	}
+	return 0;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the right button is clicked
+  @param    event     the SDL_Event queue to use
+  @return true if the right button is clicked else false
+
+  Gets whether the  right button is clicked
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Right_Clicked(SDL_Event event) {
+
+	/* check it was a mouse up event */
+	if (event.type == SDL_MOUSEBUTTONUP) {
+
+		/* check it was the right button */
+		if (event.button.button == SDL_BUTTON_RIGHT) {
+
+			/* remove the event and return */
+			event.button.button = 0;
+			return 1;
+		}
+	}
+	return 0;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the middle button is clicked
+  @param    event     the SDL_Event queue to use
+  @return true if the middle button is clicked else false
+
+  Gets whether the middle button is clicked
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Middle_Clicked(SDL_Event event) {
+
+	/* check it was a mouse up event */
+	if (event.type == SDL_MOUSEBUTTONUP) {
+
+		/* check it was the right button */
+		if (event.button.button == SDL_BUTTON_MIDDLE) {
+
+			/* remove the event and return */
+			event.button.button = 0;
+			return 1;
+		}
+	}
+	return 0;
+}
+
+
+/*!--------------------------------------------------------------------------
   @brief    Gets whether the mouse is in an area
   @param    x         x Location of the area
   @param    y         y Location of the area
@@ -162,9 +237,43 @@ int SSL_Mouse_Right_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
 	int ex = event.button.x;
 	int ey = event.button.y;
 
-	/* if the left button was clicked */
+	/* if the right button was clicked */
 	/* check if it is in the area */
 	if (SDL_GetMouseState(NULL,NULL) & SDL_BUTTON(SDL_BUTTON_RIGHT) ) {
+		if (in_area(ex, ey, x, y, w, h)) {
+			event.button.button = 0;
+			state = 1;
+		}
+	}
+
+	/* return */
+	return state;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets whether the middle mouse button is down is in an area
+  @param    x         x Location of the area
+  @param    y         y Location of the area
+  @param    w         width of the area
+  @param    h         height of the area
+  @param    event     the SDL_Event queue to use
+  @return true if the middle mouse button is down inside the area else false
+
+  Gets whether the middle mouse button is down in the area
+
+\-----------------------------------------------------------------------------*/
+int SSL_Mouse_Middlw_Down_In_Area(int x, int y, int w, int h, SDL_Event event) {
+
+	int state = 0;
+
+	/* get mouse x and y */
+	int ex = event.button.x;
+	int ey = event.button.y;
+
+	/* if the middle button was clicked */
+	/* check if it is in the area */
+	if (SDL_GetMouseState(NULL,NULL) & SDL_BUTTON(SDL_BUTTON_MIDDLE) ) {
 		if (in_area(ex, ey, x, y, w, h)) {
 			event.button.button = 0;
 			state = 1;
