@@ -44,11 +44,20 @@ SSL_Hashmap *SSL_Hashmap_Create() {
 	/* allocate memory */
 	SSL_Hashmap *map = malloc(sizeof(SSL_Hashmap));
 
+	/* Check we allocated memory */
+	if (!map) {
+		SSL_Log_Write("Failed to allocate memory for new Hashmap!");
+		free(map);
+		return 0;
+	}
+
 	/* point to empty */
+	map->key = NULL;
+	map->value = NULL;
 	map->next = 0;
 
 	/* return hashmap */
-	return (map) ? map : (SSL_Hashmap *)0;
+	return map;
 }
 
 
@@ -64,12 +73,21 @@ SSL_Hashmap *SSL_Hashmap_Create() {
 \-----------------------------------------------------------------------------*/
 void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value) {
 
+	/* if the first element is empty */
+	/* fill in the values and return */
+	if (map->key == NULL) {
+		map->key = key;
+		map->value = value;
+		return;
+	}
+
 	/* allocate memory */
 	SSL_Hashmap *tmp = malloc(sizeof(SSL_Hashmap));
 
 	/* return if failed allocation */
 	if (!tmp) {
-		SSL_Log_Write("Failed to allocate memory for hashmap! ");
+		SSL_Log_Write("Failed to allocate memory for new hashmap element! ");
+		free(tmp);
 		return;
 	}
 
@@ -111,6 +129,11 @@ void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value) {
 \-----------------------------------------------------------------------------*/
 void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key) {
 
+	/* if it is in the first element */
+	if (map->key == key) {
+		return map->value;
+	}
+
 	/* tmp pointer used to loop */
 	SSL_Hashmap *curr = map;
 
@@ -121,6 +144,69 @@ void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key) {
 
 	/* return */
 	return (curr->key == key) ? curr->value : (void *)-1;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a string element in the list
+  @param    map		  The SSL_Hashmap to get the data from
+  @param    key		  The key to search for
+  @return   the value stored at that location else -1
+
+  Returns the data at the given location. as a string.
+
+\-----------------------------------------------------------------------------*/
+char *SSL_Hashmap_Get_String(SSL_Hashmap *map,  void *key) {
+	return (char *)SSL_Hashmap_Get(map, key);
+}
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a int element in the list
+  @param    map		  The SSL_Hashmap to get the data from
+  @param    key		  The key to search for
+  @return   the value stored at that location else -1
+
+  Returns the data at the given location. as a int.
+
+\-----------------------------------------------------------------------------*/
+int SSL_Hashmap_Get_Int(SSL_Hashmap *map,  void *key) {
+	return atoi(SSL_Hashmap_Get(map, key));
+}
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a float element in the list
+  @param    map		  The SSL_Hashmap to get the data from
+  @param    key		  The key to search for
+  @return   the value stored at that location else -1
+
+  Returns the data at the given location. as a float.
+
+\-----------------------------------------------------------------------------*/
+float SSL_Hashmap_Get_Float(SSL_Hashmap *map,  void *key) {
+	return atof(SSL_Hashmap_Get(map, key));
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets the size of the hashmap.
+  @param    list		  The hashmap to get the size of.
+  @return   the size of the hashmap.
+
+  Returns the size or amount of elements in the hashmap.
+
+\-----------------------------------------------------------------------------*/
+int SSL_Hashmap_Size(SSL_Hashmap *map) {
+	int size = 0;
+
+	/* loop until we reach the end */
+	SSL_Hashmap *curr = map;
+	while (curr->next != 0) {
+		size++;
+		curr = curr->next;
+	}
+
+	/* return the size */
+	return size;
 }
 
 

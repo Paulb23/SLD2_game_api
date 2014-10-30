@@ -277,8 +277,6 @@ void SSL_List_Destroy(SSL_List *list) {
 	}
 
 	/* free the rest */
-	free(pre->data);
 	free(pre);
-	free(curr->data);
 	free(curr);
 }

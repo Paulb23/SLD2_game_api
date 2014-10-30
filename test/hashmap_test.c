@@ -1,33 +1,88 @@
 #include "../src/SSL/misc/SSL_Hashmap.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <assert.h>
 #include "tests.h"
 
-/**
- *  Creates and manipulates a hashmap
- */
-void hashmap_test() {
-	SSL_Hashmap *map = SSL_Hashmap_Create();
+/* check creation and destruction of lists */
+static void test_1() {
+	SSL_Hashmap *map[1000];
 
-	if (map == 0) {printf("\n Hashmap failed to create...\n"); return;}
+	/* creation */
+	int i = 0;
+	for(i = 0; i < 1000; i ++) {
+		map[i] = SSL_Hashmap_Create();
+		assert(map[i] != NULL);
+	}
 
-	SSL_Hashmap_Add(map, (void *)"1", (void *)11);
-	SSL_Hashmap_Add(map, (void *)"2", (void *)12);
-	SSL_Hashmap_Add(map, (void *)"2", (void *)13);
-	SSL_Hashmap_Add(map, (void *)"3", (void *)14);
-	SSL_Hashmap_Add(map, (void *)"4", (void *)15);
-	SSL_Hashmap_Add(map, (void *)"5", (void *)16);
-	SSL_Hashmap_Add(map, (void *)"6", (void *)17);
+	/* Destruction */
+	for(i = 0; i < 1000; i ++) {
+		SSL_Hashmap_Destroy(map[i]);
+	}
+}
 
-	if ((int)SSL_Hashmap_Get(map, "2") != 13){ printf("\n Hashmap failed to get / store...\n"); return;}
-	if ((int)SSL_Hashmap_Get(map, "4") != 15){ printf("\nHashmap failed to get / store...\n"); return;}
+/* Adding and removing data */
+static void test_2() {
 
-	SSL_Hashmap_Remove(map, "2");
-	SSL_Hashmap_Remove(map, "7");
+	/* create a list */
+	SSL_Hashmap *map  = SSL_Hashmap_Create();
+	assert(map != NULL);
 
-	if ((int)SSL_Hashmap_Get(map, "2") != -1) {printf("\n Hashmap failed to remove...\n"); return;}
-	if ((int)SSL_Hashmap_Get(map, "6") != 17) {printf("\n Hashmap failed to remove...\n"); return;}
+	/* add loads of data */
+	int i = 0;
+	for(i = 0; i < 1000; i ++) {
+		SSL_Hashmap_Add(map, &i, &i);
+	}
 
+	/* remove loads of data */
+	for(i = 0; i < 1000; i ++) {
+		SSL_Hashmap_Remove(map, &i);
+	}
+
+	/* Destroy list */
 	SSL_Hashmap_Destroy(map);
+}
 
-	printf("\n Hashmap test passed...\n");
+
+/* getting data */
+static void test_3() {
+
+	/* create a list */
+	SSL_Hashmap *list  = SSL_Hashmap_Create();
+	assert(list != NULL);
+
+	/* add some items */
+	SSL_Hashmap_Add(list, "Item 1", "Item 1");
+	SSL_Hashmap_Add(list, "Item 2", "Item 2");
+	SSL_Hashmap_Add(list, "Item 3", "Item 3");
+	SSL_Hashmap_Add(list, "Item 4", "Item 4");
+	SSL_Hashmap_Add(list, "Item 5", "Item 5");
+
+
+	/* test */
+	assert(!strcmp(SSL_Hashmap_Get(list, "Item 2"),"Item 2"));
+
+	SSL_Hashmap_Remove(list, "Item 2");
+
+	assert(SSL_Hashmap_Get(list, "Item 2") == (void *)-1);
+	assert(SSL_Hashmap_Get(list, "Item What?") == (void *)-1);
+	assert(!strcmp(SSL_Hashmap_Get_String(list, "Item 3"),"Item 3"));
+	assert(SSL_Hashmap_Get_Int(list, "Item 3") == atoi("Item 3"));
+	assert(SSL_Hashmap_Get_Float(list, "Item 3") == atof("Item 3"));
+	assert(SSL_Hashmap_Size(list) == 3);
+
+	/* Destroy list */
+	SSL_Hashmap_Destroy(list);
+}
+
+
+void hashmap_test() {
+	printf("\n Starting Hashmap tests...\n");
+
+	test_1();
+	test_2();
+	test_3();
+
+	printf(" Hashmap test passed...\n");
 }

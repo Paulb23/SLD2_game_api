@@ -131,10 +131,10 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 
 void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window) {
 	int (*tiles)[map->map->map_width][map->map->map_height][10];
-	tiles = map->layer->next->value;
-	SSL_Tileset_Info *tileset = map->tileset->tilesets->next->value;
+	tiles = map->layer->value;
+	SSL_Tileset_Info *tileset = map->tileset->tilesets->value;
 
-	SSL_Hashmap * curr = map->layer->next;
+	SSL_Hashmap * curr = map->layer;
 	int currLayNum = 0;
 	int i, j;
 	while (curr != 0) {
