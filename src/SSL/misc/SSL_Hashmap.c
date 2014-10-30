@@ -119,7 +119,7 @@ void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value) {
 
 
 /*!--------------------------------------------------------------------------
-  @brief    Gets a element in the list
+  @brief    Gets a element in the hashmap
   @param    map		  The SSL_Hashmap to get the data from
   @param    key		  The key to search for
   @return   the value stored at that location else -1
@@ -148,7 +148,7 @@ void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key) {
 
 
 /*!--------------------------------------------------------------------------
-  @brief    Gets a string element in the list
+  @brief    Gets a string element in the hashmap
   @param    map		  The SSL_Hashmap to get the data from
   @param    key		  The key to search for
   @return   the value stored at that location else -1
@@ -161,7 +161,7 @@ char *SSL_Hashmap_Get_String(SSL_Hashmap *map,  void *key) {
 }
 
 /*!--------------------------------------------------------------------------
-  @brief    Gets a int element in the list
+  @brief    Gets a int element in the hashmap
   @param    map		  The SSL_Hashmap to get the data from
   @param    key		  The key to search for
   @return   the value stored at that location else -1
@@ -174,7 +174,7 @@ int SSL_Hashmap_Get_Int(SSL_Hashmap *map,  void *key) {
 }
 
 /*!--------------------------------------------------------------------------
-  @brief    Gets a float element in the list
+  @brief    Gets a float element in the hashmap
   @param    map		  The SSL_Hashmap to get the data from
   @param    key		  The key to search for
   @return   the value stored at that location else -1
@@ -211,7 +211,7 @@ int SSL_Hashmap_Size(SSL_Hashmap *map) {
 
 
 /*!--------------------------------------------------------------------------
-  @brief    Removes a element in the list
+  @brief    Removes a element in the hashmap
   @param    map		  The SSL_Hashmap to remove the data from
   @param    key		  The key to search for
   @return   void

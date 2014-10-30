@@ -78,9 +78,53 @@ void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value);
 \-----------------------------------------------------------------------------*/
 void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key);
 
+/*!--------------------------------------------------------------------------
+  @brief    Gets a string element in the hashmap
+  @param    map		  The SSL_Hashmap to get the data from
+  @param    key		  The key to search for
+  @return   the value stored at that location else -1
+
+  Returns the data at the given location. as a string.
+
+\-----------------------------------------------------------------------------*/
+char *SSL_Hashmap_Get_String(SSL_Hashmap *map,  void *key);
 
 /*!--------------------------------------------------------------------------
-  @brief    Removes a element in the list
+  @brief    Gets a int element in the hashmap
+  @param    map		  The SSL_Hashmap to get the data from
+  @param    key		  The key to search for
+  @return   the value stored at that location else -1
+
+  Returns the data at the given location. as a int.
+
+\-----------------------------------------------------------------------------*/
+int SSL_Hashmap_Get_Int(SSL_Hashmap *map,  void *key);
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a float element in the hashmap
+  @param    map		  The SSL_Hashmap to get the data from
+  @param    key		  The key to search for
+  @return   the value stored at that location else -1
+
+  Returns the data at the given location. as a float.
+
+\-----------------------------------------------------------------------------*/
+float SSL_Hashmap_Get_Float(SSL_Hashmap *map,  void *key);
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets the size of the hashmap.
+  @param    list		  The hashmap to get the size of.
+  @return   the size of the hashmap.
+
+  Returns the size or amount of elements in the hashmap.
+
+\-----------------------------------------------------------------------------*/
+int SSL_Hashmap_Size(SSL_Hashmap *map);
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Removes a element in the hashmap
   @param    map		  The SSL_Hashmap to remove the data from
   @param    key		  The key to search for
   @return   void
