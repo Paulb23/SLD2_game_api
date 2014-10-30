@@ -54,6 +54,7 @@ void user_interface_test() {
 		SDL_Delay(10);
 		}
 
+		SSL_Interface_Destroy(interface);
 	    SDL_Quit();
 
  printf("\n Sdl user interface passed...\n");

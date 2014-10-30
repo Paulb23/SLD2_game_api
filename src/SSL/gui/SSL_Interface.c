@@ -275,39 +275,27 @@ void interface_update(SSL_Interface *interface, SDL_Event event) {
 \-----------------------------------------------------------------------------*/
 int SSL_Interface_Destroy(SSL_Interface *interface) {
 	int i = 1;
-	SSL_Text_Button * previous_button;
 	SSL_Text_Button * current_button;
 
-	SSL_Text_Button * text_button;
-	SSL_Image_Button * image_button;
-	SSL_Check_box * check_box;
+	while ((current_button = SSL_List_Get(interface->buttons, i)) != (void *)-1) {
 
-	while (current_button != (void *)-1) {
+		if (current_button->button->type == TEXT_BUTTON) {
 
-		previous_button = current_button;
-		current_button = SSL_List_Get(interface->buttons, i++);
+			SSL_Text_Button_Destroy(current_button);
+			free(current_button);
+		} else if (current_button->button->type == CHECK_BOX) {
 
-		if (previous_button->button->type == TEXT_BUTTON) {
-			text_button = previous_button;
-
-			SSL_Text_Button_Destroy(text_button);
-			free(text_button);
-		} else if (text_button->button->type == CHECK_BOX) {
-			check_box = (SSL_Check_box *)previous_button;
-
-			SSL_Check_Box_Destroy(check_box);
-			free(check_box);
+			SSL_Check_Box_Destroy((SSL_Check_box *)current_button);
+			free((SSL_Check_box *)current_button);
 		} else {
-			image_button = (SSL_Image_Button *)previous_button;
 
-			SSL_Image_Button_Destroy(image_button);
-			free(image_button);
+			SSL_Image_Button_Destroy((SSL_Image_Button *)current_button);
+			free((SSL_Image_Button *)current_button);
 		}
 	 i++;
 	}
 
 	free(interface);
-	free(previous_button);
 	free(current_button);
 
 	return 1;
