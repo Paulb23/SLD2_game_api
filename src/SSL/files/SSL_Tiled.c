@@ -38,9 +38,10 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 	map->map->tile_width = atoi(mxmlElementGetAttr(node, "tilewidth"));
 	map->map->tile_height = atoi(mxmlElementGetAttr(node, "tileheight"));
 	map->layer = SSL_Hashmap_Create();
+	tree = node;
 
 	node = mxmlFindElement(node, tree, "tileset", NULL, NULL, MXML_DESCEND);
-	tree = node;
+
 
 	SSL_Tileset_Info *curr_tileset;
 	SSL_Tile *curr_tile;
@@ -79,6 +80,7 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 		    	  curr_layer =  mxmlElementGetAttr(node, "name");
 		      } else if (!strcmp(node->value.element.name, "data") && curr_layer != NULL) {
 		    	  if (SSL_Hashmap_Get(map->layer, curr_layer) == (void *)-1) {
+
 					  char base64DecodeOutput[9999];
 					  b64_decode((char *)mxmlGetText(node, 0), base64DecodeOutput);
 
