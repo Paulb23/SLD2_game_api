@@ -15,7 +15,7 @@ void user_interface_test() {
 
 	SSL_Text_Button *text_button = SSL_Text_Button_Create(SSL_Rectangle_Create(100, 100, 150, 50), SSL_Font_Load("../extras/resources/debug.ttf", 50), SSL_Color_Create(255,255,255,255), SSL_Color_Create(255,0,0,255), "button?");
 	SSL_Image_Button *image_button = SSL_Image_Button_Create(SSL_Rectangle_Create(100, 200, 100, 100), SSL_Image_Load("../extras/resources/test_image.png", 100, 100, window), 1, 2, 3);
-	SSL_Check_box *check_box = SSL_Check_Box_Create(SSL_Rectangle_Create(100, 400, 100, 100), SSL_Image_Load("../extras/resources/check_box.png", 50, 50, window), 1, 1, 2, 3);
+	SSL_Check_box *check_box = SSL_Check_Box_Create(SSL_Rectangle_Create(100, 400, 50, 50), SSL_Image_Load("../extras/resources/check_box.png", 50, 50, window), 1, 1, 2, 3);
 
 	SSL_Interface_Add_Text_Button(interface, text_button);
 	SSL_Interface_Add_Image_Button(interface, image_button);
