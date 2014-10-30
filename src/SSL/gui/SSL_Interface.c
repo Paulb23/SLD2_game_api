@@ -20,6 +20,7 @@
 #include "../misc/SSL_Color.h"
 #include "../graphics/SSL_window.h"
 #include "../graphics/SSL_Image.h"
+#include "../input/SSL_Mouse.h"
 
 #include <stdlib.h>
 
@@ -221,55 +222,42 @@ void interface_update(SSL_Interface *interface, SDL_Event event) {
 	SSL_Text_Button *button;
 
 	int i = 1;
-	int x = event.button.x;
-	int y = event.button.y;
 
 	while (SSL_List_Get(interface->buttons, i) != (void *)-1) {
 
 		button = SSL_List_Get(interface->buttons, i);
 
-		if (( x > button->button->position.x ) && ( x < button->button->position.x + button->button->position.w ) && ( y > button->button->position.y ) && ( y < button->button->position.y + button->button->position.h )) {
+		/*hover check */
+		if (SSL_Mouse_Hover_In_Area(button->button->position.x, button->button->position.y, button->button->position.w, button->button->position.h, event)) {
 				button->button_status->hovered = 1;
 		} else {
 				button->button_status->hovered = 0;
 		}
 
-		if (event.type == SDL_MOUSEBUTTONUP) {
-			if(event.button.button == SDL_BUTTON_LEFT) {						// Left Button
+		// Button is clicked
+		if (SSL_Mouse_Left_Clicked_In_Area(button->button->position.x, button->button->position.y, button->button->position.w, button->button->position.h, event)) {
 				button->button_status->pressed = 0;
 
-				if (( x > button->button->position.x ) && ( x < button->button->position.x + button->button->position.w ) && ( y > button->button->position.y ) && ( y < button->button->position.y + button->button->position.h )) {
-						event.button.button = 0;
-						button->button_status->clicked = 1;
-				} else {
-						button->button_status->clicked = 0;
-				}
-			} else {
-				button->button_status->clicked = 0;
-			}
+				event.button.button = 0;
+				button->button_status->clicked = 1;
+
 		} else {
 			button->button_status->clicked = 0;
 		}
 
-		if (event.type == SDL_MOUSEBUTTONDOWN || button->button_status->pressed == 1) {
-			if(event.button.button == SDL_BUTTON_LEFT) {						// Left Button
-				if (( x > button->button->position.x ) && ( x < button->button->position.x + button->button->position.w ) && ( y > button->button->position.y ) && ( y < button->button->position.y + button->button->position.h )) {
-						event.button.button = 0;
-						button->button_status->pressed = 1;
-				} else {
-						button->button_status->pressed = 0;
-				}
-			} else {
+		/* left button is down */
+		if (SSL_Mouse_Left_Down_In_Area(button->button->position.x, button->button->position.y, button->button->position.w, button->button->position.h, event)) {
+				event.button.button = 0;
+				button->button_status->pressed = 1;
+		} else {
 				button->button_status->pressed = 0;
-			}
 		}
 
+
+		/* handle check boxes */
 		if (button->button->type == CHECK_BOX && button->button_status->clicked) {
 			SSL_Check_box *box = SSL_List_Get(interface->buttons, i);
 			box->check_box_status->active = !box->check_box_status->active;
-			button->button_status->pressed = 0;
-			button->button_status->hovered = 0;
-			button->button_status->clicked = 0;
 		}
 	 i++;
 	}
@@ -286,7 +274,41 @@ void interface_update(SSL_Interface *interface, SDL_Event event) {
   If it cannot destroy the object it will return 0.
 \-----------------------------------------------------------------------------*/
 int SSL_Interface_Destroy(SSL_Interface *interface) {
+	int i = 1;
+	SSL_Text_Button * previous_button;
+	SSL_Text_Button * current_button;
+
+	SSL_Text_Button * text_button;
+	SSL_Image_Button * image_button;
+	SSL_Check_box * check_box;
+
+	while (current_button != (void *)-1) {
+
+		previous_button = current_button;
+		current_button = SSL_List_Get(interface->buttons, i++);
+
+		if (previous_button->button->type == TEXT_BUTTON) {
+			text_button = previous_button;
+
+			SSL_Text_Button_Destroy(text_button);
+			free(text_button);
+		} else if (text_button->button->type == CHECK_BOX) {
+			check_box = (SSL_Check_box *)previous_button;
+
+			SSL_Check_Box_Destroy(check_box);
+			free(check_box);
+		} else {
+			image_button = (SSL_Image_Button *)previous_button;
+
+			SSL_Image_Button_Destroy(image_button);
+			free(image_button);
+		}
+	 i++;
+	}
+
 	free(interface);
+	free(previous_button);
+	free(current_button);
 
 	return 1;
 }

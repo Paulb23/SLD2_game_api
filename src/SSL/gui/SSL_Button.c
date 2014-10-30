@@ -169,6 +169,7 @@ int SSL_Text_Button_Destroy(SSL_Text_Button *button) {
 \-----------------------------------------------------------------------------*/
 int SSL_Image_Button_Destroy(SSL_Image_Button *button) {
 	free(button->button);
+	SDL_DestroyTexture(button->button_image_info->image->Image);
 	free(button->button_image_info);
 	free(button->button_status);
 	free(button);
@@ -187,6 +188,7 @@ int SSL_Image_Button_Destroy(SSL_Image_Button *button) {
 int SSL_Check_Box_Destroy(SSL_Check_box *button) {
 	free(button->button);
 	free(button->button_image_info);
+	SDL_DestroyTexture(button->button_image_info->image->Image);
 	free(button->check_box_image_info);
 	free(button->check_box_status);
 	free(button);
