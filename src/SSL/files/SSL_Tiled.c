@@ -1,6 +1,3 @@
-#include "SSL_Tiled.h"
-#include "../misc/SSL_Hashmap.h"
-#include "../graphics/SSL_Image.h"
 /*-------------------------------------------------------------------------*/
 /**
    @file    SSL_Tiled.c
@@ -16,6 +13,9 @@
                                 Includes
  ---------------------------------------------------------------------------*/
 
+#include "SSL_Tiled.h"
+#include "../misc/SSL_Hashmap.h"
+#include "../graphics/SSL_Image.h"
 
 #include "../graphics/SSL_Window.h"
 #include <stdlib.h>
