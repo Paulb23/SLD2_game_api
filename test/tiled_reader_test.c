@@ -6,7 +6,7 @@ void tiled_reader_test() {
 	SDL_Init(SDL_INIT_EVERYTHING);
 
 	SSL_Window *window = SSL_Window_Create("This is the tile reader test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600,0,0, 0);
-	SSL_Tiled_Map *map = SSL_Tiled_Map_Load(window);
+	SSL_Tiled_Map *map = SSL_Tiled_Map_Load("../extras/resources/map.tmx", window);
 
 
 
@@ -30,6 +30,7 @@ void tiled_reader_test() {
 
 	SDL_Delay(10);
 	}
+	SSL_Tiled_Map_Destroy(map);
 	SDL_Quit();
 	printf("\n SSL Tiled reader test passed...\n");
 }
