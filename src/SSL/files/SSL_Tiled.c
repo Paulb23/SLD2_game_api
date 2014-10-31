@@ -1,6 +1,22 @@
 #include "SSL_Tiled.h"
 #include "../misc/SSL_Hashmap.h"
 #include "../graphics/SSL_Image.h"
+/*-------------------------------------------------------------------------*/
+/**
+   @file    SSL_Tiled.c
+   @author  P. Batty
+   @brief   Implements a Tiled .tmx map handler
+
+   This module implements a way to load access and draw .tmx maps
+*/
+/*--------------------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------------------
+                                Includes
+ ---------------------------------------------------------------------------*/
+
+
 #include "../graphics/SSL_Window.h"
 #include <stdlib.h>
 #include <string.h>
@@ -9,18 +25,38 @@
 #include "zlib.h"
 #include "zconf.h"
 
-SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
+/*---------------------------------------------------------------------------
+                            Private functions
+ ---------------------------------------------------------------------------*/
+
+
+
+/*---------------------------------------------------------------------------
+                            Function codes
+ ---------------------------------------------------------------------------*/
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Loads and creates new Tiled map
+  @param    file		 the path to the file
+  @param    window       The renderer to use
+  @return A SSL_Tiled_Map object
+
+  Loads and creates new Tiled map.
+  Destroy with SSL_Tiled_Map_Destroy.	//TODO:Clean up
+
+\-----------------------------------------------------------------------------*/
+SSL_Tiled_Map *SSL_Tiled_Map_Load(char *file, SSL_Window *window) {
 	SSL_Tiled_Map *map = malloc(sizeof(SSL_Tiled_Map));
 	map->map = malloc(sizeof(SSL_Map));
 	map->tileset = malloc(sizeof(SSL_Tileset));
-	map->tileset->amount = 0;
 	map->tileset->tilesets = SSL_Hashmap_Create();
 	map->tileset->tiles = SSL_Hashmap_Create();
 
 	FILE *fp;
 	mxml_node_t *tree, *node;
 
-	fp = fopen("../extras/resources/map.tmx", "r");
+	fp = fopen(file, "r");
 	if (fp == NULL) {
 		printf("What!");
 	}
@@ -131,6 +167,17 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(SSL_Window *window) {
 }
 
 
+/*!--------------------------------------------------------------------------
+  @brief    Draws a loaded map to the screen
+  @param    map			 the map to draw
+  @param    xOffset		 X Offset to draw the map
+  @param    yOffset		 y Offset to draw the map
+  @param    window       The window to draw to
+  @return A SSL_Tiled_Map object
+
+  Draws the map to the given window.
+
+\-----------------------------------------------------------------------------*/
 void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window) {
 	int (*tiles)[map->map->map_width][map->map->map_height][10];
 	tiles = map->layer->value;
@@ -153,4 +200,22 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 		currLayNum++;
 		curr = curr->next;
 	}
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Destroys the map
+  @param    map		The map to destroy
+  @return   void
+
+  Destroys the map.
+
+\-----------------------------------------------------------------------------*/
+void SSL_Tiled_Map_Destroy(SSL_Tiled_Map *map) {
+	free(map->map);
+	SSL_Hashmap_Destroy(map->tileset->tiles);
+	SSL_Hashmap_Destroy(map->tileset->tilesets);
+	free(map->tileset);
+	SSL_Hashmap_Destroy(map->layer);
+	free(map);
 }
