@@ -135,16 +135,32 @@ $(document).ready(function(){initNavTree('_s_s_l___keyboard_8h_source.html','');
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_s_s_l___keyboard_8h.html#adcd519cc96ebec6542a18378dd9d81dd">SSL_Keybord_Keyname_Down</a>(<span class="keywordtype">char</span> *key);</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* KEYBOARD_H_ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_s_s_l___keyboard_8h.html#a6ddd05bb569cbf3ba28babbe3656fbe4">SSL_Keybord_Key_Pressed</a>(SDL_Keycode key, SDL_Event event);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_s_s_l___keyboard_8h.html#a8e27ffd7394f2f58b00a326957a4a7fd">SSL_Keybord_Keyname_Pressed</a>(<span class="keywordtype">char</span> *key, SDL_Event event);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_s_s_l___keyboard_8h.html#ac729306c599de972beb1a4af3fb5a1ab">SSL_Keybord_Key_Released</a>(SDL_Keycode key, SDL_Event event);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keywordtype">int</span> <a class="code" href="_s_s_l___keyboard_8h.html#add9e5b36e964ed6a3e10e96713547a11">SSL_Keybord_Keyname_Released</a>(<span class="keywordtype">char</span> *key, SDL_Event event);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="_s_s_l___keyboard_8h_html_a6ddd05bb569cbf3ba28babbe3656fbe4"><div class="ttname"><a href="_s_s_l___keyboard_8h.html#a6ddd05bb569cbf3ba28babbe3656fbe4">SSL_Keybord_Key_Pressed</a></div><div class="ttdeci">int SSL_Keybord_Key_Pressed(SDL_Keycode key, SDL_Event event)</div><div class="ttdoc">Gets whether the key is pressed for a single event. </div><div class="ttdef"><b>Definition:</b> SSL_Keyboard.c:70</div></div>
+<div class="ttc" id="_s_s_l___keyboard_8h_html_ac729306c599de972beb1a4af3fb5a1ab"><div class="ttname"><a href="_s_s_l___keyboard_8h.html#ac729306c599de972beb1a4af3fb5a1ab">SSL_Keybord_Key_Released</a></div><div class="ttdeci">int SSL_Keybord_Key_Released(SDL_Keycode key, SDL_Event event)</div><div class="ttdoc">Gets whether the key is released for a single event. </div><div class="ttdef"><b>Definition:</b> SSL_Keyboard.c:108</div></div>
 <div class="ttc" id="_s_s_l___keyboard_8h_html_adcd519cc96ebec6542a18378dd9d81dd"><div class="ttname"><a href="_s_s_l___keyboard_8h.html#adcd519cc96ebec6542a18378dd9d81dd">SSL_Keybord_Keyname_Down</a></div><div class="ttdeci">int SSL_Keybord_Keyname_Down(char *key)</div><div class="ttdoc">Gets whether the key is down. </div><div class="ttdef"><b>Definition:</b> SSL_Keyboard.c:54</div></div>
 <div class="ttc" id="_s_s_l___keyboard_8h_html_a2f7407265a25a756d337486f2510bd69"><div class="ttname"><a href="_s_s_l___keyboard_8h.html#a2f7407265a25a756d337486f2510bd69">SSL_Keybord_Key_Down</a></div><div class="ttdeci">int SSL_Keybord_Key_Down(SDL_Keycode key)</div><div class="ttdoc">Gets whether the key is down. </div><div class="ttdef"><b>Definition:</b> SSL_Keyboard.c:39</div></div>
+<div class="ttc" id="_s_s_l___keyboard_8h_html_a8e27ffd7394f2f58b00a326957a4a7fd"><div class="ttname"><a href="_s_s_l___keyboard_8h.html#a8e27ffd7394f2f58b00a326957a4a7fd">SSL_Keybord_Keyname_Pressed</a></div><div class="ttdeci">int SSL_Keybord_Keyname_Pressed(char *key, SDL_Event event)</div><div class="ttdoc">Gets whether the key is pressed for a single event. </div><div class="ttdef"><b>Definition:</b> SSL_Keyboard.c:89</div></div>
+<div class="ttc" id="_s_s_l___keyboard_8h_html_add9e5b36e964ed6a3e10e96713547a11"><div class="ttname"><a href="_s_s_l___keyboard_8h.html#add9e5b36e964ed6a3e10e96713547a11">SSL_Keybord_Keyname_Released</a></div><div class="ttdeci">int SSL_Keybord_Keyname_Released(char *key, SDL_Event event)</div><div class="ttdoc">Gets whether the key is released for a single event. </div><div class="ttdef"><b>Definition:</b> SSL_Keyboard.c:127</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b13472e18019b87400b2f61ee9e2a58e.html">SSL</a></li><li class="navelem"><a class="el" href="dir_b3c29109ebbfa0ef6a633431e6dac0de.html">input</a></li><li class="navelem"><a class="el" href="_s_s_l___keyboard_8h.html">SSL_Keyboard.h</a></li>
-    <li class="footer">Generated on Sat Oct 25 2014 00:42:34 for SSL - Simple SDl Library by
+    <li class="footer">Generated on Fri Oct 31 2014 01:01:44 for SSL - Simple SDl Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

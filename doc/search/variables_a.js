@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['n',['n',['../struct__dictionary__.html#a76f11d9a0a47b94f72c2d0e77fb32240',1,'_dictionary_']]],
-  ['next',['next',['../struct___s_s_l___hashmap__.html#a5f7a0b16cf45d5bbf19b54ae5c4d3c2a',1,'_SSL_Hashmap_::next()'],['../struct___s_s_l___list__.html#a0dd53e15e3a0a9eff04c1e80e7f5b6f9',1,'_SSL_List_::next()']]]
+  ['last_5fchild',['last_child',['../structmxml__node__s.html#a7187cb12da7146fa0ff0d8295b94a799',1,'mxml_node_s']]],
+  ['layer',['layer',['../struct___s_s_l___tiled___map__.html#a5354e1e155a07bed76136e84d37c0390',1,'_SSL_Tiled_Map_']]]
 ];

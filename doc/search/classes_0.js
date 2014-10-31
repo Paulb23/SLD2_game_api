@@ -2,6 +2,8 @@ var searchData=
 [
   ['_5fdictionary_5f',['_dictionary_',['../struct__dictionary__.html',1,'']]],
   ['_5felement_5fimage_5finfo',['_Element_Image_Info',['../struct___element___image___info.html',1,'']]],
+  ['_5fmxml_5ffdbuf_5fs',['_mxml_fdbuf_s',['../struct__mxml__fdbuf__s.html',1,'']]],
+  ['_5fmxml_5fglobal_5fs',['_mxml_global_s',['../struct__mxml__global__s.html',1,'']]],
   ['_5fssl_5fbutton_5fstatus_5f',['_SSL_Button_Status_',['../struct___s_s_l___button___status__.html',1,'']]],
   ['_5fssl_5fbutton_5ftext_5finfo_5f',['_SSL_Button_Text_Info_',['../struct___s_s_l___button___text___info__.html',1,'']]],
   ['_5fssl_5fcheck_5fbox_5f',['_SSL_Check_Box_',['../struct___s_s_l___check___box__.html',1,'']]],
@@ -14,6 +16,11 @@ var searchData=
   ['_5fssl_5fimage_5fbutton_5f',['_SSL_Image_Button_',['../struct___s_s_l___image___button__.html',1,'']]],
   ['_5fssl_5finterface_5f',['_SSL_Interface_',['../struct___s_s_l___interface__.html',1,'']]],
   ['_5fssl_5flist_5f',['_SSL_List_',['../struct___s_s_l___list__.html',1,'']]],
+  ['_5fssl_5fmap_5f',['_SSL_MAP_',['../struct___s_s_l___m_a_p__.html',1,'']]],
   ['_5fssl_5ftext_5fbutton_5f',['_SSL_Text_Button_',['../struct___s_s_l___text___button__.html',1,'']]],
+  ['_5fssl_5ftile_5f',['_SSL_Tile_',['../struct___s_s_l___tile__.html',1,'']]],
+  ['_5fssl_5ftiled_5fmap_5f',['_SSL_Tiled_Map_',['../struct___s_s_l___tiled___map__.html',1,'']]],
+  ['_5fssl_5ftileset_5f',['_SSL_Tileset_',['../struct___s_s_l___tileset__.html',1,'']]],
+  ['_5fssl_5ftileset_5finfo_5f',['_SSL_Tileset_Info_',['../struct___s_s_l___tileset___info__.html',1,'']]],
   ['_5fssl_5fwindow_5f',['_SSL_Window_',['../struct___s_s_l___window__.html',1,'']]]
 ];

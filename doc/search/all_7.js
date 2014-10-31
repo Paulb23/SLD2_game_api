@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['hash',['hash',['../struct__dictionary__.html#a94cbe0bcb2d50b793bf7898ff983cf6f',1,'_dictionary_']]],
-  ['hashmap_5fdestroy',['hashmap_destroy',['../_s_s_l___hashmap_8c.html#a15a8dd75ffe8c8742b8795d70f603557',1,'hashmap_destroy(SSL_Hashmap *map):&#160;SSL_Hashmap.c'],['../_s_s_l___hashmap_8h.html#a15a8dd75ffe8c8742b8795d70f603557',1,'hashmap_destroy(SSL_Hashmap *map):&#160;SSL_Hashmap.c']]],
-  ['hashmap_5fremove',['hashmap_remove',['../_s_s_l___hashmap_8c.html#aa4224aa9232bbeb0cca4615ab3764b37',1,'hashmap_remove(SSL_Hashmap *map, void *key):&#160;SSL_Hashmap.c'],['../_s_s_l___hashmap_8h.html#aa4224aa9232bbeb0cca4615ab3764b37',1,'hashmap_remove(SSL_Hashmap *map, void *key):&#160;SSL_Hashmap.c']]],
-  ['hovered',['hovered',['../struct___s_s_l___button___status__.html#a04d9c4c9b283d16ce102b1482fdff900',1,'_SSL_Button_Status_']]],
-  ['hovered_5fframe',['hovered_frame',['../struct___element___image___info.html#af8a5ba21b924c957da4106fe3fcab385',1,'_Element_Image_Info']]]
+  ['getcode',['GetCode',['../_s_s_l___keys_8c.html#af2c30f22f9bcef206f6fa4080a6c1f0e',1,'GetCode(char *key):&#160;SSL_Keys.c'],['../_s_s_l___keys_8h.html#af2c30f22f9bcef206f6fa4080a6c1f0e',1,'GetCode(char *key):&#160;SSL_Keys.c']]],
+  ['gz_5fheader',['gz_header',['../zlib_8h.html#a2c394ffb61e707fba3c6b1a36704b305',1,'zlib.h']]],
+  ['gz_5fheader_5fs',['gz_header_s',['../structgz__header__s.html',1,'']]],
+  ['gz_5fheaderp',['gz_headerp',['../zlib_8h.html#a40e9dcc294796d99b25e98fb06477fc8',1,'zlib.h']]],
+  ['gzfile',['gzFile',['../zlib_8h.html#a8e80bd9e2c359bc5bdabb2e97b4e62bf',1,'zlib.h']]],
+  ['gzfile_5fs',['gzFile_s',['../structgz_file__s.html',1,'']]],
+  ['gzgetc',['gzgetc',['../zlib_8h.html#ac66eb8047c407f8613bc35e440b7b337',1,'zlib.h']]]
 ];
