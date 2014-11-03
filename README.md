@@ -86,4 +86,13 @@ button and check box support
 
 **Tiled .tmx parser**  
 
-Load and draw maps made in tiled using zlib x64 compression
+Load and draw maps made in tiled using zlib x64 compression   
+
+To Do List / Planned Features
+-----------  
+- More advanced .tmx parser  
+- Fix check boxes  
+- Add Textboxes
+- Timing
+- Audio support
+- Demo game
