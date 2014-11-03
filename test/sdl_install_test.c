@@ -9,6 +9,7 @@
  *  Starts and stops everything in sdl
  */
 void sdl_install_test() {
+	printf("\n Starting SDL Install Test ...\n");
 
     //Start SDL
     SDL_Init( SDL_INIT_EVERYTHING );
@@ -19,5 +20,5 @@ void sdl_install_test() {
     //Quit SDL
     SDL_Quit();
 
-	printf("\n sdl install test passed...\n");
+	printf(" SDL install test passed...\n");
 }

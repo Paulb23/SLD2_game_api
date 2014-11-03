@@ -11,12 +11,12 @@
  *  Creates a window with a animated images until the user closes the window
  */
 void keybord_input_test() {
+	printf("\n Starting SSL keyboard input test...\n");
+
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-	SSL_Window *window = SSL_Window_Create("This is the Sdl keyboard input test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, 0, 0, 0);
+	SSL_Window *window = SSL_Window_Create("This is the Sdl keyboard input test", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 200, 200, 0, 0, 0);
 	SSL_Image *image = SSL_Image_Load("../extras/resources/test_image.png", 10, 10, window);
-
-	SSL_Font *font = SSL_Font_Load("../extras/resources/debug.ttf", 65);
 
 	SDL_Event event;
 	int running = 1;
@@ -25,12 +25,17 @@ void keybord_input_test() {
 	int y = 100;
 	int speed = 10;
 
+	printf("\n ************************** \n ");
+	printf("\n *  Can You Move the box? * \n ");
+	printf("\n *  W A S D               * \n ");
+	printf("\n *  UP DOWN LEFT RIGHT    * \n ");
+	printf("\n ************************** \n ");
+
 	while(running) {
 		SDL_PumpEvents();
 		SDL_RenderPresent(window->renderer);
 		SDL_RenderClear( window->renderer );
 
-		SSL_Font_Draw(0, 0, 0, SDL_FLIP_NONE, "Use the arrow or wasd keys to move", font, *SSL_Color_Create(255,255,255,0), window);
 		SSL_Image_Draw(image, x, y, 0, 1, SDL_FLIP_NONE, window);
 
 		if (SSL_Keybord_Keyname_Down("_left") || SSL_Keybord_Key_Down(SDL_SCANCODE_A)) {
@@ -72,7 +77,10 @@ void keybord_input_test() {
 		SDL_Delay(100);
 	}
 
+	SSL_Window_Destroy(window);
+	SSL_Image_Destroy(image);
+
     SDL_Quit();
 
-	printf("\n SDL keyboard input test passed...\n");
+	printf(" SSL keyboard input test passed...\n");
 }

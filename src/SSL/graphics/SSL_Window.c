@@ -123,6 +123,8 @@ int SSL_Window_Destroy(SSL_Window *window) {
 	 */
 	SDL_DestroyWindow(window->window);
 	SDL_DestroyRenderer(window->renderer);
+	free(window->window);
+	free(window->renderer);
 	free(window);
 
 	return 1;

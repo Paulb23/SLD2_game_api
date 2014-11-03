@@ -5,8 +5,9 @@
  *  Prints hello world
  */
 void hello_world() {
-    printf(" Hello World");
-	printf("\n Hello World Passed...\n");
+	printf("\n Starting Hello World tests...\n");
+    printf(" Hello World\n");
+	printf(" Hello World Passed...\n");
 }
 
 

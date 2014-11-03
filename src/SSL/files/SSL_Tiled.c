@@ -187,7 +187,6 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 	int currLayNum = 0;
 	int i, j;
 	while (curr != 0) {
-		(*tiles)[0][0][currLayNum] -= 600;
 		tiles = curr->value;
 
 		for (i = 0; i <map->map->map_width; i++) {
