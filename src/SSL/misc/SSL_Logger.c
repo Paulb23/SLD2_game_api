@@ -13,6 +13,7 @@
                                 Includes
  ---------------------------------------------------------------------------*/
 #include "SSL_Logger.h"
+#include "../SSL_Settings.h"
 
 #include <time.h>
 #include <stdio.h>
@@ -24,8 +25,6 @@
                             Private functions
  ---------------------------------------------------------------------------*/
 
-static int LOGGIN = 1;	 						/**< are we logging  */
-static const char *file_path = "../extras/log.txt";	/**< path to the file */
 
 
 /*!--------------------------------------------------------------------------
@@ -62,7 +61,7 @@ void SSL_Log_Write(const char *text, ...) {
 	if (LOGGIN) {
 
 		/* open the file */
-		FILE *file = fopen(file_path, "ab");
+		FILE *file = fopen($_LOG_FILE_PATH, "ab");
 
 		/* if we could not open the file return */
 		if (file == NULL) {
