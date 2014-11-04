@@ -14,5 +14,6 @@ void mouse_input_test();
 void user_interface_test();
 void list_test();
 void tiled_reader_test();
+void timing_test();
 
 #endif /* TESTS_H_ */

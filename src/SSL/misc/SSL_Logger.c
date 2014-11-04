@@ -61,7 +61,7 @@ void SSL_Log_Write(const char *text, ...) {
 	if (LOGGIN) {
 
 		/* open the file */
-		FILE *file = fopen($_LOG_FILE_PATH, "ab");
+		FILE *file = fopen(LOG_FILE_PATH, "ab");
 
 		/* if we could not open the file return */
 		if (file == NULL) {

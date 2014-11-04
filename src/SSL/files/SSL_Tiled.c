@@ -14,6 +14,7 @@
  ---------------------------------------------------------------------------*/
 
 #include "SSL_Tiled.h"
+#include "../SSL_Settings.h"
 #include "../misc/SSL_Hashmap.h"
 #include "../graphics/SSL_Image.h"
 

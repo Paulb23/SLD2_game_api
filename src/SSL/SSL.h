@@ -22,5 +22,7 @@
 #include "gui/SSL_Interface.h"
 #include "gui/SSL_Button.h"
 
+#include "timing/SSL_Timing.h"
+
 
 #endif /* SDL_GAME_API_H_ */

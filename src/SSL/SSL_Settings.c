@@ -1,34 +1,33 @@
 /*-------------------------------------------------------------------------*/
 /**
-   @file    SSL_Settings.h
+   @file    SSL_List.c
    @author  P. Batty
-   @brief   Settings for the library
+   @brief   Implements a list collection object.
 
-   This module implements setting for the library
-
+   This module implements a simple list object, a structure containing a
+   and data, and a next pointer.
 */
 /*--------------------------------------------------------------------------*/
 
-#ifndef SSL_SETTINGS_H_
-#define SSL_SETTINGS_H_
 
 /*---------------------------------------------------------------------------
                                 Includes
  ---------------------------------------------------------------------------*/
 
+#include "SSL_Settings.h"
 
 
 /*---------------------------------------------------------------------------
-                                New types
+                            Private functions
  ---------------------------------------------------------------------------*/
 
-extern char *RESOURCES_PATH;	/**< Path to resources	  */
-extern char *LOG_FILE_PATH;		/**< path to the log file */
-extern int LOGGIN;				/**< are we logging  	  */
 
 
 /*---------------------------------------------------------------------------
-                            Function prototypes
+                            Function codes
  ---------------------------------------------------------------------------*/
 
-#endif
+
+char *RESOURCES_PATH = "../extras/resources/";
+char *LOG_FILE_PATH = "../extras/log.txt";		/**< path to the log file */
+int LOGGIN = 1;											/**< are we logging  */
