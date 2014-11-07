@@ -6,11 +6,10 @@
 
 void timing_test() {
 	SDL_Init(SDL_INIT_EVERYTHING);
+
 	SSL_Timer_Init();
+	SSL_Timer_Stop();
 
-	while (1) {
-
-	}
 
 	SDL_Quit();
 }

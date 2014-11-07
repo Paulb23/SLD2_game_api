@@ -1,20 +1,19 @@
 /*-------------------------------------------------------------------------*/
 /**
-   @file    SSL_List.c
+   @file    SSL.h
    @author  P. Batty
-   @brief   Implements a list collection object.
+   @brief   Includes all the SSL modules and init function
 
-   This module implements a simple list object, a structure containing a
-   and data, and a next pointer.
+   This module includes all the SSL modules and init function
+
 */
 /*--------------------------------------------------------------------------*/
-
 
 /*---------------------------------------------------------------------------
                                 Includes
  ---------------------------------------------------------------------------*/
 
-#include "SSL_Settings.h"
+#include "SSL.h"
 
 
 /*---------------------------------------------------------------------------
@@ -27,9 +26,17 @@
                             Function codes
  ---------------------------------------------------------------------------*/
 
+/*!--------------------------------------------------------------------------
+  @brief    initialises the library
+  @return 1 on success else 0
 
-char *RESOURCES_PATH = "../extras/resources/";  /**< path to the resorces */
-char *LOG_FILE_PATH = "../extras/log.txt";		/**< path to the log file */
-int LOGGIN = 1;									/**< are we logging  */
+  initialises the library
 
-int MAX_TICKS_PER_SECOND = 60;			 		/**< max ticks per second */
+\-----------------------------------------------------------------------------*/
+int SSL_Init() {
+	if (SSL_Timer_Init() == 0) {
+		return 0;
+	}
+
+	return 1;
+}

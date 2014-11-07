@@ -260,3 +260,19 @@ Mon Nov 03 18:11:34 2014
 : Failed to create image texture! 
 Mon Nov 03 18:13:53 2014
 : Failed to create image texture! 
+Fri Nov 07 19:23:53 2014
+: Failed to create SDL_Window OR SDL_Renderer!
+Fri Nov 07 19:24:04 2014
+: Failed to create SDL_Window OR SDL_Renderer!
+Fri Nov 07 19:24:24 2014
+: Failed to create SDL_Window OR SDL_Renderer!
+Fri Nov 07 19:24:42 2014
+: Failed to create SDL_Window OR SDL_Renderer!
+Fri Nov 07 19:25:06 2014
+: Failed to create SDL_Window OR SDL_Renderer!
+Fri Nov 07 19:25:38 2014
+: Failed to create SDL_Window OR SDL_Renderer!
+Fri Nov 07 19:26:14 2014
+: Failed to create SDL_Window OR SDL_Renderer!
+Fri Nov 07 19:26:37 2014
+: Failed to create SDL_Window OR SDL_Renderer!
