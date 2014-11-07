@@ -88,6 +88,9 @@ button and check box support
 
 Load and draw maps made in tiled using zlib x64 compression   
 
+**Timing**   
+Get fps, ticks per second, delta time,  and uptime
+
 To Do List / Planned Features
 -----------  
 - More advanced .tmx parser  
