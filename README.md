@@ -46,6 +46,9 @@ SDL2 headers and dlls needed
 **ssl_debug_build/**  
 the complied binaries 
 
+**src/**            
+the source files
+
 **test/**            
 unit tests  
 
