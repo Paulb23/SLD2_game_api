@@ -126,7 +126,6 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(char *file, SSL_Window *window) {
 
 					  uLongf outlen = map->map->map_width * map->map->map_height * 4;
 					  uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
-
 					  int k = 0;
 					  int i, j;
 					  for ( i = 0; i < map->map->map_width;i++)
@@ -141,7 +140,6 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(char *file, SSL_Window *window) {
 					 SSL_Hashmap_Add(map->layer, curr_layer, (*tiles));
 					 currLayNum++;
 					 curr_layer = NULL;
-					 free(tiles);
 					 free(tile_map);
 		    	  }
 		      }

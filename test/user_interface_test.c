@@ -23,7 +23,7 @@ static void test1() {
 	printf("\n * Click it               * \n ");
 	printf("\n ************************** \n ");
 
-/*
+
 	while(running) {
 		SDL_PumpEvents();
 		SDL_RenderPresent(window->renderer);
@@ -51,7 +51,7 @@ static void test1() {
 			}
 		}
 	SDL_Delay(10);
-	}*/
+	}
 
 	SSL_Interface_Destroy(interface);
 	SSL_Window_Destroy(window);
@@ -136,7 +136,7 @@ void user_interface_test() {
 	printf("\n Starting SSL user interface Tests...\n");
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-		test1();
+		//test1();
 		test2();
 		test3();
 

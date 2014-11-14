@@ -173,8 +173,7 @@ void interface_draw(SSL_Interface *interface, SSL_Window *window) {
 
 		/* if it is a text button*/
 		if (current_button->button->type == TEXT_BUTTON) {
-				SDL_Color *c;
-				c = (SDL_Color *)SSL_Color_Create(255, 255, 255, 255);
+				SDL_Color *c = SSL_Color_Create(0, 0, 0, 0);
 				SDL_GetRenderDrawColor(window->renderer, &c->r, &c->g, &c->b, &c->a);
 				SDL_SetRenderDrawColor(window->renderer, current_button->button_text_info->background_color->r, current_button->button_text_info->background_color->g, current_button->button_text_info->background_color->b, current_button->button_text_info->background_color->a);
 				SDL_RenderFillRect(window->renderer, &current_button->button->position);

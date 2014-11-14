@@ -28,7 +28,7 @@ void tiled_reader_test() {
 			 }
 		}
 
-	SDL_Delay(10);
+	SDL_Delay(1);
 	}
 	SSL_Tiled_Map_Destroy(map);
 	SDL_Quit();
