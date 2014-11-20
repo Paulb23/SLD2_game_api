@@ -47,7 +47,7 @@ SSL_Hashmap *SSL_Hashmap_Create() {
 	/* Check we allocated memory */
 	if (!map) {
 		SSL_Log_Write("Failed to allocate memory for new Hashmap!");
-		SSL_Hashmap_Destroy(map->map);
+		SSL_Hashmap_Destroy(map);
 		free(map);
 		return 0;
 	}
@@ -56,7 +56,7 @@ SSL_Hashmap *SSL_Hashmap_Create() {
 
 	if (!map->map) {
 		SSL_Log_Write("Failed to allocate memory for new Hashmap!");
-		SSL_Hashmap_Destroy(map->map);
+		SSL_Hashmap_Destroy(map);
 		free(map);
 		return 0;
 	}
