@@ -117,6 +117,6 @@ extern const SDL_Scancode _ralt ;
 
 
 \-----------------------------------------------------------------------------*/
-int GetCode(char *key);
+int GetCode(const char *key);
 
 #endif

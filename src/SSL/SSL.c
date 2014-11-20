@@ -35,6 +35,7 @@
 \-----------------------------------------------------------------------------*/
 int SSL_Init() {
 	if (SSL_Timer_Init() == 0) {
+		SSL_Log_Write("Error Failed to start SSL: SSL Timing! ");
 		return 0;
 	}
 

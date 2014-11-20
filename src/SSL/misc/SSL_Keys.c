@@ -117,7 +117,7 @@ const SDL_Scancode _ralt  = SDL_SCANCODE_RALT;
 
 
 \-----------------------------------------------------------------------------*/
-  int GetCode(char *key) {
+  int GetCode(const char *key) {
 
 	    /* find the key else return -1 */
 	    if (strcmp(&key[0], "_a") == 0) {
