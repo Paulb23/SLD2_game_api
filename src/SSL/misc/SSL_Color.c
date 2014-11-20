@@ -42,24 +42,16 @@
 
 
 \-----------------------------------------------------------------------------*/
-SDL_Color *SSL_Color_Create(int r, int g, int b, int a) {
+SDL_Color SSL_Color_Create(const unsigned char r, const unsigned char g, const unsigned char b, const unsigned char a) {
 
 	/* Allocate memory */
-	SDL_Color *color = malloc(sizeof(SDL_Color));
+	SDL_Color color;
 
-	/* if we could not allocate memory
-	 * Log the error an return 0.
-	 */
-	if (!color) {
-		SSL_Log_Write("Failed to allocate memory, SSL_Rectangle");
-		return 0;
-	}
-
-	/* else fill in the details */
-	color->r = r;
-	color->g = g;
-	color->b = b;
-	color->a = a;
+	/* fill in the details */
+	color.r = r;
+	color.g = g;
+	color.b = b;
+	color.a = a;
 
 	/* return the object  */
 	return color;

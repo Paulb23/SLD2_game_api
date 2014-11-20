@@ -136,7 +136,7 @@ void user_interface_test() {
 	printf("\n Starting SSL user interface Tests...\n");
 	SDL_Init(SDL_INIT_EVERYTHING);
 
-		//test1();
+		test1();
 		test2();
 		test3();
 

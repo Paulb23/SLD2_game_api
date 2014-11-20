@@ -43,7 +43,7 @@ static void test2() {
 		SDL_RenderPresent(window->renderer);
 		SDL_RenderClear( window->renderer );
 
-		SSL_Font_Draw(40, 40, angle, SDL_FLIP_NONE, "Text", font, *SSL_Color_Create(255,255,255,0), window);
+		SSL_Font_Draw(40, 40, angle, SDL_FLIP_NONE, "Text", font, SSL_Color_Create(255,255,255,0), window);
 		angle += 20;
 		if (angle == 360) angle = 0;
 

@@ -96,7 +96,7 @@ typedef struct _SSL_Button_Status_ {
 typedef struct _SSL_Button_Text_Info_ {
 	SSL_Font  *font;					/**< font to draw with */
 	SDL_Color  font_color;				/**< color of the font */
-	SDL_Color *background_color;		/**< color behind the font */
+	SDL_Color  background_color;		/**< color behind the font */
 	char      *text;					/**< text to draw on the button */
 } SSL_Button_Text_Info;
 
@@ -185,7 +185,7 @@ typedef struct _SSL_Check_Box_ {
   If it cannot create the object it will return 0.
 
 \-----------------------------------------------------------------------------*/
-SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text);
+SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_Color font_color, SDL_Color background_color, char *text);
 
 
 /*!--------------------------------------------------------------------------

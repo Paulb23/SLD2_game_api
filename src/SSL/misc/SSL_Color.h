@@ -41,6 +41,6 @@
 
 
 \-----------------------------------------------------------------------------*/
-SDL_Color *SSL_Color_Create(int r, int g, int b, int a);
+SDL_Color SSL_Color_Create(const unsigned char r, const unsigned char g, const unsigned char b, const unsigned char a);
 
-#endif /* SDL_COLOR_H_ */
+#endif

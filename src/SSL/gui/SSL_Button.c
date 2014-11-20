@@ -46,7 +46,7 @@
   If it cannot create the object it will return 0.
 
 \-----------------------------------------------------------------------------*/
-SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_Color *font_color, SDL_Color *background_color, char *text) {
+SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_Color font_color, SDL_Color background_color, char *text) {
 	SSL_Text_Button *button = malloc(sizeof(SSL_Text_Button));
 	button->button = malloc(sizeof(SSL_Element));
 	button->button_status = malloc(sizeof(SSL_Button_Status));
@@ -59,7 +59,7 @@ SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_
 	button->button_status->pressed = 0;
 	button->button_text_info->text = text;
 	button->button_text_info->font = font;
-	button->button_text_info->font_color = *font_color;
+	button->button_text_info->font_color = font_color;
 	button->button_text_info->background_color = background_color;
 
 	return (button) ? button : 0;
