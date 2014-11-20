@@ -70,7 +70,7 @@ static void test_3() {
 	assert(!strcmp(SSL_Hashmap_Get_String(list, "Item 3"),"Item 3"));
 	assert(SSL_Hashmap_Get_Int(list, "Item 3") == atoi("Item 3"));
 	assert(SSL_Hashmap_Get_Float(list, "Item 3") == atof("Item 3"));
-	assert(SSL_Hashmap_Size(list) == 3);
+	assert(SSL_Hashmap_Size(list) == 4);
 
 	/* Destroy list */
 	SSL_Hashmap_Destroy(list);

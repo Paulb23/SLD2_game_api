@@ -178,7 +178,7 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(char *file, SSL_Window *window) {
 
 \-----------------------------------------------------------------------------*/
 void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window) {
-	int (*tiles)[map->map->map_width][map->map->map_height][10];
+/*	int (*tiles)[map->map->map_width][map->map->map_height][10];
 	tiles = map->layer->value;
 	SSL_Tileset_Info *tileset = map->tileset->tilesets->value;
 
@@ -197,7 +197,7 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 		 }
 		currLayNum++;
 		curr = curr->next;
-	}
+	}*/
 }
 
 
@@ -211,9 +211,9 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 \-----------------------------------------------------------------------------*/
 void SSL_Tiled_Map_Destroy(SSL_Tiled_Map *map) {
 	free(map->map);
-	//SSL_Hashmap_Destroy(map->tileset->tiles);
-	//SSL_Hashmap_Destroy(map->tileset->tilesets);
+	SSL_Hashmap_Destroy(map->tileset->tiles);
+	SSL_Hashmap_Destroy(map->tileset->tilesets);
 	free(map->tileset);
-	//SSL_Hashmap_Destroy(map->layer);
+	SSL_Hashmap_Destroy(map->layer);
 	free(map);
 }

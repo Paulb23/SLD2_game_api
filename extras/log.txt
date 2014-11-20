@@ -278,3 +278,5 @@ Fri Nov 07 19:26:37 2014
 : Failed to create SDL_Window OR SDL_Renderer!
 Fri Nov 14 23:17:09 2014
 : Failed to create SDL_Window OR SDL_Renderer!
+Thu Nov 20 17:02:49 2014
+: Failed to allocate memory for new Hashmap!

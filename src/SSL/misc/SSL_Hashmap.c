@@ -47,14 +47,21 @@ SSL_Hashmap *SSL_Hashmap_Create() {
 	/* Check we allocated memory */
 	if (!map) {
 		SSL_Log_Write("Failed to allocate memory for new Hashmap!");
+		SSL_Hashmap_Destroy(map->map);
 		free(map);
 		return 0;
 	}
 
-	/* point to empty */
-	map->key = NULL;
-	map->value = NULL;
-	map->next = 0;
+	map->map = dictionary_new(0);
+
+	if (!map->map) {
+		SSL_Log_Write("Failed to allocate memory for new Hashmap!");
+		SSL_Hashmap_Destroy(map->map);
+		free(map);
+		return 0;
+	}
+
+	map->size = 0;
 
 	/* return hashmap */
 	return map;
@@ -72,49 +79,8 @@ SSL_Hashmap *SSL_Hashmap_Create() {
 
 \-----------------------------------------------------------------------------*/
 void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value) {
-
-	/* if the first element is empty */
-	/* fill in the values and return */
-	if (map->key == NULL) {
-		map->key = key;
-		map->value = value;
-		return;
-	}
-
-	/* allocate memory */
-	SSL_Hashmap *tmp = malloc(sizeof(SSL_Hashmap));
-
-	/* return if failed allocation */
-	if (!tmp) {
-		SSL_Log_Write("Failed to allocate memory for new hashmap element! ");
-		free(tmp);
-		return;
-	}
-
-	/* fill in the data */
-	tmp->key = key;
-	tmp->value = value;
-	tmp->next = 0;
-
-	/* loop until we hit the end of the map */
-	/* or we find the key already exists    */
-	SSL_Hashmap *curr = map;
-	while (curr->next != 0) {
-		if (curr->key == key) {
-			curr->value = value;
-			return;
-		}
-		curr = curr->next;
-	}
-
-	/* check the last element isn't the key */
-	if (curr->key == key) {
-		curr->value = value;
-		return;
-	}
-
-	/* finally we can set the last next to point to the new element */
-	curr->next = tmp;
+	dictionary_set(map->map, key, value);
+	map->size++;
 }
 
 
@@ -128,22 +94,7 @@ void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value) {
 
 \-----------------------------------------------------------------------------*/
 void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key) {
-
-	/* if it is in the first element */
-	if (map->key == key) {
-		return map->value;
-	}
-
-	/* tmp pointer used to loop */
-	SSL_Hashmap *curr = map;
-
-	/* loop until we find the key */
-	while (curr->key != key && curr->next != 0) {
-		curr = curr->next;
-	}
-
-	/* return */
-	return (curr->key == key) ? curr->value : (void *)-1;
+	return dictionary_get(map->map, key, (void *)-1);
 }
 
 
@@ -196,17 +147,7 @@ float SSL_Hashmap_Get_Float(SSL_Hashmap *map,  void *key) {
 
 \-----------------------------------------------------------------------------*/
 int SSL_Hashmap_Size(SSL_Hashmap *map) {
-	int size = 0;
-
-	/* loop until we reach the end */
-	SSL_Hashmap *curr = map;
-	while (curr->next != 0) {
-		size++;
-		curr = curr->next;
-	}
-
-	/* return the size */
-	return size;
+	return map->size;
 }
 
 
@@ -220,25 +161,11 @@ int SSL_Hashmap_Size(SSL_Hashmap *map) {
 
 \-----------------------------------------------------------------------------*/
 void SSL_Hashmap_Remove(SSL_Hashmap *map, void *key) {
+	dictionary_unset(map->map, key);
 
-	/* Previous and next pointer to loop through the map */
-	SSL_Hashmap *pre;
-	SSL_Hashmap *curr = map;
-
-	/* loop until the end or we find the key */
-	while(curr->key != key && curr->next != 0) {
-		pre = curr;
-		curr = curr->next;
+	if (map->size != 0) {
+		map->size--;
 	}
-
-	/* if it does not equal the key we have reached the end */
-	if (curr->key != key) {
-		return;
-	}
-
-	/* else adjust the pointers and return */
-	pre->next = curr->next;
-	free(curr);
 }
 
 
@@ -251,18 +178,5 @@ void SSL_Hashmap_Remove(SSL_Hashmap *map, void *key) {
 
 \-----------------------------------------------------------------------------*/
 void SSL_Hashmap_Destroy(SSL_Hashmap *map) {
-
-	/* Previous and next pointer to loop through the map */
-	SSL_Hashmap *pre;
-	SSL_Hashmap *curr = map;
-
-	/* loop through and free everything */
-	while(curr->next != 0) {
-		free(pre);
-		pre = curr;
-		curr = curr->next;
-	}
-
-	free(pre);
-	free(curr);
+	dictionary_del(map->map);
 }

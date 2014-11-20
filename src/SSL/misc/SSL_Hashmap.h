@@ -17,6 +17,7 @@
                                 Includes
  ---------------------------------------------------------------------------*/
 
+#include "../files/dictionary.h"
 
 
 /*---------------------------------------------------------------------------
@@ -31,9 +32,8 @@
 
 \----------------------------------------------------------------------------*/
 typedef struct _SSL_Hashmap_ {
-	void *key;					/**< unique key */
-	void *value;				/**< value tied to the key */
-	struct _SSL_Hashmap_ *next; /**< next element in the SSL_Hashmap */
+	dictionary *map;
+	int size;
 } SSL_Hashmap;
 
 
