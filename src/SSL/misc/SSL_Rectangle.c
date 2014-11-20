@@ -16,10 +16,6 @@
 #include "../../../lib/SDL2/SDL.h"
 
 #include "SSL_Rectangle.h"
-#include "SSL_Logger.h"
-
-#include <stdlib.h>
-
 
 /*---------------------------------------------------------------------------
                             Private functions
@@ -43,25 +39,6 @@
 
 
 \-----------------------------------------------------------------------------*/
-SDL_Rect *SSL_Rectangle_Create(double x, double y, double w, double h) {
-
-	/* allocate memory */
-	SDL_Rect *rect = malloc(sizeof(SDL_Rect));
-
-	/* if we could not allocate memory
-	 * Log the error an return 0.
-	 */
-	if (!rect) {
-		SSL_Log_Write("Failed to allocate memory, SSL_Rectangle");
-		return 0;
-	}
-
-	/* else fill in the details */
-	rect->x = x;
-	rect->y = y;
-	rect->w = w;
-	rect->h = h;
-
-	/* return the object */
-	return rect;
+SDL_Rect SSL_Rectangle_Create(const int x, const int y, const int w, const int h) {
+	return ( SDL_Rect ) { x, y, w, h };
 }

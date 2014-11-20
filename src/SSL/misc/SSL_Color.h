@@ -34,7 +34,7 @@
   @param    r			  Amount of red 0 - 255.
   @param    g			  Amount of green 0 - 255.
   @param    b			  Amount of blue 0 - 255.
-  @param    a			  Amount of alpha
+  @param    a			  Amount of alpha 0 - 255
   @return 	 A SDL_Color object or 0 if unsuccessful
 
    Creates and returns a SDL_Color Object.

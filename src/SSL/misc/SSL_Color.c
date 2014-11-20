@@ -16,9 +16,7 @@
 #include "../../../lib/SDL2/SDL.h"
 
 #include "SSL_Color.h"
-#include "SSL_Logger.h"
 
-#include <stdlib.h>
 
 /*---------------------------------------------------------------------------
                             Private functions
@@ -43,16 +41,5 @@
 
 \-----------------------------------------------------------------------------*/
 SDL_Color SSL_Color_Create(const unsigned char r, const unsigned char g, const unsigned char b, const unsigned char a) {
-
-	/* Allocate memory */
-	SDL_Color color;
-
-	/* fill in the details */
-	color.r = r;
-	color.g = g;
-	color.b = b;
-	color.a = a;
-
-	/* return the object  */
-	return color;
+	return ( SDL_Color ) { r, g, b, a };
 }

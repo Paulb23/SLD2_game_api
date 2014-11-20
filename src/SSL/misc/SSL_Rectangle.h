@@ -42,6 +42,6 @@
 
 
 \-----------------------------------------------------------------------------*/
-SDL_Rect *SSL_Rectangle_Create(double x, double y, double w, double h);
+SDL_Rect SSL_Rectangle_Create(const int x, const int y, const int w, const int h);
 
 #endif

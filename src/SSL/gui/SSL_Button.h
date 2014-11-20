@@ -185,7 +185,7 @@ typedef struct _SSL_Check_Box_ {
   If it cannot create the object it will return 0.
 
 \-----------------------------------------------------------------------------*/
-SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_Color font_color, SDL_Color background_color, char *text);
+SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect position, SSL_Font *font, SDL_Color font_color, SDL_Color background_color, char *text);
 
 
 /*!--------------------------------------------------------------------------
@@ -203,7 +203,7 @@ SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_
   If it cannot create the object it will return 0.
 
 \-----------------------------------------------------------------------------*/
-SSL_Image_Button *SSL_Image_Button_Create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame);
+SSL_Image_Button *SSL_Image_Button_Create(SDL_Rect position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame);
 
 
 /*!--------------------------------------------------------------------------
@@ -222,7 +222,7 @@ SSL_Image_Button *SSL_Image_Button_Create(SDL_Rect *position, SSL_Image *image, 
   If it cannot create the object it will return 0.
 
 \-----------------------------------------------------------------------------*/
-SSL_Check_box *SSL_Check_Box_Create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame);
+SSL_Check_box *SSL_Check_Box_Create(SDL_Rect position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame);
 
 
 /*!--------------------------------------------------------------------------

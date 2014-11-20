@@ -46,14 +46,14 @@
   If it cannot create the object it will return 0.
 
 \-----------------------------------------------------------------------------*/
-SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_Color font_color, SDL_Color background_color, char *text) {
+SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect position, SSL_Font *font, SDL_Color font_color, SDL_Color background_color, char *text) {
 	SSL_Text_Button *button = malloc(sizeof(SSL_Text_Button));
 	button->button = malloc(sizeof(SSL_Element));
 	button->button_status = malloc(sizeof(SSL_Button_Status));
 	button->button_text_info = malloc(sizeof(SSL_Button_Text_Info));
 
 	button->button->type = TEXT_BUTTON;
-	button->button->position = *position;
+	button->button->position = position;
 	button->button_status->clicked = 0;
 	button->button_status->hovered = 0;
 	button->button_status->pressed = 0;
@@ -81,14 +81,14 @@ SSL_Text_Button *SSL_Text_Button_Create(SDL_Rect *position, SSL_Font *font, SDL_
   If it cannot create the object it will return 0.
 
 \-----------------------------------------------------------------------------*/
-SSL_Image_Button *SSL_Image_Button_Create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame) {
+SSL_Image_Button *SSL_Image_Button_Create(SDL_Rect position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame) {
 	SSL_Image_Button *button = malloc(sizeof(SSL_Image_Button));
 	button->button = malloc(sizeof(SSL_Element));
 	button->button_status = malloc(sizeof(SSL_Button_Status));
 	button->button_image_info = malloc(sizeof(SSL_Element_Image_Info));
 
 	button->button->type = IMAGE_BUTTON;
-	button->button->position = *position;
+	button->button->position = position;
 	button->button_status->clicked = 0;
 	button->button_status->hovered = 0;
 	button->button_status->pressed = 0;
@@ -117,7 +117,7 @@ SSL_Image_Button *SSL_Image_Button_Create(SDL_Rect *position, SSL_Image *image, 
   If it cannot create the object it will return 0.
 
 \-----------------------------------------------------------------------------*/
-SSL_Check_box *SSL_Check_Box_Create(SDL_Rect *position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame) {
+SSL_Check_box *SSL_Check_Box_Create(SDL_Rect position, SSL_Image *image, int default_frame, int hovered_frame, int pressed_frame, int active_frame) {
 	SSL_Check_box *button = malloc(sizeof(SSL_Check_box));
 	button->button = malloc(sizeof(SSL_Element));
 	button->button_status = malloc(sizeof(SSL_Button_Status));
@@ -126,7 +126,7 @@ SSL_Check_box *SSL_Check_Box_Create(SDL_Rect *position, SSL_Image *image, int de
 	button->check_box_image_info = malloc(sizeof(SSL_Check_Box_Image_Info));
 
 	button->button->type = CHECK_BOX;
-	button->button->position = *position;
+	button->button->position = position;
 	button->button_status->clicked = 0;
 	button->button_status->hovered = 0;
 	button->button_status->pressed = 0;
