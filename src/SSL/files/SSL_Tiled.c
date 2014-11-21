@@ -17,6 +17,8 @@
 #include "../SSL_Settings.h"
 #include "../misc/SSL_Hashmap.h"
 #include "../graphics/SSL_Image.h"
+#include "../misc/SSL_List.h"
+#include "../misc/SSL_Logger.h"
 
 #include "../graphics/SSL_Window.h"
 #include <stdlib.h>
@@ -30,7 +32,110 @@
                             Private functions
  ---------------------------------------------------------------------------*/
 
+static SSL_Tiled_Map *SSL_Tiled_Map_Create() {
+	SSL_Tiled_Map *map = malloc(sizeof(SSL_Tiled_Map));
 
+	if (!map) {
+		SSL_Log_Write("Failed to allocate memory for new map!");
+		free(map);
+		return 0;
+	}
+
+	map->map.properties = SSL_Hashmap_Create();
+	map->layers = SSL_List_Create();
+	map->tilesets = SSL_List_Create();
+
+	return map;
+}
+
+static void map_properties_handler(mxml_node_t *node, SSL_Tiled_Map *map) {
+		map->map.version = mxmlElementGetAttr(node, "version");
+		map->map.orientation = mxmlElementGetAttr(node, "orientation");
+		map->map.map_width = atoi(mxmlElementGetAttr(node, "width"));
+		map->map.map_height = atoi(mxmlElementGetAttr(node, "height"));
+		map->map.tile_width = atoi(mxmlElementGetAttr(node, "tilewidth"));
+		map->map.tile_height = atoi(mxmlElementGetAttr(node, "tileheight"));
+		map->map.total_layers = 0;
+
+		// load properties function
+}
+
+static void map_tileset_handeler(mxml_node_t *node, SSL_Tiled_Map *map, SSL_Window *window) {
+		SSL_Tileset *tileset = malloc(sizeof(SSL_Tileset));
+
+		if(!tileset) {
+			SSL_Log_Write("ERROR: Unable to create memory for tileset! ");
+			return;
+		}
+
+		tileset->firstGid = atoi(mxmlElementGetAttr(node, "firstgid"));
+		tileset->name = mxmlElementGetAttr(node, "name");
+		tileset->tile_width = atoi(mxmlElementGetAttr(node, "tilewidth"));
+		tileset->tile_height = atoi(mxmlElementGetAttr(node, "tileheight"));
+		tileset->spacing = atoi(mxmlElementGetAttr(node, "spacing"));
+		tileset->margin = atoi(mxmlElementGetAttr(node, "margin"));
+
+		// TODO: Get size of for allocation
+		char path[9999];
+		sprintf(path, "%s%s", RESOURCES_PATH, mxmlElementGetAttr(node->child->next, "source"));
+		tileset->image =  SSL_Image_Load(path, map->map.tile_width,map->map.tile_height, window);
+
+		tileset->tiles = SSL_List_Create();
+		tileset->properties = SSL_Hashmap_Create();
+
+		//load properties function
+
+		SSL_List_Add(map->tilesets, tileset);
+}
+
+static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
+	SSL_Tile_Layer *layer = malloc(sizeof(SSL_Tile_Layer));
+
+	if(!layer) {
+		SSL_Log_Write("ERROR: Unable to create memory for map layer! ");
+		return;
+	}
+
+	layer->name = mxmlElementGetAttr(node, "name");
+	layer->width = atoi(mxmlElementGetAttr(node, "width"));
+	layer->height = atoi(mxmlElementGetAttr(node, "height"));
+	layer->visible = atoi(mxmlElementGetAttr(node, "visible"));
+	layer->opacity = atoi(mxmlElementGetAttr(node, "opacity"));
+
+	layer->visible = 1;
+
+	mxml_node_t *data;
+	data = mxmlFindElement(node, node, "data", NULL, NULL, MXML_DESCEND);
+
+	//TODO: Get size of allocation
+	char base64DecodeOutput[9999];
+	b64_decode((char *)mxmlGetText(data, 0), base64DecodeOutput);
+
+	int tile_map[map->map.map_width * map->map.map_height];
+
+	 uLongf outlen = map->map.map_width * map->map.map_height * 4;
+	 uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
+
+	layer->data = tile_map;
+
+	layer->properties = SSL_Hashmap_Create();
+
+	// load tile properties
+
+	SSL_List_Add(map->layers, layer);
+	map->map.total_layers++;
+
+	SSL_Tile_Layer *layer_new = SSL_List_Get(map->layers, 1);
+	int *tiles_new;
+	tiles_new = layer_new->data;
+	int i, j;
+	 for ( i = 0; i < map->map.map_width;i++) {
+		 for ( j = 0; j < map->map.map_height;j++) {
+		     printf(" %i ", tiles_new[map->map.map_width * i + j] );
+		 }
+		 printf("\n");
+	}
+}
 
 /*---------------------------------------------------------------------------
                             Function codes
@@ -44,104 +149,47 @@
   @return A SSL_Tiled_Map object
 
   Loads and creates new Tiled map.
-  Destroy with SSL_Tiled_Map_Destroy.	//TODO:Clean up
+  Destroy with SSL_Tiled_Map_Destroy.
 
 \-----------------------------------------------------------------------------*/
-SSL_Tiled_Map *SSL_Tiled_Map_Load(char *file, SSL_Window *window) {
-	SSL_Tiled_Map *map = malloc(sizeof(SSL_Tiled_Map));
-	map->map = malloc(sizeof(SSL_Map));
-	map->tileset = malloc(sizeof(SSL_Tileset));
-	map->tileset->tilesets = SSL_Hashmap_Create();
-	map->tileset->tiles = SSL_Hashmap_Create();
+SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file,  SSL_Window *window) {
 
-	FILE *fp;
-	mxml_node_t *tree, *node;
-
-	fp = fopen(file, "r");
-	if (fp == NULL) {
-		printf("What!");
+	/* create the map */
+	SSL_Tiled_Map *map = SSL_Tiled_Map_Create();
+	if(map == 0) {
+		return 0;
 	}
+
+	/* open the file */
+	FILE *fp = fopen(file, "r");
+	if (fp == NULL) {
+		SSL_Log_Write("Failed to find file!");
+		SSL_Tiled_Map_Destroy(map);
+		return 0;
+	}
+
+	mxml_node_t *tree, *node;
 	tree = mxmlLoadFile(NULL, fp, MXML_TEXT_CALLBACK );
 	fclose(fp);
 
 	if (!tree) {
-		printf("Hey!");
+		SSL_Log_Write("Failed to find file!");
+		SSL_Tiled_Map_Destroy(map);
+		return 0;
 	}
+
+	/* load the map properties */
 	node = mxmlFindElement(tree, tree, "map", NULL, NULL, MXML_DESCEND);
-	map->map->version = mxmlElementGetAttr(node, "version");
-	map->map->orientation = mxmlElementGetAttr(node, "orientation");
-	map->map->map_width = atoi(mxmlElementGetAttr(node, "width"));
-	map->map->map_height = atoi(mxmlElementGetAttr(node, "height"));
-	map->map->tile_width = atoi(mxmlElementGetAttr(node, "tilewidth"));
-	map->map->tile_height = atoi(mxmlElementGetAttr(node, "tileheight"));
-	map->layer = SSL_Hashmap_Create();
+	map_properties_handler(node, map);
 	tree = node;
 
-	node = mxmlFindElement(node, tree, "tileset", NULL, NULL, MXML_DESCEND);
-
-
-	SSL_Tileset_Info *curr_tileset;
-	SSL_Tile *curr_tile;
-	char *curr_layer;
-	int currLayNum = 0;
 	while (node != NULL) {
-
 		if ( mxmlGetType(node) == MXML_ELEMENT) {
 
-		      if (!strcmp(node->value.element.name, "tileset")) {
-		  		SSL_Tileset_Info *tileset = malloc(sizeof(SSL_Tileset_Info));
-
-		  		tileset->firstGid = mxmlElementGetAttr(node, "firstgid");
-		  		tileset->name = mxmlElementGetAttr(node, "name");
-		  		tileset->tile_width = atoi(mxmlElementGetAttr(node, "tilewidth"));
-		  		tileset->tile_height = atoi(mxmlElementGetAttr(node, "tileheight"));
-		  		tileset->spacing = atoi(mxmlElementGetAttr(node, "spacing"));
-		  		tileset->margin = atoi(mxmlElementGetAttr(node, "margin"));
-
-		  		SSL_Hashmap_Add(map->tileset->tilesets, tileset->firstGid, tileset);
-
-		  		curr_tileset = tileset;
-		  		curr_tile = NULL;
-		      } else if (!strcmp(node->value.element.name, "image")) {
-			  		curr_tileset->image = SSL_Image_Load(mxmlElementGetAttr(node, "source"), map->map->tile_width,map->map->tile_height, window);
-		      } else if (!strcmp(node->value.element.name, "tile")) {
-		    	  SSL_Tile *tile = malloc(sizeof(SSL_Tile));
-
-		    	  tile->id = atoi(mxmlElementGetAttr(node, "id"));
-		    	  tile->properties = SSL_Hashmap_Create();
-
-		    	  curr_tile = tile;
-		      } else if (!strcmp(node->value.element.name, "property") && curr_tile != NULL) {
-		    	  SSL_Hashmap_Add(curr_tile->properties, mxmlElementGetAttr(node, "name"), mxmlElementGetAttr(node, "value"));
+			 if (!strcmp(node->value.element.name, "tileset")) {
+				 map_tileset_handeler(node, map, window);
 		      } else if (!strcmp(node->value.element.name, "layer")) {
-		    	  curr_layer =  mxmlElementGetAttr(node, "name");
-		      } else if (!strcmp(node->value.element.name, "data") && curr_layer != NULL) {
-		    	  if (SSL_Hashmap_Get(map->layer, curr_layer) == (void *)-1) {
-
-					  char base64DecodeOutput[9999];
-					  b64_decode((char *)mxmlGetText(node, 0), base64DecodeOutput);
-
-					  int tile_map[map->map->map_width * map->map->map_height];
-					  int (*tiles)[map->map->map_width][map->map->map_height][10] = malloc (sizeof(map->map->map_width*map->map->map_height));
-
-					  uLongf outlen = map->map->map_width * map->map->map_height * 4;
-					  uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
-					  int k = 0;
-					  int i, j;
-					  for ( i = 0; i < map->map->map_width;i++)
-					  {
-						  for ( j = 0; j < map->map->map_height;j++)
-						  {
-							  (*tiles)[i][j][currLayNum] = tile_map[k];
-							  k++;
-						  }
-					  }
-
-					 SSL_Hashmap_Add(map->layer, curr_layer, (*tiles));
-					 currLayNum++;
-					 curr_layer = NULL;
-					 free(tile_map);
-		    	  }
+			 	  map_tile_layer_handeler(node, map);
 		      }
 		}
 		mxml_node_t* next = mxmlGetFirstChild(node);
@@ -162,6 +210,7 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(char *file, SSL_Window *window) {
 			}
 		}
 	}
+
 	return map;
 }
 
@@ -178,26 +227,44 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(char *file, SSL_Window *window) {
 
 \-----------------------------------------------------------------------------*/
 void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window) {
-/*	int (*tiles)[map->map->map_width][map->map->map_height][10];
-	tiles = map->layer->value;
-	SSL_Tileset_Info *tileset = map->tileset->tilesets->value;
 
-	SSL_Hashmap * curr = map->layer;
-	int currLayNum = 0;
+	int layer = 1;
+	int (*tiles)[map->map.map_width][map->map.map_height];
+
 	int i, j;
-	while (curr != 0) {
-		tiles = curr->value;
+	while (layer <= map->map.total_layers) {
+		SSL_Tile_Layer *tile_layer = SSL_List_Get(map->layers, layer);
 
-		for (i = 0; i <map->map->map_width; i++) {
-		  for (j = 0; j <map->map->map_height; j++) {
-			  	if ((*tiles)[j][i][currLayNum] != 0) {
-			  		SSL_Image_Draw(tileset->image, i * map->map->tile_width + xOffset, j*map->map->tile_height +yOffset,0,(*tiles)[j][i][currLayNum],SDL_FLIP_NONE, window);
-			  	}
+		if (tile_layer->visible != 0) {
+
+			tiles = tile_layer->data;
+			for (i = 0; i < map->map.map_width; i++) {
+				for (j = 0; j < map->map.map_height; j++) {
+					if ((*tiles)[j][i] != 0) {
+
+						 SSL_Tileset *tileset;
+						 int k;
+						 for (k = 1; k <= SSL_List_Size(map->tilesets); k++) {
+							 tileset = SSL_List_Get(map->tilesets, k+1);
+							 if ((*tiles)[j][i] < tileset->firstGid) {
+								 tileset = SSL_List_Get(map->tilesets, k);
+								 break;
+							 }
+						 }
+						 int frame = 1;
+
+						 if (k != 1) {
+							 frame = (*tiles)[j][i] - tileset->firstGid;
+						 } else {
+							 frame = (*tiles)[j][i];
+						 }
+						 SSL_Image_Draw(tileset->image, i * map->map.tile_width + xOffset, j*map->map.tile_height + yOffset,0,frame ,SDL_FLIP_NONE, window);
+					}
+				}
 			}
-		 }
-		currLayNum++;
-		curr = curr->next;
-	}*/
+		}
+		layer++;
+	}
 }
 
 
@@ -210,10 +277,7 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 
 \-----------------------------------------------------------------------------*/
 void SSL_Tiled_Map_Destroy(SSL_Tiled_Map *map) {
-	free(map->map);
-	SSL_Hashmap_Destroy(map->tileset->tiles);
-	SSL_Hashmap_Destroy(map->tileset->tilesets);
-	free(map->tileset);
-	SSL_Hashmap_Destroy(map->layer);
-	free(map);
+	SSL_Hashmap_Destroy(map->map.properties);
+	SSL_List_Destroy(map->layers);
+	SSL_List_Destroy(map->tilesets);
 }

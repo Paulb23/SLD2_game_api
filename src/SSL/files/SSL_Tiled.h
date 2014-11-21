@@ -18,6 +18,7 @@
 
 
 #include "../misc/SSL_Hashmap.h"
+#include "../misc/SSL_List.h"
 #include "../graphics/SSL_Image.h"
 
 
@@ -33,25 +34,32 @@
 
 \----------------------------------------------------------------------------*/
 typedef struct _SSL_MAP_ {
-	const char *version;		/**< Map version 	 	 */
-	const char *orientation;	/**< Map orientation	 */
-	int map_width;			    /**< Map width in tiles  */
-	int map_height;				/**< Map height in tiles */
-	int tile_width;				/**< Tile width			 */
-	int tile_height;			/**< Tile height		 */
+	char *version;						/**< Map version 	 	 	*/
+	char *orientation;		   			/**< Map orientation	 	*/
+	unsigned int map_width;	   			/**< Map width in tiles  	*/
+	unsigned int map_height;			/**< Map height in tiles 	*/
+	unsigned int tile_width;			/**< Tile width			 	*/
+	unsigned int tile_height;			/**< Tile height		 	*/
+	unsigned int total_layers;			/**< Total number of layers */
+	SSL_Hashmap *properties;			/**< The map properties 	*/
 } SSL_Map;
 
 
 /*!--------------------------------------------------------------------------
-  @brief    SSL_Tileset
+  @brief    SSL_Tile_Layer
 
-  This object contains lists of the tiles and tilesets in the map
+  This object contains information about each layer
 
 \----------------------------------------------------------------------------*/
-typedef struct _SSL_Tileset_ {
-	SSL_Hashmap *tilesets;			/**< The list of tilesets */
-	SSL_Hashmap *tiles;				/**< The list of tiles */
-} SSL_Tileset;
+typedef struct _SSL_Tile_Layer_ {
+	char *name;
+	unsigned int width;
+	unsigned int height;
+	float opacity;
+	char visible;
+	int *data;
+	SSL_Hashmap *properties;
+} SSL_Tile_Layer;
 
 
 /*!--------------------------------------------------------------------------
@@ -60,15 +68,17 @@ typedef struct _SSL_Tileset_ {
   This object contains information about the tilesets.
 
 \----------------------------------------------------------------------------*/
-typedef struct _SSL_Tileset_Info_ {
-	const char  *firstGid;			/**< The id  	      */
-	const char *name;				/**< The name 	      */
-	int  tile_width;				/**< the tile width   */
-	int  tile_height;				/**< the tile height  */
-	int  spacing;				    /**< the tile spacing */
-	int  margin;					/**< the tile margin  */
-	SSL_Image *image;				/**< the tile image   */
-} SSL_Tileset_Info;
+typedef struct _SSL_Tileset_ {
+	unsigned int firstGid;		/**< The id  	      */
+	char *name;					/**< The name 	      */
+	unsigned int tile_width;	/**< the tile width   */
+	unsigned int tile_height;	/**< the tile height  */
+	unsigned int spacing;		/**< the tile spacing */
+	unsigned int margin;		/**< the tile margin  */
+	SSL_Image *image;			/**< the tile image   */
+	SSL_Hashmap *properties;	/**< the properties   */
+	SSL_List *tiles;			/**< the tiles on set */
+} SSL_Tileset;
 
 
 /*!--------------------------------------------------------------------------
@@ -78,7 +88,8 @@ typedef struct _SSL_Tileset_Info_ {
 
 \----------------------------------------------------------------------------*/
 typedef struct _SSL_Tile_ {
-	int id;						/**< The id  	      				*/
+	unsigned int id;			/**< The id  	      			   */
+	SSL_Image *image;			/**< the image containing the tile */
 	SSL_Hashmap *properties;	/**< The properties on this tile   */
 } SSL_Tile;
 
@@ -93,9 +104,9 @@ typedef struct _SSL_Tile_ {
 
 \----------------------------------------------------------------------------*/
 typedef struct _SSL_Tiled_Map_ {
-	SSL_Map	    *map;				/**<  The map information */
-	SSL_Tileset *tileset;			/**<  The tileset */
-	SSL_Hashmap *layer;				/**<  The layers */
+	SSL_Map	 map;					/**<  The map information */
+	SSL_List *tilesets;				/**<  The tilesets */
+	SSL_List *layers;				/**<  The layers */
 } SSL_Tiled_Map;
 
 
@@ -113,7 +124,7 @@ typedef struct _SSL_Tiled_Map_ {
   Destroy with SSL_Tiled_Map_Destroy.
 
 \-----------------------------------------------------------------------------*/
-SSL_Tiled_Map *SSL_Tiled_Map_Load(char *file, SSL_Window *window);
+SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file, SSL_Window *window);
 
 
 /*!--------------------------------------------------------------------------

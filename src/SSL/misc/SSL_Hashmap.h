@@ -64,7 +64,7 @@ SSL_Hashmap *SSL_Hashmap_Create();
   Adds the data passed in to the key inside the SSL_Hashmap
 
 \-----------------------------------------------------------------------------*/
-void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value);
+void SSL_Hashmap_Add(SSL_Hashmap *map, const void *key, const void *value);
 
 
 /*!--------------------------------------------------------------------------
@@ -76,7 +76,7 @@ void SSL_Hashmap_Add(SSL_Hashmap *map, void *key, void *value);
   Returns the value at the given location. NOTE: DOES NOTE CAST TO A TYPE.
 
 \-----------------------------------------------------------------------------*/
-void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key);
+void *SSL_Hashmap_Get(SSL_Hashmap *map, const void *key);
 
 /*!--------------------------------------------------------------------------
   @brief    Gets a string element in the hashmap
@@ -87,7 +87,7 @@ void *SSL_Hashmap_Get(SSL_Hashmap *map, void *key);
   Returns the data at the given location. as a string.
 
 \-----------------------------------------------------------------------------*/
-char *SSL_Hashmap_Get_String(SSL_Hashmap *map,  void *key);
+char *SSL_Hashmap_Get_String(SSL_Hashmap *map, const void *key);
 
 /*!--------------------------------------------------------------------------
   @brief    Gets a int element in the hashmap
@@ -98,7 +98,7 @@ char *SSL_Hashmap_Get_String(SSL_Hashmap *map,  void *key);
   Returns the data at the given location. as a int.
 
 \-----------------------------------------------------------------------------*/
-int SSL_Hashmap_Get_Int(SSL_Hashmap *map,  void *key);
+int SSL_Hashmap_Get_Int(SSL_Hashmap *map, const void *key);
 
 /*!--------------------------------------------------------------------------
   @brief    Gets a float element in the hashmap
@@ -109,7 +109,7 @@ int SSL_Hashmap_Get_Int(SSL_Hashmap *map,  void *key);
   Returns the data at the given location. as a float.
 
 \-----------------------------------------------------------------------------*/
-float SSL_Hashmap_Get_Float(SSL_Hashmap *map,  void *key);
+float SSL_Hashmap_Get_Float(SSL_Hashmap *map, const void *key);
 
 
 /*!--------------------------------------------------------------------------
@@ -132,7 +132,7 @@ int SSL_Hashmap_Size(SSL_Hashmap *map);
   remove the value in the SSL_Hashmap.
 
 \-----------------------------------------------------------------------------*/
-void SSL_Hashmap_Remove(SSL_Hashmap *map, void *key);
+void SSL_Hashmap_Remove(SSL_Hashmap *map, const void *key);
 
 
 /*!--------------------------------------------------------------------------

@@ -98,7 +98,7 @@ mxmlElementDeleteAttr(mxml_node_t *node,/* I - Element */
  * named attribute does not exist.
  */
 
-const char *				/* O - Attribute value or NULL */
+char *				/* O - Attribute value or NULL */
 mxmlElementGetAttr(mxml_node_t *node,	/* I - Element node */
                    const char  *name)	/* I - Name of attribute */
 {

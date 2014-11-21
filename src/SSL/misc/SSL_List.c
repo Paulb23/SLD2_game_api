@@ -51,7 +51,7 @@ SSL_List *SSL_List_Create() {
 	}
 
 	/* point to empty */
-	list->data = NULL;
+	list->data = 0;
 	list->next = 0;
 
 	/* return list */
@@ -70,35 +70,19 @@ SSL_List *SSL_List_Create() {
 \-----------------------------------------------------------------------------*/
 void SSL_List_Add(SSL_List *list, void *data) {
 
-	/* check the first one has been allocated */
-	/* else we can set the first element */
-	if (list->data != NULL) {
-		list->data = data;
-		return;
-	}
+	/* loop until we hit the end of the list */
+	while((int)(list->next) != 0 ) list = list->next;
 
 	/* allocate memory */
-	SSL_List *tmp = malloc(sizeof(SSL_List));
+	SSL_List *tmp = SSL_List_Create();
+	tmp->data = malloc(sizeof(data));
 
-	/* if allocation failed return */
-	if (!tmp) {
-		SSL_Log_Write("Failed to allocate memory for new List element! ");
-		free(tmp);
-		return;
-	}
-
-	/* else fill in the data */
+	/* fill in the data */
 	tmp->data = data;
 	tmp->next = 0;
 
-	/* loop until we hit the end of the list */
-	SSL_List *curr = list;
-	while (curr->next != 0) {
-		curr = curr->next;
-	}
-
 	/* finally we can set the last next to point to the new element */
-	curr->next = tmp;
+	list->next = tmp;
 }
 
 
@@ -137,24 +121,15 @@ int SSL_List_Get_Pos(SSL_List *list, void *data) {
 \-----------------------------------------------------------------------------*/
 void *SSL_List_Get(SSL_List *list, int pos) {
 
-	/* check they don't want the first element  */
-	if (pos == 0) {
-		return list->data;
-	}
-
-	/* else */
-	/* tmp pointer used to loop */
-	SSL_List *curr = list;
-
 	/* loop until we find the pos */
 	int i = 0;
-	while (i < pos && curr->next != 0) {
-		curr = curr->next;
+	while (i < pos && (int)(list->next) != 0) {
+		list = list->next;
 		i++;
 	}
 
 	/* return */
-	return (i == pos) ? curr->data : (void *)-1;
+	return (i == pos) ? list->data : (void *)-1;
 }
 
 
@@ -211,11 +186,10 @@ float SSL_List_Get_Float(SSL_List *list, int pos) {
 int SSL_List_Size(SSL_List *list) {
 	int size = 0;
 
-	/* loop until we reach the end */
-	SSL_List *curr = list;
-	while (curr->next != 0) {
+	/* loop until we reach the end */;
+	while ((int)(list->next) != 0) {
+		list = list->next;
 		size++;
-		curr = curr->next;
 	}
 
 	/* return the size */

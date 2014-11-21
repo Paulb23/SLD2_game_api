@@ -1,16 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="16" height="16" tilewidth="16" tileheight="16">
+ <properties>
+  <property name="cat" value="dog"/>
+  <property name="foo" value="bar"/>
+ </properties>
  <tileset firstgid="1" name="test_image" tilewidth="16" tileheight="16">
-  <image source="../extras/resources/test_image.png" width="200" height="200"/>
+  <image source="test_image.png" width="200" height="200"/>
+  <tile id="0">
+   <properties>
+    <property name="foo" value="bar"/>
+   </properties>
+  </tile>
+  <tile id="49">
+   <properties>
+    <property name="cat" value="dog"/>
+    <property name="foo" value="bar"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="145" name="check_box" tilewidth="16" tileheight="16">
+  <image source="check_box.png" width="150" height="50"/>
+  <tile id="0">
+   <properties>
+    <property name="cat" value="dog"/>
+    <property name="foo" value="bar"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="map" width="16" height="16">
+  <properties>
+   <property name="cat" value="dog"/>
+   <property name="foo" value="bar"/>
+  </properties>
   <data encoding="base64" compression="zlib">
-   eJwrZGBgcKQQR5KJkfXnIOFIItg5WOzPIYKNzCekH5v9pOjHZict7ack/AeDfgs0Gl0cxoZhZP3oeomhidVvgYNPif3UDD9KMAAyMVIv
+   eJwrZGBgcKQQR5KJkfXnIOFIItg5WOzPIYKNzCekH5v9pOjHZict7ack/GmhfyKJ+i2Q6IlI+i2QzLNAwsj6LYigJ6LxidVvgaafGvZTM/wpwQAAT1O3
   </data>
  </layer>
  <layer name="wall" width="16" height="16">
   <data encoding="base64" compression="zlib">
    eJwzYRgFIx04oWE7LGK4MAj4YTHTD4s4NnWjYGABABCuBUc=
+  </data>
+ </layer>
+ <layer name="collision" width="16" height="16">
+  <data encoding="base64" compression="zlib">
+   eJzLYWBgyKEQkwtG9Y/qH9VPuX5KMADZjhlR
   </data>
  </layer>
 </map>
