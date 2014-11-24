@@ -3,3 +3,6 @@
 /extras/resources
 /conf
 /lib
+/.settings
+/.cproject
+/.project
