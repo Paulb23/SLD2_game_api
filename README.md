@@ -8,19 +8,14 @@ Supports windows only at the monment.
  
 Installation
 -----------
-Simply download, and import the project into C/C++ eclipse.   
-Or Copy the src/SSL folder into your workspace.
-All the DLL's can be found under lib/dll's  
+Simply download or fork the repo and include SSL/SSL.h
+Make sure to call SSL_Init() before using the libary
 
 **Libaries needed**  
 *SDL2    
 *SDL Image  
 *SDL TTF    
 *SDL Mixer  
-*ZLib   
-*Mini XML   
-
-All of them are contained inside this repo either under /lib or inside src/SSL.
 
 Documentation
 -----------
@@ -28,29 +23,15 @@ Documentation can be found under doc/ and will open in any browser.
 
 File System
 -----------
-**.settings/**       
-eclipse project settings  
-
-**conf/**            
-Testing config files  
 
 **doc/**             
 documentation  
 
 **extras/**          
-images ect  
+the error log file
 
-**lib/**             
-SDL2 headers and dlls needed  
-
-**ssl_debug_build/**  
-the complied binaries 
-
-**src/**            
-the source files
-
-**test/**            
-unit tests  
+**src/SSL**            
+the source files   
 
 Features
 -----------
