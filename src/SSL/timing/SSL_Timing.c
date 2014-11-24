@@ -13,7 +13,7 @@
                                 Includes
  ---------------------------------------------------------------------------*/
 
-#include "../../../lib/SDL2/SDL.h"
+#include "SDL2/SDL.h"
 #include "../misc/SSL_Logger.h"
 #include "../SSL_Settings.h"
 #include <time.h>

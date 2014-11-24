@@ -17,7 +17,7 @@
                                 Includes
  ---------------------------------------------------------------------------*/
 
-#include "../../../lib/SDL2/SDL.h"
+#include "SDL2/SDL.h"
 #include "SSL_Window.h"
 
 

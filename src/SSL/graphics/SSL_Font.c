@@ -17,8 +17,8 @@
 #include "SSL_Font.h"
 #include "../misc/SSL_Logger.h"
 
-#include "../../../lib/SDL2/SDL.h"
-#include "../../../lib/SDL2/SDL_ttf.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_ttf.h"
 
 #include <stdlib.h>
 

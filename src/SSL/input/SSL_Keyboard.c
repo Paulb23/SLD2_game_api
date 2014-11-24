@@ -15,7 +15,7 @@
 #include "SSL_Keyboard.h"
 #include "../misc/SSL_Keys.h"
 
-#include "../../../lib/SDL2/SDL.h"
+#include "SDL2/SDL.h"
 
 
 /*---------------------------------------------------------------------------

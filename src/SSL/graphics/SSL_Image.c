@@ -13,8 +13,8 @@
                                 Includes
  ---------------------------------------------------------------------------*/
 
-#include "../../../lib/SDL2/SDL.h"
-#include "../../../lib/SDL2/SDL_image.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_image.h"
 
 #include "SSL_Image.h"
 #include "SSL_window.h"

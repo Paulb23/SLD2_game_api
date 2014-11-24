@@ -15,7 +15,7 @@
 
 #include "SSL_Button.h"
 #include "../misc/SSL_Logger.h"
-#include "../../../lib/SDL2/SDL.h"
+#include "SDL2/SDL.h"
 #include "../misc/SSL_Color.h"
 
 #include <stdlib.h>
