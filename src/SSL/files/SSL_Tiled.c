@@ -19,6 +19,7 @@
 #include "../graphics/SSL_Image.h"
 #include "../misc/SSL_List.h"
 #include "../misc/SSL_Logger.h"
+#include "../misc/SSL_String.h"
 
 #include "../graphics/SSL_Window.h"
 #include <stdlib.h>
@@ -137,24 +138,6 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 	}
 }
 
-static char *substr(const char *str, int start, int end) {
-  if (0 > start) return NULL;
-  int len = strlen(str);
-  // -1 == length of string
-  if (-1 == end) end = len;
-  if (end <= start) return NULL;
-  int diff = end - start;
-  if (len == diff) return strdup(str);
-  if (len < start) return NULL;
-  if (len + 1 < end) return NULL;
-
-  char *res = malloc(sizeof(char) * diff + 1);
-  if (NULL == res) return NULL;
-  memset(res, '\0', diff + 1);
-  strncpy(res, str + start, diff);
-  return res;
-}
-
 
 /*---------------------------------------------------------------------------
                             Function codes
@@ -197,17 +180,6 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file,  SSL_Window *window) {
 		return 0;
 	}
 
-	int i = 0;
-	int index = 0;
-	char *str;
-	for (str = file; *str != '\0'; str++) {
-		if (*str == '/' || *str == '\\') {
-			index = i;
-			index++;
-		}
-		i++;
-	}
-
 	/* load the map properties */
 	node = mxmlFindElement(tree, tree, "map", NULL, NULL, MXML_DESCEND);
 	map_properties_handler(node, map);
@@ -217,7 +189,7 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file,  SSL_Window *window) {
 		if ( mxmlGetType(node) == MXML_ELEMENT) {
 
 			 if (!strcmp(node->value.element.name, "tileset")) {
-				 map_tileset_handeler(node, map, substr(file, 0, index), window);
+				 map_tileset_handeler(node, map, SSL_String_Substring(file, 0, SSL_String_Last_Index_Of(file, "/")), window);
 		      } else if (!strcmp(node->value.element.name, "layer")) {
 			 	  map_tile_layer_handeler(node, map);
 		      }
