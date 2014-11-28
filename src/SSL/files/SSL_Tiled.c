@@ -60,7 +60,7 @@ static void map_properties_handler(mxml_node_t *node, SSL_Tiled_Map *map) {
 		// load properties function
 }
 
-static void map_tileset_handeler(mxml_node_t *node, SSL_Tiled_Map *map, SSL_Window *window) {
+static void map_tileset_handeler(mxml_node_t *node, SSL_Tiled_Map *map, char *filePath, SSL_Window *window) {
 		SSL_Tileset *tileset = malloc(sizeof(SSL_Tileset));
 
 		if(!tileset) {
@@ -77,7 +77,7 @@ static void map_tileset_handeler(mxml_node_t *node, SSL_Tiled_Map *map, SSL_Wind
 
 		// TODO: Get size of for allocation
 		char path[9999];
-		sprintf(path, "%s%s", RESOURCES_PATH, mxmlElementGetAttr(node->child->next, "source"));
+		sprintf(path, "%s%s", filePath, mxmlElementGetAttr(node->child->next, "source"));
 		tileset->image =  SSL_Image_Load(path, map->map.tile_width,map->map.tile_height, window);
 
 		tileset->tiles = SSL_List_Create();
@@ -137,6 +137,25 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 	}
 }
 
+static char *substr(const char *str, int start, int end) {
+  if (0 > start) return NULL;
+  int len = strlen(str);
+  // -1 == length of string
+  if (-1 == end) end = len;
+  if (end <= start) return NULL;
+  int diff = end - start;
+  if (len == diff) return strdup(str);
+  if (len < start) return NULL;
+  if (len + 1 < end) return NULL;
+
+  char *res = malloc(sizeof(char) * diff + 1);
+  if (NULL == res) return NULL;
+  memset(res, '\0', diff + 1);
+  strncpy(res, str + start, diff);
+  return res;
+}
+
+
 /*---------------------------------------------------------------------------
                             Function codes
  ---------------------------------------------------------------------------*/
@@ -178,6 +197,17 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file,  SSL_Window *window) {
 		return 0;
 	}
 
+	int i = 0;
+	int index = 0;
+	char *str;
+	for (str = file; *str != '\0'; str++) {
+		if (*str == '/' || *str == '\\') {
+			index = i;
+			index++;
+		}
+		i++;
+	}
+
 	/* load the map properties */
 	node = mxmlFindElement(tree, tree, "map", NULL, NULL, MXML_DESCEND);
 	map_properties_handler(node, map);
@@ -187,7 +217,7 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file,  SSL_Window *window) {
 		if ( mxmlGetType(node) == MXML_ELEMENT) {
 
 			 if (!strcmp(node->value.element.name, "tileset")) {
-				 map_tileset_handeler(node, map, window);
+				 map_tileset_handeler(node, map, substr(file, 0, index), window);
 		      } else if (!strcmp(node->value.element.name, "layer")) {
 			 	  map_tile_layer_handeler(node, map);
 		      }
