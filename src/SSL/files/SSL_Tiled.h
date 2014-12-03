@@ -17,8 +17,8 @@
  ---------------------------------------------------------------------------*/
 
 
-#include "../misc/SSL_Hashmap.h"
-#include "../misc/SSL_List.h"
+#include "../data_structures/SSL_Hashmap.h"
+#include "../data_structures/SSL_List.h"
 #include "../graphics/SSL_Image.h"
 
 

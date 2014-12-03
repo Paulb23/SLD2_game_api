@@ -15,9 +15,9 @@
 
 #include "SSL_Tiled.h"
 #include "../SSL_Settings.h"
-#include "../misc/SSL_Hashmap.h"
+#include "../data_structures/SSL_Hashmap.h"
 #include "../graphics/SSL_Image.h"
-#include "../misc/SSL_List.h"
+#include "../data_structures/SSL_List.h"
 #include "../misc/SSL_Logger.h"
 #include "../misc/SSL_String.h"
 
@@ -25,7 +25,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "mxml/mxml.h"
-#include "base64.h"
+#include "../misc/base64.h"
 #include "zlib.h"
 #include "zconf.h"
 
