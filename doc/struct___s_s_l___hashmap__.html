@@ -117,12 +117,10 @@ $(document).ready(function(){initNavTree('struct___s_s_l___hashmap__.html','');}
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ab5c000aec752f2206131e183daf5efbf"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___hashmap__.html#ab5c000aec752f2206131e183daf5efbf">key</a></td></tr>
-<tr class="separator:ab5c000aec752f2206131e183daf5efbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f61d63b009d0880a89c843bd50d8d76"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___hashmap__.html#a0f61d63b009d0880a89c843bd50d8d76">value</a></td></tr>
-<tr class="separator:a0f61d63b009d0880a89c843bd50d8d76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f7a0b16cf45d5bbf19b54ae5c4d3c2a"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="struct___s_s_l___hashmap__.html">_SSL_Hashmap_</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___hashmap__.html#a5f7a0b16cf45d5bbf19b54ae5c4d3c2a">next</a></td></tr>
-<tr class="separator:a5f7a0b16cf45d5bbf19b54ae5c4d3c2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a240b0af51978c46261d9c9582f6dbabc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="dictionary_8h.html#a5bd3b2ce42b776c76755ec65642f43af">dictionary</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___hashmap__.html#a240b0af51978c46261d9c9582f6dbabc">map</a></td></tr>
+<tr class="separator:a240b0af51978c46261d9c9582f6dbabc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a439227feff9d7f55384e8780cfc2eb82"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___hashmap__.html#a439227feff9d7f55384e8780cfc2eb82">size</a></td></tr>
+<tr class="separator:a439227feff9d7f55384e8780cfc2eb82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>SSL_Hashmap. </p>
@@ -130,47 +128,32 @@ Data Fields</h2></td></tr>
 <p> This object contains a unique key, data tied to the key and a next pointer to the next element in the map.</p>
 <p>-------------------------------------------------------------------------&mdash; </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="ab5c000aec752f2206131e183daf5efbf"></a>
+<a class="anchor" id="a240b0af51978c46261d9c9582f6dbabc"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* key</td>
+          <td class="memname"><a class="el" href="dictionary_8h.html#a5bd3b2ce42b776c76755ec65642f43af">dictionary</a>* map</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>unique key </p>
 
 </div>
 </div>
-<a class="anchor" id="a5f7a0b16cf45d5bbf19b54ae5c4d3c2a"></a>
+<a class="anchor" id="a439227feff9d7f55384e8780cfc2eb82"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="struct___s_s_l___hashmap__.html">_SSL_Hashmap_</a>* next</td>
+          <td class="memname">int size</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>next element in the SSL_Hashmap </p>
-
-</div>
-</div>
-<a class="anchor" id="a0f61d63b009d0880a89c843bd50d8d76"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* value</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>value tied to the key </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>SSL/misc/<a class="el" href="_s_s_l___hashmap_8h_source.html">SSL_Hashmap.h</a></li>
+<li>SSL/data_structures/<a class="el" href="_s_s_l___hashmap_8h_source.html">SSL_Hashmap.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -178,7 +161,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="struct___s_s_l___hashmap__.html">_SSL_Hashmap_</a></li>
-    <li class="footer">Generated on Fri Oct 31 2014 01:01:44 for SSL - Simple SDl Library by
+    <li class="footer">Generated on Wed Dec 3 2014 20:14:41 for SSL - Simple SDl Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

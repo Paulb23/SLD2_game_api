@@ -17,8 +17,8 @@ var searchData=
   ['ssl_5fmap',['SSL_Map',['../_s_s_l___tiled_8h.html#a0084b88858563bbba88e91715981e36c',1,'SSL_Tiled.h']]],
   ['ssl_5ftext_5fbutton',['SSL_Text_Button',['../_s_s_l___button_8h.html#a4e4f417f7ba84adf7279cdfedce19a53',1,'SSL_Button.h']]],
   ['ssl_5ftile',['SSL_Tile',['../_s_s_l___tiled_8h.html#aefbe85e5e622d4bbc81e21335b64261d',1,'SSL_Tiled.h']]],
+  ['ssl_5ftile_5flayer',['SSL_Tile_Layer',['../_s_s_l___tiled_8h.html#af132b84da54a6d84746e02ba127b0de7',1,'SSL_Tiled.h']]],
   ['ssl_5ftiled_5fmap',['SSL_Tiled_Map',['../_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0',1,'SSL_Tiled.h']]],
   ['ssl_5ftileset',['SSL_Tileset',['../_s_s_l___tiled_8h.html#a61f8284ee009e9754d886884218be831',1,'SSL_Tiled.h']]],
-  ['ssl_5ftileset_5finfo',['SSL_Tileset_Info',['../_s_s_l___tiled_8h.html#a9f38b2ba9135aa9d284037bf21a0ae43',1,'SSL_Tiled.h']]],
   ['ssl_5fwindow',['SSL_Window',['../_s_s_l___window_8h.html#ad65c47400e442b9cfd43e1b52a2bfc27',1,'SSL_Window.h']]]
 ];

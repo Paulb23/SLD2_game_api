@@ -113,7 +113,8 @@ $(document).ready(function(){initNavTree('_s_s_l___tiled_8h.html','');});
 
 <p>Implements a Tiled .tmx map handler.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="_s_s_l___hashmap_8h_source.html">../misc/SSL_Hashmap.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_s_s_l___hashmap_8h_source.html">../data_structures/SSL_Hashmap.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_s_l___list_8h_source.html">../data_structures/SSL_List.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_s_l___image_8h_source.html">../graphics/SSL_Image.h</a>&quot;</code><br />
 </div>
 <p><a href="_s_s_l___tiled_8h_source.html">Go to the source code of this file.</a></p>
@@ -123,11 +124,11 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___m_a_p__.html">_SSL_MAP_</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Map.  <a href="struct___s_s_l___m_a_p__.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___tileset__.html">_SSL_Tileset_</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tileset.  <a href="struct___s_s_l___tileset__.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___tile___layer__.html">_SSL_Tile_Layer_</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tile_Layer.  <a href="struct___s_s_l___tile___layer__.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___tileset___info__.html">_SSL_Tileset_Info_</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tileset_Info.  <a href="struct___s_s_l___tileset___info__.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___tileset__.html">_SSL_Tileset_</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tileset_Info.  <a href="struct___s_s_l___tileset__.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct___s_s_l___tile__.html">_SSL_Tile_</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tile.  <a href="struct___s_s_l___tile__.html#details">More...</a><br /></td></tr>
@@ -141,12 +142,12 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a0084b88858563bbba88e91715981e36c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct___s_s_l___m_a_p__.html">_SSL_MAP_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a0084b88858563bbba88e91715981e36c">SSL_Map</a></td></tr>
 <tr class="memdesc:a0084b88858563bbba88e91715981e36c"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Map.  <a href="#a0084b88858563bbba88e91715981e36c">More...</a><br /></td></tr>
 <tr class="separator:a0084b88858563bbba88e91715981e36c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af132b84da54a6d84746e02ba127b0de7"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct___s_s_l___tile___layer__.html">_SSL_Tile_Layer_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#af132b84da54a6d84746e02ba127b0de7">SSL_Tile_Layer</a></td></tr>
+<tr class="memdesc:af132b84da54a6d84746e02ba127b0de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tile_Layer.  <a href="#af132b84da54a6d84746e02ba127b0de7">More...</a><br /></td></tr>
+<tr class="separator:af132b84da54a6d84746e02ba127b0de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61f8284ee009e9754d886884218be831"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct___s_s_l___tileset__.html">_SSL_Tileset_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a61f8284ee009e9754d886884218be831">SSL_Tileset</a></td></tr>
-<tr class="memdesc:a61f8284ee009e9754d886884218be831"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tileset.  <a href="#a61f8284ee009e9754d886884218be831">More...</a><br /></td></tr>
+<tr class="memdesc:a61f8284ee009e9754d886884218be831"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tileset_Info.  <a href="#a61f8284ee009e9754d886884218be831">More...</a><br /></td></tr>
 <tr class="separator:a61f8284ee009e9754d886884218be831"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f38b2ba9135aa9d284037bf21a0ae43"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct___s_s_l___tileset___info__.html">_SSL_Tileset_Info_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a9f38b2ba9135aa9d284037bf21a0ae43">SSL_Tileset_Info</a></td></tr>
-<tr class="memdesc:a9f38b2ba9135aa9d284037bf21a0ae43"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tileset_Info.  <a href="#a9f38b2ba9135aa9d284037bf21a0ae43">More...</a><br /></td></tr>
-<tr class="separator:a9f38b2ba9135aa9d284037bf21a0ae43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefbe85e5e622d4bbc81e21335b64261d"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct___s_s_l___tile__.html">_SSL_Tile_</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#aefbe85e5e622d4bbc81e21335b64261d">SSL_Tile</a></td></tr>
 <tr class="memdesc:aefbe85e5e622d4bbc81e21335b64261d"><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL_Tile.  <a href="#aefbe85e5e622d4bbc81e21335b64261d">More...</a><br /></td></tr>
 <tr class="separator:aefbe85e5e622d4bbc81e21335b64261d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -156,12 +157,45 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa384fe0e7e951d8d587d3439ae963ee5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#aa384fe0e7e951d8d587d3439ae963ee5">SSL_Tiled_Map_Load</a> (char *file, <a class="el" href="_s_s_l___window_8h.html#ad65c47400e442b9cfd43e1b52a2bfc27">SSL_Window</a> *window)</td></tr>
-<tr class="memdesc:aa384fe0e7e951d8d587d3439ae963ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads and creates new Tiled map.  <a href="#aa384fe0e7e951d8d587d3439ae963ee5">More...</a><br /></td></tr>
-<tr class="separator:aa384fe0e7e951d8d587d3439ae963ee5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48b278a333ddfc451024530853b6bd91"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a48b278a333ddfc451024530853b6bd91">SSL_Tiled_Map_Load</a> (<a class="el" href="zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char *file, <a class="el" href="_s_s_l___window_8h.html#ad65c47400e442b9cfd43e1b52a2bfc27">SSL_Window</a> *window)</td></tr>
+<tr class="memdesc:a48b278a333ddfc451024530853b6bd91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads and creates new Tiled map.  <a href="#a48b278a333ddfc451024530853b6bd91">More...</a><br /></td></tr>
+<tr class="separator:a48b278a333ddfc451024530853b6bd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a411bf0aa2e66a12c4c2ded7ee12e05d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a411bf0aa2e66a12c4c2ded7ee12e05d1">SSL_Tiled_Draw_Map</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map, int xOffset, int yOffset, <a class="el" href="_s_s_l___window_8h.html#ad65c47400e442b9cfd43e1b52a2bfc27">SSL_Window</a> *window)</td></tr>
 <tr class="memdesc:a411bf0aa2e66a12c4c2ded7ee12e05d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a loaded map to the screen.  <a href="#a411bf0aa2e66a12c4c2ded7ee12e05d1">More...</a><br /></td></tr>
 <tr class="separator:a411bf0aa2e66a12c4c2ded7ee12e05d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a094d9e678cd5e1486586abf04b5b314c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_s_s_l___tiled_8h.html#a61f8284ee009e9754d886884218be831">SSL_Tileset</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a094d9e678cd5e1486586abf04b5b314c">SSL_Tiled_Get_Tileset</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map, int gid)</td></tr>
+<tr class="memdesc:a094d9e678cd5e1486586abf04b5b314c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a SSL_Tileset.  <a href="#a094d9e678cd5e1486586abf04b5b314c">More...</a><br /></td></tr>
+<tr class="separator:a094d9e678cd5e1486586abf04b5b314c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af93ec010a78c9126f365e3c6feb3d555"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#af93ec010a78c9126f365e3c6feb3d555">SSL_Tiled_Get_Height</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
+<tr class="memdesc:af93ec010a78c9126f365e3c6feb3d555"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the map height in tiles.  <a href="#af93ec010a78c9126f365e3c6feb3d555">More...</a><br /></td></tr>
+<tr class="separator:af93ec010a78c9126f365e3c6feb3d555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5c86a5a6534cd9a9dd2d6c58ac4dd8c"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#af5c86a5a6534cd9a9dd2d6c58ac4dd8c">SSL_Tiled_Get_Width</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
+<tr class="memdesc:af5c86a5a6534cd9a9dd2d6c58ac4dd8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the map width in tiles.  <a href="#af5c86a5a6534cd9a9dd2d6c58ac4dd8c">More...</a><br /></td></tr>
+<tr class="separator:af5c86a5a6534cd9a9dd2d6c58ac4dd8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a463a971ecbc0a19fd8966307be6316c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a463a971ecbc0a19fd8966307be6316c1">SSL_Tiled_Get_Height_px</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
+<tr class="memdesc:a463a971ecbc0a19fd8966307be6316c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the map height in pixels.  <a href="#a463a971ecbc0a19fd8966307be6316c1">More...</a><br /></td></tr>
+<tr class="separator:a463a971ecbc0a19fd8966307be6316c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06619e473dc956d15397def44e098a7e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a06619e473dc956d15397def44e098a7e">SSL_Tiled_Get_Width_px</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
+<tr class="memdesc:a06619e473dc956d15397def44e098a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the map width in pixels.  <a href="#a06619e473dc956d15397def44e098a7e">More...</a><br /></td></tr>
+<tr class="separator:a06619e473dc956d15397def44e098a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d70854bce73d041ee9a88a9b01878af"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a1d70854bce73d041ee9a88a9b01878af">SSL_Tiled_Get_Tile_Width</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
+<tr class="memdesc:a1d70854bce73d041ee9a88a9b01878af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the tile width in pixels.  <a href="#a1d70854bce73d041ee9a88a9b01878af">More...</a><br /></td></tr>
+<tr class="separator:a1d70854bce73d041ee9a88a9b01878af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2e9808be49703b100a6f0aa6225debc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#af2e9808be49703b100a6f0aa6225debc">SSL_Tiled_Get_Tile_Height</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
+<tr class="memdesc:af2e9808be49703b100a6f0aa6225debc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the tile height in pixels.  <a href="#af2e9808be49703b100a6f0aa6225debc">More...</a><br /></td></tr>
+<tr class="separator:af2e9808be49703b100a6f0aa6225debc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08c000ee8e7318b844865448203d4078"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a08c000ee8e7318b844865448203d4078">SSL_Tiled_Get_Layercount</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
+<tr class="memdesc:a08c000ee8e7318b844865448203d4078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of layers in the map.  <a href="#a08c000ee8e7318b844865448203d4078">More...</a><br /></td></tr>
+<tr class="separator:a08c000ee8e7318b844865448203d4078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97bcbe8c8c571f51c62c8d52fbe84f02"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a97bcbe8c8c571f51c62c8d52fbe84f02">SSL_Tiled_Get_Tileset_Count</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
+<tr class="memdesc:a97bcbe8c8c571f51c62c8d52fbe84f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of tilesets in the map.  <a href="#a97bcbe8c8c571f51c62c8d52fbe84f02">More...</a><br /></td></tr>
+<tr class="separator:a97bcbe8c8c571f51c62c8d52fbe84f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb418180785cff425d3560be733f5965"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#afb418180785cff425d3560be733f5965">SSL_Tiled_Get_TileId</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map, int x, int y, int layer_index)</td></tr>
+<tr class="memdesc:afb418180785cff425d3560be733f5965"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the tile id at the location specified.  <a href="#afb418180785cff425d3560be733f5965">More...</a><br /></td></tr>
+<tr class="separator:afb418180785cff425d3560be733f5965"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99befb0b40e909948e7913df7637b12d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#a99befb0b40e909948e7913df7637b12d">SSL_Tiled_Get_LayerIndex</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map, char *name)</td></tr>
+<tr class="memdesc:a99befb0b40e909948e7913df7637b12d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the layer index on the map.  <a href="#a99befb0b40e909948e7913df7637b12d">More...</a><br /></td></tr>
+<tr class="separator:a99befb0b40e909948e7913df7637b12d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd4d5f9a43bac64d7d8fa9a56dc710ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l___tiled_8h.html#abd4d5f9a43bac64d7d8fa9a56dc710ae">SSL_Tiled_Map_Destroy</a> (<a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *map)</td></tr>
 <tr class="memdesc:abd4d5f9a43bac64d7d8fa9a56dc710ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the map.  <a href="#abd4d5f9a43bac64d7d8fa9a56dc710ae">More...</a><br /></td></tr>
 <tr class="separator:abd4d5f9a43bac64d7d8fa9a56dc710ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,6 +238,23 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af132b84da54a6d84746e02ba127b0de7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct___s_s_l___tile___layer__.html">_SSL_Tile_Layer_</a>  <a class="el" href="_s_s_l___tiled_8h.html#af132b84da54a6d84746e02ba127b0de7">SSL_Tile_Layer</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SSL_Tile_Layer. </p>
+<hr/>
+<p> This object contains information about each layer</p>
+<p>-------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
 <a class="anchor" id="abd720ef40cd52c49cf1b8fea4506eee0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -228,23 +279,6 @@ Functions</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">typedef struct <a class="el" href="struct___s_s_l___tileset__.html">_SSL_Tileset_</a>  <a class="el" href="_s_s_l___tiled_8h.html#a61f8284ee009e9754d886884218be831">SSL_Tileset</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>SSL_Tileset. </p>
-<hr/>
-<p> This object contains lists of the tiles and tilesets in the map</p>
-<p>-------------------------------------------------------------------------&mdash; </p>
-
-</div>
-</div>
-<a class="anchor" id="a9f38b2ba9135aa9d284037bf21a0ae43"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef struct <a class="el" href="struct___s_s_l___tileset___info__.html">_SSL_Tileset_Info_</a>  <a class="el" href="_s_s_l___tiled_8h.html#a9f38b2ba9135aa9d284037bf21a0ae43">SSL_Tileset_Info</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -310,6 +344,361 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="af93ec010a78c9126f365e3c6feb3d555"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int SSL_Tiled_Get_Height </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the map height in tiles. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the height of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Map height in tiles</dd></dl>
+<p>Map height in tiles</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="a463a971ecbc0a19fd8966307be6316c1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Tiled_Get_Height_px </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the map height in pixels. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the height of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Map height in pixels</dd></dl>
+<p>Map height in pixels</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="a08c000ee8e7318b844865448203d4078"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Tiled_Get_Layercount </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of layers in the map. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the number of layers </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of layers</dd></dl>
+<p>Number of layers</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="a99befb0b40e909948e7913df7637b12d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Tiled_Get_LayerIndex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the layer index on the map. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the number of layer index from </td></tr>
+    <tr><td class="paramname">name</td><td>name of the layer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>layer index of the given layer name else -1</dd></dl>
+<p>Layer index of the given layer name else -1</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="af2e9808be49703b100a6f0aa6225debc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Tiled_Get_Tile_Height </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the tile height in pixels. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the tile height of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tile height in pixels</dd></dl>
+<p>Tile height in pixels</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="a1d70854bce73d041ee9a88a9b01878af"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Tiled_Get_Tile_Width </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the tile width in pixels. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the tile width of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Tile width in pixels</dd></dl>
+<p>Tile width in pixels</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="afb418180785cff425d3560be733f5965"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Tiled_Get_TileId </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>layer_index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the tile id at the location specified. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the number of tile id from </td></tr>
+    <tr><td class="paramname">x</td><td>x position of the tile </td></tr>
+    <tr><td class="paramname">y</td><td>y position of the tile </td></tr>
+    <tr><td class="paramname">layer_index</td><td>layer number position of the tile </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>tile id at the location specified</dd></dl>
+<p>Tile id at the location specified</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="a094d9e678cd5e1486586abf04b5b314c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_s_s_l___tiled_8h.html#a61f8284ee009e9754d886884218be831">SSL_Tileset</a>* SSL_Tiled_Get_Tileset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>gid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets a SSL_Tileset. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map containing the tileset </td></tr>
+    <tr><td class="paramname">gid</td><td>gid of the tile set to get </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A SLL_Tileset object else -1</dd></dl>
+<p>Gets a SSL_Tileset object from the SSL_Map with the given gid else -1</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="a97bcbe8c8c571f51c62c8d52fbe84f02"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Tiled_Get_Tileset_Count </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the number of tilesets in the map. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the number of tilesets </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of tilesets</dd></dl>
+<p>Number of tilesets</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="af5c86a5a6534cd9a9dd2d6c58ac4dd8c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int SSL_Tiled_Get_Width </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the map width in tiles. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the width of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Map width in tiles</dd></dl>
+<p>Map width in tiles</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
+<a class="anchor" id="a06619e473dc956d15397def44e098a7e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Tiled_Get_Width_px </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the map width in pixels. </p>
+<hr/>
+ <dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>map to get the width of </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Map width in pixels</dd></dl>
+<p>Map width in pixels</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
 <a class="anchor" id="abd4d5f9a43bac64d7d8fa9a56dc710ae"></a>
 <div class="memitem">
 <div class="memproto">
@@ -338,14 +727,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa384fe0e7e951d8d587d3439ae963ee5"></a>
+<a class="anchor" id="a48b278a333ddfc451024530853b6bd91"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="_s_s_l___tiled_8h.html#abd720ef40cd52c49cf1b8fea4506eee0">SSL_Tiled_Map</a>* SSL_Tiled_Map_Load </td>
           <td>(</td>
-          <td class="paramtype">char *&#160;</td>
+          <td class="paramtype"><a class="el" href="zconf_8h.html#a2c212835823e3c54a8ab6d95c652660e">const</a> char *&#160;</td>
           <td class="paramname"><em>file</em>, </td>
         </tr>
         <tr>
@@ -373,17 +762,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A SSL_Tiled_Map object</dd></dl>
 <p>Loads and creates new Tiled map. Destroy with SSL_Tiled_Map_Destroy.</p>
-<p>--------------------------------------------------------------------------&mdash;</p>
-<hr/>
- <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>the path to the file </td></tr>
-    <tr><td class="paramname">window</td><td>The renderer to use </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A SSL_Tiled_Map object</dd></dl>
-<p>Loads and creates new Tiled map. Destroy with SSL_Tiled_Map_Destroy. //TODO:Clean up</p>
 <p>--------------------------------------------------------------------------&mdash; </p>
 
 </div>
@@ -394,7 +772,7 @@ Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b13472e18019b87400b2f61ee9e2a58e.html">SSL</a></li><li class="navelem"><a class="el" href="dir_c9ae4a6e2bd7a15cc466d2f168779fd5.html">files</a></li><li class="navelem"><a class="el" href="_s_s_l___tiled_8h.html">SSL_Tiled.h</a></li>
-    <li class="footer">Generated on Fri Oct 31 2014 01:01:44 for SSL - Simple SDl Library by
+    <li class="footer">Generated on Wed Dec 3 2014 20:14:41 for SSL - Simple SDl Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

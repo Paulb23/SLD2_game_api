@@ -1,4 +1,4 @@
 var _s_s_l___color_8c =
 [
-    [ "SSL_Color_Create", "_s_s_l___color_8c.html#a88656404f38a95a7f436e03a1756ec70", null ]
+    [ "SSL_Color_Create", "_s_s_l___color_8c.html#afe04a5562f8c2bd9ee02e3c9dfbe7162", null ]
 ];

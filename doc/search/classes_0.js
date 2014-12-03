@@ -19,8 +19,8 @@ var searchData=
   ['_5fssl_5fmap_5f',['_SSL_MAP_',['../struct___s_s_l___m_a_p__.html',1,'']]],
   ['_5fssl_5ftext_5fbutton_5f',['_SSL_Text_Button_',['../struct___s_s_l___text___button__.html',1,'']]],
   ['_5fssl_5ftile_5f',['_SSL_Tile_',['../struct___s_s_l___tile__.html',1,'']]],
+  ['_5fssl_5ftile_5flayer_5f',['_SSL_Tile_Layer_',['../struct___s_s_l___tile___layer__.html',1,'']]],
   ['_5fssl_5ftiled_5fmap_5f',['_SSL_Tiled_Map_',['../struct___s_s_l___tiled___map__.html',1,'']]],
   ['_5fssl_5ftileset_5f',['_SSL_Tileset_',['../struct___s_s_l___tileset__.html',1,'']]],
-  ['_5fssl_5ftileset_5finfo_5f',['_SSL_Tileset_Info_',['../struct___s_s_l___tileset___info__.html',1,'']]],
   ['_5fssl_5fwindow_5f',['_SSL_Window_',['../struct___s_s_l___window__.html',1,'']]]
 ];

@@ -97,6 +97,5 @@ var zlib_8h =
     [ "OF", "zlib_8h.html#aeb600ab48f5eefd73b51e2e9d94d40cf", null ],
     [ "OF", "zlib_8h.html#ac9f4214f59c605d1fa213aaca45ac537", null ],
     [ "OF", "zlib_8h.html#a1e8430bf8a5f5fca764d705eb17cae0b", null ],
-    [ "Z_ARG", "zlib_8h.html#add2ee03340fa2cb5f9146e0ebe52367c", null ],
-    [ "Z_ARG", "zlib_8h.html#ae6a23258602c5c82a90d78758ba7e9b7", null ]
+    [ "Z_ARG", "zlib_8h.html#add2ee03340fa2cb5f9146e0ebe52367c", null ]
 ];

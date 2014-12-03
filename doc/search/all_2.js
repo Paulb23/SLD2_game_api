@@ -2,7 +2,7 @@ var searchData=
 [
   ['b64',['b64',['../base64_8c.html#af02592e3434943498b685302c3bbf4ac',1,'base64.c']]],
   ['b64_5fdecode',['b64_decode',['../base64_8c.html#a3782cb0f3973e26e62fe18f5bb5e17e5',1,'b64_decode(char *b64src, char *clrdst):&#160;base64.c'],['../base64_8h.html#a3782cb0f3973e26e62fe18f5bb5e17e5',1,'b64_decode(char *b64src, char *clrdst):&#160;base64.c']]],
-  ['background_5fcolor',['background_color',['../struct___s_s_l___button___text___info__.html#a32aa566db158516db085c8abc793cf33',1,'_SSL_Button_Text_Info_']]],
+  ['background_5fcolor',['background_color',['../struct___s_s_l___button___text___info__.html#afcc361c9f089955cddcef3d46e415dc6',1,'_SSL_Button_Text_Info_']]],
   ['base64_2ec',['base64.c',['../base64_8c.html',1,'']]],
   ['base64_2eh',['base64.h',['../base64_8h.html',1,'']]],
   ['buffer',['buffer',['../struct__mxml__fdbuf__s.html#a8b038d864e65011e128bc48fa5d6b686',1,'_mxml_fdbuf_s']]],

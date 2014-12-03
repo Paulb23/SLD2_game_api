@@ -102,18 +102,25 @@ $(document).ready(function(){initNavTree('_s_s_l_8h.html','');});
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">SSL.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="iniparser_8h_source.html">files/iniparser.h</a>&quot;</code><br />
+
+<p>Includes all the SSL modules and init function.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="_s_s_l___settings_8h_source.html">SSL_Settings.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="iniparser_8h_source.html">files/iniparser.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_s_l___tiled_8h_source.html">files/SSL_Tiled.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_s_l___hashmap_8h_source.html">data_structures/SSL_Hashmap.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_s_l___list_8h_source.html">data_structures/SSL_List.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_s_l___keys_8h_source.html">wrappers/SSL_Keys.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_s_l___color_8h_source.html">wrappers/SSL_Color.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_s_l___rectangle_8h_source.html">wrappers/SSL_Rectangle.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_s_l___logger_8h_source.html">misc/SSL_Logger.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_s_s_l___keys_8h_source.html">misc/SSL_Keys.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_s_s_l___hashmap_8h_source.html">misc/SSL_Hashmap.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_s_s_l___color_8h_source.html">misc/SSL_Color.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_s_s_l___rectangle_8h_source.html">misc/SSL_Rectangle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="_s_s_l___list_8h_source.html">misc/SSL_List.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_s_l___string_8h_source.html">misc/SSL_String.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_s_l___window_8h_source.html">graphics/SSL_Window.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_s_l___image_8h_source.html">graphics/SSL_Image.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_s_l___font_8h_source.html">graphics/SSL_Font.h</a>&quot;</code><br />
@@ -121,15 +128,48 @@ $(document).ready(function(){initNavTree('_s_s_l_8h.html','');});
 <code>#include &quot;<a class="el" href="_s_s_l___mouse_8h_source.html">input/SSL_Mouse.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_s_l___interface_8h_source.html">gui/SSL_Interface.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_s_s_l___button_8h_source.html">gui/SSL_Button.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_s_s_l___timing_8h_source.html">timing/SSL_Timing.h</a>&quot;</code><br />
 </div>
 <p><a href="_s_s_l_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aab00f77ad6419aa159e4cf31a8c54c15"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_s_s_l_8h.html#aab00f77ad6419aa159e4cf31a8c54c15">SSL_Init</a> ()</td></tr>
+<tr class="memdesc:aab00f77ad6419aa159e4cf31a8c54c15"><td class="mdescLeft">&#160;</td><td class="mdescRight">initialises the library  <a href="#aab00f77ad6419aa159e4cf31a8c54c15">More...</a><br /></td></tr>
+<tr class="separator:aab00f77ad6419aa159e4cf31a8c54c15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Includes all the SSL modules and init function. </p>
+<dl class="section author"><dt>Author</dt><dd>P. Batty This module includes all the SSL modules and init function </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="aab00f77ad6419aa159e4cf31a8c54c15"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SSL_Init </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>initialises the library </p>
+<hr/>
+ <dl class="section return"><dt>Returns</dt><dd>1 on success else 0</dd></dl>
+<p>initialises the library</p>
+<p>--------------------------------------------------------------------------&mdash; </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_b13472e18019b87400b2f61ee9e2a58e.html">SSL</a></li><li class="navelem"><a class="el" href="_s_s_l_8h.html">SSL.h</a></li>
-    <li class="footer">Generated on Fri Oct 31 2014 01:01:44 for SSL - Simple SDl Library by
+    <li class="footer">Generated on Wed Dec 3 2014 20:14:41 for SSL - Simple SDl Library by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.8 </li>
   </ul>

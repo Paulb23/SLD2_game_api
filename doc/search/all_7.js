@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['getcode',['GetCode',['../_s_s_l___keys_8c.html#af2c30f22f9bcef206f6fa4080a6c1f0e',1,'GetCode(char *key):&#160;SSL_Keys.c'],['../_s_s_l___keys_8h.html#af2c30f22f9bcef206f6fa4080a6c1f0e',1,'GetCode(char *key):&#160;SSL_Keys.c']]],
+  ['getcode',['GetCode',['../_s_s_l___keys_8c.html#aa1590ede30aa61e5fd988e449734449f',1,'GetCode(const char *key):&#160;SSL_Keys.c'],['../_s_s_l___keys_8h.html#aa1590ede30aa61e5fd988e449734449f',1,'GetCode(const char *key):&#160;SSL_Keys.c']]],
   ['gz_5fheader',['gz_header',['../zlib_8h.html#a2c394ffb61e707fba3c6b1a36704b305',1,'zlib.h']]],
   ['gz_5fheader_5fs',['gz_header_s',['../structgz__header__s.html',1,'']]],
   ['gz_5fheaderp',['gz_headerp',['../zlib_8h.html#a40e9dcc294796d99b25e98fb06477fc8',1,'zlib.h']]],

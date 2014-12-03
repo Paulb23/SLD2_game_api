@@ -69,7 +69,7 @@ var mxml_8h =
     [ "mxmlAdd", "mxml_8h.html#a9b0e1b445bb49d5137d1d0a2e3cc9c30", null ],
     [ "mxmlDelete", "mxml_8h.html#a779040a72aad427a590b6cfd373bca90", null ],
     [ "mxmlElementDeleteAttr", "mxml_8h.html#a77e48517a76daa6038310ec2034d3ea8", null ],
-    [ "mxmlElementGetAttr", "mxml_8h.html#acfd357b7375352be96caa1ecacb1b609", null ],
+    [ "mxmlElementGetAttr", "mxml_8h.html#a4d2b15dc7710526f5cd5f28571cf12d7", null ],
     [ "mxmlElementSetAttr", "mxml_8h.html#a4035219fe54d604b52c8960f9ece68d8", null ],
     [ "mxmlElementSetAttrf", "mxml_8h.html#aaae1e6f896d7b03010b2eeccf898f659", null ],
     [ "mxmlEntityAddCallback", "mxml_8h.html#a721c34934cd2f57f9210d0ed67394cf5", null ],

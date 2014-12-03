@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['z_5farg',['Z_ARG',['../zconf_8h.html#ab0abc8d4892a1419aa9f869975b3059a',1,'Z_ARG():&#160;zconf.h'],['../zlib_8h.html#add2ee03340fa2cb5f9146e0ebe52367c',1,'Z_ARG((gzFile file, const char *format,...)):&#160;zlib.h'],['../zlib_8h.html#ae6a23258602c5c82a90d78758ba7e9b7',1,'Z_ARG((gzFile file, const char *format, va_list va)):&#160;zlib.h']]],
+  ['z_5farg',['Z_ARG',['../zconf_8h.html#ab0abc8d4892a1419aa9f869975b3059a',1,'Z_ARG():&#160;zconf.h'],['../zlib_8h.html#add2ee03340fa2cb5f9146e0ebe52367c',1,'Z_ARG((gzFile file, const char *format,...)):&#160;zlib.h']]],
   ['z_5fascii',['Z_ASCII',['../zlib_8h.html#a9a852d9163cdb10687403d4e79dda06e',1,'zlib.h']]],
   ['z_5fbest_5fcompression',['Z_BEST_COMPRESSION',['../zlib_8h.html#a8db83edd9dea51f8cf0afd1727838b95',1,'zlib.h']]],
   ['z_5fbest_5fspeed',['Z_BEST_SPEED',['../zlib_8h.html#ad5222ae19b77c6e83815d07ca5d03fd8',1,'zlib.h']]],
@@ -51,5 +51,5 @@ var searchData=
   ['zlib_5fver_5frevision',['ZLIB_VER_REVISION',['../zlib_8h.html#ad3662b8749a50045ec1c120354fb7e9d',1,'zlib.h']]],
   ['zlib_5fver_5fsubrevision',['ZLIB_VER_SUBREVISION',['../zlib_8h.html#a788ea49a5b65e12b11d7f274542d5af5',1,'zlib.h']]],
   ['zlib_5fvernum',['ZLIB_VERNUM',['../zlib_8h.html#a6413cdfb4cdc0b5a09cf9b5f3f8f48ef',1,'zlib.h']]],
-  ['zlib_5fversion',['ZLIB_VERSION',['../zlib_8h.html#a51dc9dc65e483b3222c1f0f6a87eb76e',1,'ZLIB_VERSION():&#160;zlib.h'],['../zlib_8h.html#a1f228220c3e6935eb171761c61487059',1,'zlib_version():&#160;zlib.h']]]
+  ['zlib_5fversion',['zlib_version',['../zlib_8h.html#a1f228220c3e6935eb171761c61487059',1,'zlib_version():&#160;zlib.h'],['../zlib_8h.html#a51dc9dc65e483b3222c1f0f6a87eb76e',1,'ZLIB_VERSION():&#160;zlib.h']]]
 ];
