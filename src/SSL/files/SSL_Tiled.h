@@ -41,6 +41,7 @@ typedef struct _SSL_MAP_ {
 	unsigned int tile_width;			/**< Tile width			 	*/
 	unsigned int tile_height;			/**< Tile height		 	*/
 	unsigned int total_layers;			/**< Total number of layers */
+	unsigned int total_tilesets;		/**< Total tilesets			*/
 	SSL_Hashmap *properties;			/**< The map properties 	*/
 } SSL_Map;
 
@@ -140,6 +141,24 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file, SSL_Window *window);
 \-----------------------------------------------------------------------------*/
 void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window);
 
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a SLL_Tileset
+  @param    map			 map containing the tileset
+  @param    gid			 gid of the tile set to get
+  @return A SLL_Tileset object else -1
+
+  Gets a SSL_Tileset object from the SSL_Map with the given gid else -1
+
+\-----------------------------------------------------------------------------*/
+SSL_Tileset *SSL_Tiled_Get_Tileset(SSL_Tiled_Map *map, int gid);
+
+unsigned int SSL_Tiled_Get_Height(SSL_Tiled_Map *map);
+
+unsigned int SSL_Tiled_Get_Width(SSL_Tiled_Map *map);
+
+int SSL_Tiled_Get_LayerIndex(SSL_Tiled_Map *map, char *name);
+int SSL_Tiled_Get_TileId(SSL_Tiled_Map *map, int x, int y, int layer_index);
 
 /*!--------------------------------------------------------------------------
   @brief    Destroys the map

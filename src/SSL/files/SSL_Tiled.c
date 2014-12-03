@@ -57,6 +57,7 @@ static void map_properties_handler(mxml_node_t *node, SSL_Tiled_Map *map) {
 		map->map.tile_width = atoi(mxmlElementGetAttr(node, "tilewidth"));
 		map->map.tile_height = atoi(mxmlElementGetAttr(node, "tileheight"));
 		map->map.total_layers = 0;
+		map->map.total_tilesets = 0;
 
 		// load properties function
 }
@@ -87,6 +88,7 @@ static void map_tileset_handeler(mxml_node_t *node, SSL_Tiled_Map *map, char *fi
 		//load properties function
 
 		SSL_List_Add(map->tilesets, tileset);
+		map->map.total_tilesets++;
 }
 
 static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
@@ -128,6 +130,29 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 
 	SSL_List_Add(map->layers, layer);
 	map->map.total_layers++;
+}
+
+
+
+static int SSL_Tiled_Get_Tile_FrameNumber(SSL_Tiled_Map *map, int tile_id) {
+	 SSL_Tileset *tileset;
+	 int k;
+	 for (k = 1; k < SSL_List_Size(map->tilesets); k++) {
+		 tileset = SSL_List_Get(map->tilesets, k+1);
+		 if (tile_id < tileset->firstGid || tileset == NULL) {
+			 tileset = SSL_List_Get(map->tilesets, k);
+			 break;
+		 }
+	 }
+	 int frame = 1;
+
+	 if (k != 1) {
+		 frame = tile_id - (tileset->firstGid - 1);
+	 } else {
+		 frame = tile_id;
+	 }
+
+ return frame;
 }
 
 
@@ -259,6 +284,83 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 		}
 		layer++;
 	}
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets a SLL_Tileset
+  @param    map			 map containing the tileset
+  @param    gid			 gid of the tile set to get
+  @return A SLL_Tileset object else -1
+
+  Gets a SSL_Tileset object from the SSL_Map with the given gid else -1
+
+\-----------------------------------------------------------------------------*/
+SSL_Tileset *SSL_Tiled_Get_Tileset(SSL_Tiled_Map *map, int gid) {
+	int i;
+	for (i = 1; i <= map->map.total_tilesets; i++) {
+		SSL_Tileset *tileset = SSL_List_Get(map->tilesets, i);
+		if (tileset->firstGid == gid) {
+			return tileset;
+		}
+	}
+	return (void*)-1;
+}
+
+
+unsigned int SSL_Tiled_Get_Height(SSL_Tiled_Map *map) {
+	return map->map.map_height;
+}
+
+unsigned int SSL_Tiled_Get_Width(SSL_Tiled_Map *map) {
+	return map->map.map_width;
+}
+
+int SSL_Tiled_Get_Height_px(SSL_Tiled_Map *map) {
+	return map->map.map_height * map->map.tile_height;
+}
+
+int SSL_Tiled_Get_Tile_Width(SSL_Tiled_Map *map) {
+	return map->map.tile_width;
+}
+
+int SSL_Tiled_Get_Tile_Height(SSL_Tiled_Map *map) {
+	return map->map.tile_height;
+}
+
+int SSL_Tiled_Get_Width_px(SSL_Tiled_Map *map) {
+	return map->map.map_height * map->map.tile_width;
+}
+
+int SSL_Tiled_Get_Layercount(SSL_Tiled_Map *map) {
+	return map->map.total_layers;
+}
+
+int SSL_Tiled_Get_Tileset_Count(SSL_Tiled_Map *map) {
+	return map->map.total_tilesets;
+}
+
+int SSL_Tiled_Get_TileId(SSL_Tiled_Map *map, int x, int y, int layer_index) {
+	SSL_Tile_Layer *layer = SSL_List_Get(map->layers, layer_index);
+
+	if (layer != (void *)-1) {
+		int *tiles = layer->data;
+
+		return SSL_Tiled_Get_Tile_FrameNumber(map, tiles[map->map.map_width * y + x]) - 1;
+	}
+
+	return -1;
+}
+
+int SSL_Tiled_Get_LayerIndex(SSL_Tiled_Map *map, char *name) {
+	int i;
+	for (i =1; i <= map->map.total_layers; i++) {
+		SSL_Tile_Layer *layer = SSL_List_Get(map->layers, i);
+		if (strcmp(layer->name, name) == 0) {
+			return i;
+		}
+	}
+	return -1;
 }
 
 

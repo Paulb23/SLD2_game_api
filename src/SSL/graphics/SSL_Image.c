@@ -159,8 +159,8 @@ void SSL_Image_Draw(SSL_Image *image, int x, int y, int angle, int frame, SDL_Re
 			imageFrame.h = image->frame_height;
 
 			if (frame != 1) {
-				imageFrame.y = ((frame - 1) / amountOfColumns) * image->frame_width;
-				imageFrame.x = ((frame - 1) % amountOfColumns) * image->frame_height;
+				imageFrame.y = ((frame - 1) / amountOfColumns) * image->frame_height;
+				imageFrame.x = ((frame - 1) % amountOfColumns) * image->frame_width;
 			}
 		}
 
