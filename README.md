@@ -78,8 +78,53 @@ Get fps, ticks per second, delta time,  and uptime
 To Do List / Planned Features
 -----------  
 - More advanced .tmx parser  
+  - rename functions
+  - load properties
+  - load objects
+  - load terrains
+  - support background color
+  - support, json, csv, uncompress, gzip and XML
+  - lighitng support?
 - Fix check boxes  
 - Add Textboxes
-- Timing
 - Audio support
-- Demo game
+- maths, and physics moduals
+  - a*
+  - raycasting
+  - raytracing
+  - tweens
+  - collison
+   - AABB
+   - Circle
+   - Pixel
+- random / psudo random genorators
+- more interface supports
+- rethink inut handeling
+  - maybe use callbacks
+- reduce foot print
+- add printf like function to draw fonts
+- scale fonts and images
+- support bitmap fonts
+- asset loader
+  - holds pointers to ssests so we don't have to load the same thing in multiple times
+  - would be used form pre-loading images in maps ect
+- support for texture packers
+- lists need to count from 0 not 1
+- cursor support
+  - load from image
+- cross platform 
+- support sprties / animation
+- particle effects
+- better debug / logging
+  - use level
+- screen shake
+- libgdx stage like callbackm for ticks(), render() and events()
+- config file
+- wrapper around dictionarys
+- wrapper around iniparser
+- timers
+  - callbacks?
+  - coroutines
+- lua scripting 
+- image lighting
+  - normal maps ect 
