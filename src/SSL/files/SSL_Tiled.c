@@ -137,16 +137,21 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 static int SSL_Tiled_Get_Tile_FrameNumber(SSL_Tiled_Map *map, int tile_id) {
 	 SSL_Tileset *tileset;
 	 int k;
-	 for (k = 0; k < SSL_List_Size(map->tilesets)-1; k++) {
-		 tileset = SSL_List_Get(map->tilesets, k+1);
-		 if (tile_id < tileset->firstGid || tileset == NULL) {
-			 tileset = SSL_List_Get(map->tilesets, k);
-			 break;
+	 if (map->map.total_tilesets != 1) {
+		 for (k = 0; k < SSL_List_Size(map->tilesets)-1; k++) {
+			 tileset = SSL_List_Get(map->tilesets, k+1);
+			 if (tile_id < tileset->firstGid || tileset == NULL) {
+				 tileset = SSL_List_Get(map->tilesets, k);
+				 break;
+			 }
 		 }
+	 } else {
+		 k = 0;
+		 tileset = SSL_List_Get(map->tilesets, k);
 	 }
 	 int frame = 1;
 
-	 if (k != 1) {
+	 if (k != 0) {
 		 frame = tile_id - (tileset->firstGid - 1);
 	 } else {
 		 frame = tile_id;
@@ -270,12 +275,17 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 
 						 SSL_Tileset *tileset;
 						 int k;
-						 for (k = 0; k < SSL_List_Size(map->tilesets)-1; k++) {
-							 tileset = SSL_List_Get(map->tilesets, k+1);
-							 if (tiles[map->map.map_width * j + i] < tileset->firstGid || tileset == NULL) {
-								 tileset = SSL_List_Get(map->tilesets, k);
-								 break;
+						 if (map->map.total_tilesets != 1) {
+							 for (k = 0; k < SSL_List_Size(map->tilesets)-1; k++) {
+								 tileset = SSL_List_Get(map->tilesets, k+1);
+								 if (tiles[map->map.map_width * j + i] < tileset->firstGid || tileset == NULL) {
+									 tileset = SSL_List_Get(map->tilesets, k);
+									 break;
+								 }
 							 }
+						 } else {
+							 k = 0;
+							 tileset = SSL_List_Get(map->tilesets, k);
 						 }
 						 int frame = 1;
 
