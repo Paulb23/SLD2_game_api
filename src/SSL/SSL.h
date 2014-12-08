@@ -18,7 +18,7 @@
 
 #include "SSL_Settings.h"
 
-#include "ect/iniparser.h"
+#include "files/SSL_IniFile.h"
 #include "files/SSL_Tiled.h"
 
 #include "data_structures/SSL_Hashmap.h"
