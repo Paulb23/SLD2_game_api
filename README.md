@@ -121,7 +121,6 @@ To Do List / Planned Features
 - libgdx stage like callbackm for ticks(), render() and events()
 - config file
 - wrapper around dictionarys
-- wrapper around iniparser
 - timers
   - callbacks?
   - coroutines
