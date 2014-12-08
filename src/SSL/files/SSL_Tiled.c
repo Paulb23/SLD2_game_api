@@ -104,7 +104,7 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 	layer->height = atoi(mxmlElementGetAttr(node, "height"));
 	layer->opacity = atoi(mxmlElementGetAttr(node, "opacity"));
 
-	if(mxmlElementGetAttr(node, "visible") == NULL) {
+	if(mxmlElementGetAttr(node, "visible") == NULL || strcmp(mxmlElementGetAttr(node, "visible"), "1") == 0) {
 		layer->visible = 1;
 	} else {
 		layer->visible = 0;
@@ -125,6 +125,15 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 	layer->data = tile_map;
 
 	layer->properties = SSL_Hashmap_Create();
+
+	int i;
+	int j;
+	for (i = 0; i < 32; i++) {
+		for (j = 0; j < 32; j++) {
+			printf("%i ", tile_map[map->map.map_width * j + i]);
+		}
+		printf("\n");
+	}
 
 	// load tile properties
 
@@ -266,11 +275,20 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 			int width = 0;
 			int height = 0;
 			SDL_GetWindowSize(window->window, &width, &height);
-			width = width / map->map.tile_width;
-			height = height / map->map.tile_height;
+			int startX = abs(xOffset / SSL_Tiled_Get_Tile_Width(map));
+			int startY = abs(yOffset / SSL_Tiled_Get_Tile_Height(map));
+			width = (width / map->map.tile_width) + startX;
+			if (width > SSL_Tiled_Get_Width(map)) {
+				width = SSL_Tiled_Get_Width(map);
+			}
 
-			for (i = 0; i <= width; i++) {
-				for (j = 0; j <= height; j++) {
+			height = (height / map->map.tile_height) + startY;
+			if (height > SSL_Tiled_Get_Width(map)) {
+				height = SSL_Tiled_Get_Width(map);
+			}
+
+			for (i = startX; i <= width + 1; i++) {
+				for (j = startY; j <= height + 1; j++) {
 					if (tiles[map->map.map_width * j + i] != 0) {
 
 						 SSL_Tileset *tileset;
