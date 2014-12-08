@@ -283,13 +283,13 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 			}
 
 			height = (height / map->map.tile_height) + startY;
-			if (height > SSL_Tiled_Get_Width(map)) {
-				height = SSL_Tiled_Get_Width(map);
+			if (height > SSL_Tiled_Get_Height(map)) {
+				height = SSL_Tiled_Get_Height(map);
 			}
 
 			for (i = startX; i <= width + 1; i++) {
 				for (j = startY; j <= height + 1; j++) {
-					if (tiles[map->map.map_width * j + i] != 0) {
+					if (tiles[map->map.map_width * j + i] != 0 && j < SSL_Tiled_Get_Height(map) && i < SSL_Tiled_Get_Width(map)) {
 
 						 SSL_Tileset *tileset;
 						 int k;
