@@ -109,7 +109,6 @@ To Do List / Planned Features
   - holds pointers to ssests so we don't have to load the same thing in multiple times
   - would be used form pre-loading images in maps ect
 - support for texture packers
-- lists need to count from 0 not 1
 - cursor support
   - load from image
 - cross platform 

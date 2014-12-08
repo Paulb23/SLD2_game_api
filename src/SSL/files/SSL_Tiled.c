@@ -137,7 +137,7 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 static int SSL_Tiled_Get_Tile_FrameNumber(SSL_Tiled_Map *map, int tile_id) {
 	 SSL_Tileset *tileset;
 	 int k;
-	 for (k = 1; k < SSL_List_Size(map->tilesets); k++) {
+	 for (k = 0; k < SSL_List_Size(map->tilesets)-1; k++) {
 		 tileset = SSL_List_Get(map->tilesets, k+1);
 		 if (tile_id < tileset->firstGid || tileset == NULL) {
 			 tileset = SSL_List_Get(map->tilesets, k);
@@ -247,11 +247,11 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file,  SSL_Window *window) {
 \-----------------------------------------------------------------------------*/
 void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window) {
 
-	int layer = 1;
+	int layer = 0;
 	int *tiles;
 
 	int i, j;
-	while (layer <= map->map.total_layers) {
+	while (layer < map->map.total_layers) {
 		SSL_Tile_Layer *tile_layer = SSL_List_Get(map->layers, layer);
 
 		if (tile_layer->visible != 0) {
@@ -270,7 +270,7 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 
 						 SSL_Tileset *tileset;
 						 int k;
-						 for (k = 1; k < SSL_List_Size(map->tilesets); k++) {
+						 for (k = 0; k < SSL_List_Size(map->tilesets)-1; k++) {
 							 tileset = SSL_List_Get(map->tilesets, k+1);
 							 if (tiles[map->map.map_width * j + i] < tileset->firstGid || tileset == NULL) {
 								 tileset = SSL_List_Get(map->tilesets, k);
@@ -279,7 +279,7 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 						 }
 						 int frame = 1;
 
-						 if (k != 1) {
+						 if (k != 0) {
 							 frame = tiles[map->map.map_width * j + i] - (tileset->firstGid - 1);
 						 } else {
 							 frame = tiles[map->map.map_width * j + i];
@@ -305,7 +305,7 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 \-----------------------------------------------------------------------------*/
 SSL_Tileset *SSL_Tiled_Get_Tileset(SSL_Tiled_Map *map, int gid) {
 	int i;
-	for (i = 1; i <= map->map.total_tilesets; i++) {
+	for (i = 0; i < map->map.total_tilesets; i++) {
 		SSL_Tileset *tileset = SSL_List_Get(map->tilesets, i);
 		if (tileset->firstGid == gid) {
 			return tileset;
@@ -454,7 +454,7 @@ int SSL_Tiled_Get_TileId(SSL_Tiled_Map *map, int x, int y, int layer_index) {
 \-----------------------------------------------------------------------------*/
 int SSL_Tiled_Get_LayerIndex(SSL_Tiled_Map *map, char *name) {
 	int i;
-	for (i =1; i <= map->map.total_layers; i++) {
+	for (i =0; i < map->map.total_layers; i++) {
 		SSL_Tile_Layer *layer = SSL_List_Get(map->layers, i);
 		if (strcmp(layer->name, name) == 0) {
 			return i;
