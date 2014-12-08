@@ -121,7 +121,7 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 
 	 uLongf outlen = map->map.map_width * map->map.map_height * 4;
 	 uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
-
+	 printf("%i \n\n", tile_map[32]);
 	layer->data = tile_map;
 
 	layer->properties = SSL_Hashmap_Create();
@@ -277,6 +277,13 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 			SDL_GetWindowSize(window->window, &width, &height);
 			int startX = abs(xOffset / SSL_Tiled_Get_Tile_Width(map));
 			int startY = abs(yOffset / SSL_Tiled_Get_Tile_Height(map));
+			if (xOffset / SSL_Tiled_Get_Tile_Width(map) > 0) {
+				startX = 0;
+			}
+			if (yOffset / SSL_Tiled_Get_Tile_Height(map) > 0) {
+				startY = 0;
+			}
+
 			width = (width / map->map.tile_width) + startX;
 			if (width > SSL_Tiled_Get_Width(map)) {
 				width = SSL_Tiled_Get_Width(map);
