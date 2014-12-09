@@ -1,6 +1,6 @@
 /*-------------------------------------------------------------------------*/
 /**
-   @file    SSL_Math.h
+   @file    SSL_Math.c
    @author  P. Batty
    @brief   Implements a useful Maths / physics functions
 
