@@ -135,15 +135,6 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 
 	layer->properties = SSL_Hashmap_Create();
 
-	int i;
-	int j;
-	for (i = 0; i < 32; i++) {
-		for (j = 0; j < 32; j++) {
-			printf("%i ", tile_map[map->map.map_width * j + i]);
-		}
-		printf("\n");
-	}
-
 	// load tile properties
 
 	SSL_List_Add(map->layers, layer);
