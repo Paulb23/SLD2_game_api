@@ -121,7 +121,7 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 
 	uLongf outlen = map->map.map_width * map->map.map_height * 4;
 	uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
-	printf("%i \n\n", tile_map[32]);
+
 	layer->data = tile_map;
 
 	layer->properties = SSL_Hashmap_Create();
