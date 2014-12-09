@@ -112,25 +112,16 @@ static void map_tile_layer_handeler(mxml_node_t *node, SSL_Tiled_Map *map) {
 
 	mxml_node_t *data;
 	data = mxmlFindElement(node, node, "data", NULL, NULL, MXML_DESCEND);
+
+	//TODO: Get size of allocation
+	char base64DecodeOutput[9999];
+	b64_decode((char *)mxmlGetText(data, 0), base64DecodeOutput);
+
 	int *tile_map = malloc(map->map.map_width * map->map.map_height * 4);
 
-	if (strcmp(mxmlElementGetAttr(data, "encoding"), "csv") == 0) {
-		char *csv_data = mxmlGetText(data, 0);
-		int i = 0;
-		int j = 0;
-		for(j = 0; j < layer->height; j++) {
-			for (i = 0; i < layer->width; i++) {
-				tile_map[map->map.map_width * j + i] = atoi(csv_data);
-			}
-		}
-	} else {
-		//TODO: Get size of allocation
-		char base64DecodeOutput[9999];
-		b64_decode((char *)mxmlGetText(data, 0), base64DecodeOutput);
-
-		 uLongf outlen = map->map.map_width * map->map.map_height * 4;
-		 uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
-	}
+	 uLongf outlen = map->map.map_width * map->map.map_height * 4;
+	 uncompress((Bytef *)tile_map, &outlen, (const Bytef *)base64DecodeOutput, strlen(base64DecodeOutput));
+	 printf("%i \n\n", tile_map[32]);
 	layer->data = tile_map;
 
 	layer->properties = SSL_Hashmap_Create();
