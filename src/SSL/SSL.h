@@ -43,6 +43,8 @@
 
 #include "timing/SSL_Timing.h"
 
+#include "math/SSL_Math.h"
+
 
 /*---------------------------------------------------------------------------
                                 New types
