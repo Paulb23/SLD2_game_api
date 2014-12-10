@@ -84,14 +84,12 @@ To Do List / Planned Features
   - load terrains
   - support background color
   - support, json, csv, uncompress, gzip and XML
-  - lighitng support?
 - Fix check boxes  
 - Add Textboxes
 - Audio support
 - maths, and physics moduals
   - a*
   - raycasting
-  - raytracing
   - tweens
   - collison
    - AABB
@@ -99,7 +97,7 @@ To Do List / Planned Features
    - Pixel
 - random / psudo random genorators
 - more interface supports
-- rethink inut handeling
+- rethink input handeling
   - maybe use callbacks
 - reduce foot print
 - add printf like function to draw fonts
