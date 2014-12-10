@@ -254,7 +254,7 @@ SSL_Tiled_Map *SSL_Tiled_Map_Load(const char *file,  SSL_Window *window) {
   @param    xOffset		 X Offset to draw the map
   @param    yOffset		 y Offset to draw the map
   @param    window       The window to draw to
-  @return A SSL_Tiled_Map object
+  @return Void
 
   Draws the map to the given window.
 
@@ -329,6 +329,18 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 }
 
 
+/*!--------------------------------------------------------------------------
+  @brief    Draws a lights on the map
+  @param    map			 the map to draw
+  @param    xOffset		 X Offset to draw the map
+  @param    yOffset		 y Offset to draw the map
+  @param    window       The window to draw to
+  @param	func		 The raytrace callback function to determine what's solid
+  @return Void
+
+  Draws the lights on the map
+
+\-----------------------------------------------------------------------------*/
 void SSL_Tiled_Draw_Lights(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window, int(*func)(int, int, void *)) {
 	int i, j, k;
 
@@ -392,6 +404,7 @@ void SSL_Tiled_Draw_Lights(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Win
 
 	SDL_SetRenderDrawColor(window->renderer, c.r, c.g, c.b, c.a);
 }
+
 
 /*!--------------------------------------------------------------------------
   @brief    Adds a light object to the map
