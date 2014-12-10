@@ -21,13 +21,19 @@
 #include "../misc/SSL_Logger.h"
 #include "../misc/SSL_String.h"
 
+#include "../math/SSL_Math.h"
+
 #include "../graphics/SSL_Window.h"
+#include "../graphics/SSL_Light.h"
+#include "../wrappers/SSL_Rectangle.h"
+#include "../wrappers/SSL_Color.h"
 #include <stdlib.h>
 #include <string.h>
 #include "../ect/mxml/mxml.h"
 #include "../misc/base64.h"
 #include "zlib.h"
 #include "zconf.h"
+#include <math.h>
 
 /*---------------------------------------------------------------------------
                             Private functions
@@ -45,6 +51,9 @@ static SSL_Tiled_Map *SSL_Tiled_Map_Create() {
 	map->map.properties = SSL_Hashmap_Create();
 	map->layers = SSL_List_Create();
 	map->tilesets = SSL_List_Create();
+	map->lights = SSL_List_Create();
+	SDL_Color color = {0,0,0,0};
+	map->color = color;
 
 	return map;
 }
@@ -320,6 +329,80 @@ void SSL_Tiled_Draw_Map(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window
 }
 
 
+void SSL_Tiled_Draw_Lights(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Window *window, int(*func)(int, int, void *)) {
+	int i, j, k;
+
+	int tile_width = map->map.tile_width;
+	int tile_height = map->map.tile_height;
+
+	float light_map[map->map.map_width][map->map.map_height];
+	memset(light_map, 0, sizeof(float) * map->map.map_width * map->map.map_height);
+
+	for (k = 0; k < SSL_List_Size(map->lights); k++) {
+		SSL_Light *light = SSL_List_Get(map->lights, k);
+		int x = light->x / map->map.tile_width;
+		int y = light->y / map->map.tile_height;
+
+		for (i = 0; i < map->map.map_width; i++) {
+			for (j = 0; j < map->map.map_height; j++) {
+				int x1 = i-x;
+				int y1 = j-y;
+				int l = sqrt(x1*x1+y1*y1);
+				if (l < light->range && SSL_Raytrace(x * tile_width, y * tile_height, i * tile_width, j * tile_height, map, func) == 0) {
+					light_map[i][j] += light->brightness;
+				}
+			}
+		}
+	}
+
+	SDL_Color c = SSL_Color_Create(0, 0, 0, 0);
+	SDL_GetRenderDrawColor(window->renderer, &c.r, &c.g, &c.b, &c.a);
+
+	for (i = 0; i < map->map.map_width; i++) {
+		for (j = 0; j < map->map.map_height; j++) {
+			if (!light_map[i][j]) {
+				SDL_SetRenderDrawColor(window->renderer, 0, 0, 0, 240);
+				SDL_Rect rect = SSL_Rectangle_Create(i * tile_width, j * tile_height, tile_width, tile_height);
+				SDL_RenderFillRect(window->renderer, &rect);
+			} else {
+				SDL_SetRenderDrawColor(window->renderer, 0, 0, 0, 150);
+				SDL_Rect rect = SSL_Rectangle_Create(i * tile_width, j * tile_height, tile_width, tile_height);
+				SDL_RenderFillRect(window->renderer, &rect);
+			}
+		}
+	}
+
+	SDL_SetRenderDrawColor(window->renderer, c.r, c.g, c.b, c.a);
+}
+
+/*!--------------------------------------------------------------------------
+  @brief    Adds a light object to the map
+  @param    map			 map to add the light to
+  @param	light		 SSL_Light to add
+  @return Void
+
+  Adds a light object to the map
+
+\-----------------------------------------------------------------------------*/
+void SSL_Tiled_Add_Light(SSL_Tiled_Map *map, SSL_Light *light) {
+	SSL_List_Add(map->lights, light);
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Changes the Lighting
+  @param    map			 map to change the lighting on
+  @param	color		 the lighting to change to
+  @return Void
+
+  Changes the defualt lighting color
+
+\-----------------------------------------------------------------------------*/
+void SSL_Tiled_Set_Lighting(SSL_Tiled_Map *map, SDL_Color color) {
+	map->color = color;
+}
+
+
 /*!--------------------------------------------------------------------------
   @brief    Gets a SSL_Tileset
   @param    map			 map containing the tileset
@@ -487,6 +570,37 @@ int SSL_Tiled_Get_LayerIndex(SSL_Tiled_Map *map, char *name) {
 		}
 	}
 	return -1;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Removes a light from the map
+  @param    map			 map to remove the light from
+  @param	light		 The light to remove
+  @return Void
+
+  Removes a light from the map
+
+\-----------------------------------------------------------------------------*/
+void SSL_Tiled_Remove_Light(SSL_Tiled_Map *map, SSL_Light *light) {
+	SSL_List_Remove(map->lights, light);
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets the light on the map
+  @param    map			 map to get the light from
+  @param	n			 nth position of the light
+  @return The SSL_Light else -1
+
+  Gets the light on the map and return is else -1
+
+\-----------------------------------------------------------------------------*/
+SSL_Light *SSL_Tiled_Get_Light(SSL_Tiled_Map *map, int n) {
+	if (n >= 0 && n < SSL_List_Size(map->lights)) {
+		return (SSL_Light *)SSL_List_Get(map-> lights, n);
+	}
+	return (void *)-1;
 }
 
 
