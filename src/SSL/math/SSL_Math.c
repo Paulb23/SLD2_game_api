@@ -14,6 +14,7 @@
 
 #include "SSL_Math.h"
 #include <stdlib.h>
+#include <math.h>
 
 
 /*---------------------------------------------------------------------------
@@ -75,4 +76,48 @@ int SSL_Raytrace(int x0, int y0, int x1, int y1, void *data, int(*func)(int, int
     }
 
     return(0);
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets the angle in degrees between two points
+  @param    x1			 x1 x point of the first object
+  @param	y1			 y1 y point of the first object
+  @param	x2			 x2 y point of the second object
+  @param	y2			 y2 y point of the second object
+  @return Angle in degrees between two points
+
+  Gets the angle in degrees between two points
+
+\-----------------------------------------------------------------------------*/
+int SSL_DegreeBetweenPoints(int x1, int y1, int x2, int y2) {
+	int deltaX = x1 - x2;
+	int deltaY = y1 - y2;
+	return atan2(deltaX, -deltaY) * 180 / 3.14159265359;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Converts degrees to radians
+  @param    angle		 angle to convert
+  @return Degrees to radians
+
+  Converts degrees to radians
+
+\-----------------------------------------------------------------------------*/
+double SSL_DegreeToRadians(int angle) {
+	return (angle * 3.14159265359) / 180;
+}
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Converts Radians to degrees
+  @param    radians		 radians to convert
+  @return Radians to degrees
+
+  Converts radians to Degrees
+
+\-----------------------------------------------------------------------------*/
+int SSL_RadiansToDegree(int radians) {
+	return (radians * 180) / 3.14159265359;
 }

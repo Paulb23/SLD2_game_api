@@ -48,4 +48,40 @@
 \-----------------------------------------------------------------------------*/
 int SSL_Raytrace(int x0, int y0, int x1, int y1, void *data, int(*func)(int, int, void *));
 
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets the angle in degrees between two points
+  @param    x1			 x1 x point of the first object
+  @param	y1			 y1 y point of the first object
+  @param	x2			 x2 y point of the second object
+  @param	y2			 y2 y point of the second object
+  @return Void
+
+  Gets the angle in degrees between two points
+
+\-----------------------------------------------------------------------------*/
+int SSL_DegreeBetweenPoints(int x1, int y1, int x2, int y2);
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Converts degrees to radians
+  @param    angle		 angle to convert
+  @return Degrees to radians
+
+  Converts degrees to radians
+
+\-----------------------------------------------------------------------------*/
+double SSL_DegreeToRadians(int angle);
+
+
+/*!--------------------------------------------------------------------------
+  @brief    Converts Radians to degrees
+  @param    radians		 radians to convert
+  @return Radians to degrees
+
+  Converts radians to Degrees
+
+\-----------------------------------------------------------------------------*/
+int SSL_RadiansToDegree(int radians);
+
 #endif
