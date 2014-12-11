@@ -398,6 +398,7 @@ void SSL_Tiled_Draw_Lights(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Win
 					SDL_Rect rect = SSL_Rectangle_Create(i * tile_width + xOffset, j * tile_height + yOffset, tile_width, tile_height);
 					SDL_RenderFillRect(window->renderer, &rect);
 				}
+				light_map[i][j] = 0;
 			}
 		}
 	}
