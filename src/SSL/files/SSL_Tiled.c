@@ -386,7 +386,7 @@ void SSL_Tiled_Draw_Lights(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Win
 				int y1 = j-y;
 				int l = sqrt(x1*x1+y1*y1);
 				if (l < light->range && SSL_Raytrace(x * tile_width, y * tile_height, i * tile_width, j * tile_height, map, func) == 0) {
-					light_map[i][j] += light->brightness;
+					light_map[i][j] = 1;
 				}
 
 				if (!light_map[i][j]) {
@@ -394,7 +394,7 @@ void SSL_Tiled_Draw_Lights(SSL_Tiled_Map *map, int xOffset, int yOffset, SSL_Win
 					SDL_Rect rect = SSL_Rectangle_Create(i * tile_width + xOffset, j * tile_height + yOffset, tile_width, tile_height);
 					SDL_RenderFillRect(window->renderer, &rect);
 				} else {
-					SDL_SetRenderDrawColor(window->renderer, light->color.r, light->color.g, light->color.b, light->color.a / (light->brightness));
+					SDL_SetRenderDrawColor(window->renderer, light->color.r, light->color.g, light->color.b, light->color.a);
 					SDL_Rect rect = SSL_Rectangle_Create(i * tile_width + xOffset, j * tile_height + yOffset, tile_width, tile_height);
 					SDL_RenderFillRect(window->renderer, &rect);
 				}
