@@ -18,11 +18,17 @@
  ---------------------------------------------------------------------------*/
 
 #include "SDL2/SDL_ttf.h"
+#include "SSL_Image.h"
 
 
 /*---------------------------------------------------------------------------
                                 New types
  ---------------------------------------------------------------------------*/
+
+typedef enum _SSL_Font_Type {
+	SSL_FONT_TTF,
+	SSL_FONT_IMG
+} SSL_Font_Type;
 
 /*!--------------------------------------------------------------------------
   @brief    SSL_Font
@@ -33,7 +39,13 @@
 
 \----------------------------------------------------------------------------*/
 typedef struct _SSL_Font_ {
-	TTF_Font *font;			 /**< TTF_Font */
+	SSL_Font_Type type;		 /**< The Type of font */
+	union {
+		TTF_Font *font;			 /**< TTF_Font */
+		SSL_Image *img_font;	 /**< bitmap font */
+	};
+	int font_size;
+	char *character_set;
 } SSL_Font;
 
 
@@ -45,6 +57,8 @@ typedef struct _SSL_Font_ {
   @brief	 Creates a new SSL_Font object.
   @param    file         The path to the font including file name.extention.
   @param    size         The font size.
+  @param	type		 The format of the font
+  @param	window		 The window render to use
   @return 	 A pointer to a SDL_Font on successful creation otherwise 0.
 
   Creates a new SSL_Font object with allocated memory destroy with
@@ -53,7 +67,27 @@ typedef struct _SSL_Font_ {
   If it cannot create the object it will return 0
 
 \-----------------------------------------------------------------------------*/
-SSL_Font *SSL_Font_Load(char *file, int size);
+SSL_Font *SSL_Font_Load(char *file, int size, SSL_Font_Type type, SSL_Window *window);
+
+
+/*!--------------------------------------------------------------------------
+  @brief	 Creates a new SSL_Font object.
+  @param    file         	The path to the font including file name.extention.
+  @param    size         	The font size.
+  @param	char_width	 	width of each character
+  @param	char_height	 	height of each character
+  @param	character_set 	The characters on the image in the order they appear
+  @param	window			The window render to use
+  @return 	A pointer to a SDL_Font on successful creation otherwise 0.
+
+  Creates a new SSL_Font object with allocated memory destroy with
+  SSL_Font_Destroy.
+
+  If it cannot create the object it will return 0
+
+\-----------------------------------------------------------------------------*/
+SSL_Font *SSL_IMG_Font_Load(char *file, int size, int char_width, int char_height, char *character_set, SSL_Window *window);
+
 
 /*!--------------------------------------------------------------------------
   @brief    Draws an SSL_Font object to the window.
