@@ -19,6 +19,7 @@
 
 #include "SDL2/SDL_ttf.h"
 #include "SSL_Image.h"
+#include "../data_structures/SSL_Hashmap.h"
 
 
 /*---------------------------------------------------------------------------
@@ -42,14 +43,45 @@ typedef enum _SSL_Font_Type {
 } SSL_Font_Type;
 
 
+/*!--------------------------------------------------------------------------
+  @brief    SSL_IMG_FONT
+
+  This object contains the img Font format.
+
+\----------------------------------------------------------------------------*/
 typedef struct _SSL_IMG_Font_ {
-	char *character_set;
-	SSL_Image *font;
+	char *character_set;	/**< the character set in order they appear in the image */
+	SSL_Image *font;		/**< the image with the characters */
 } SSL_IMG_Font;
 
 
+/*!--------------------------------------------------------------------------
+  @brief    SSL_FNT_CHAR_FONT
+
+  This object contains the img chars Font.
+
+\----------------------------------------------------------------------------*/
+typedef struct _SSL_FNT_CHAR_Font_ {
+	SDL_Rect pos;	/**< position of the char */
+	int x_offset;	/**< x offset of the char */
+	int y_offset;	/**< y offset of the char */
+	int x_advance;	/**< space to be left after this char */
+} _SSL_FNT_CHAR_Font_;
+
+
+/*!--------------------------------------------------------------------------
+  @brief    SSL_FNT_FONT
+
+  This object contains the img Font format.
+
+\----------------------------------------------------------------------------*/
 typedef struct _SSL_FNT_Font_ {
-	SSL_Image *font;
+	SDL_Rect padding;			/**< padding aorund the char*/
+	int spaceing_horizontal;	/**< horizontal char spacing*/
+	int spaceing_vertical;		/**< vertical char spacing*/
+	int line_height;			/**< spacing between each line*/
+	SSL_Hashmap *chars;			/**< hashmap of the chars */
+	SSL_Image *font;			/**< the image with the characters */
 } SSL_FNT_Font;
 
 
