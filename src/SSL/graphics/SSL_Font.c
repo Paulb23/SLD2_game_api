@@ -199,7 +199,7 @@ void SSL_Font_Draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, S
 
 				if (frame != 0) {
 					SSL_Image_Draw(font->img_font, x, y, angle, frame, flip, window);
-					x += x_inc;
+					x += x_inc + (x_inc / 4);
 				}
 			}
 		}
