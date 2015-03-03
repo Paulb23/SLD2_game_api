@@ -57,4 +57,17 @@ char *SSL_String_Substring(const char *str, int start, int end);
 \-----------------------------------------------------------------------------*/
 int SSL_String_Last_Index_Of(const char *str, const char *value);
 
+
+/*!--------------------------------------------------------------------------
+  @brief    Gets the filetype form a path
+  @param    str			 The path
+  @return String with the file type
+
+  Gets the file type from a path
+  ie SSL_String_Get_Filetype("path/to/file/filename.txt") = txt
+
+\-----------------------------------------------------------------------------*/
+char *SSL_String_Get_Filetype(const char *str);
+
+
 #endif

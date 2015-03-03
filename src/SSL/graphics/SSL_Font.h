@@ -25,10 +25,33 @@
                                 New types
  ---------------------------------------------------------------------------*/
 
+/*!--------------------------------------------------------------------------
+  @brief    SSL_Font_Type
+
+  This object contains the different types of supported Font format.
+
+  The SSL Font type is used by the library to decide how to handle the font
+  object
+
+\----------------------------------------------------------------------------*/
 typedef enum _SSL_Font_Type {
-	SSL_FONT_TTF,
-	SSL_FONT_IMG
+	SSL_FONT_INVALID,	/**< invalid TTF font */
+	SSL_FONT_TTF,		/**< standard TTF font */
+	SSL_FONT_IMG,		/**< straight image font */
+	SSL_FONT_FNT		/**< .fnt font */
 } SSL_Font_Type;
+
+
+typedef struct _SSL_IMG_Font_ {
+	char *character_set;
+	SSL_Image *font;
+} SSL_IMG_Font;
+
+
+typedef struct _SSL_FNT_Font_ {
+	SSL_Image *font;
+} SSL_FNT_Font;
+
 
 /*!--------------------------------------------------------------------------
   @brief    SSL_Font
@@ -40,12 +63,12 @@ typedef enum _SSL_Font_Type {
 \----------------------------------------------------------------------------*/
 typedef struct _SSL_Font_ {
 	SSL_Font_Type type;		 /**< The Type of font */
+	int font_size;
 	union {
 		TTF_Font *font;			 /**< TTF_Font */
-		SSL_Image *img_font;	 /**< bitmap font */
+		SSL_IMG_Font img_font;	 /**< img font */
+		SSL_FNT_Font fnt_font;	 /**< fnt font */
 	};
-	int font_size;
-	char *character_set;
 } SSL_Font;
 
 
@@ -57,7 +80,6 @@ typedef struct _SSL_Font_ {
   @brief	 Creates a new SSL_Font object.
   @param    file         The path to the font including file name.extention.
   @param    size         The font size.
-  @param	type		 The format of the font
   @param	window		 The window render to use
   @return 	 A pointer to a SDL_Font on successful creation otherwise 0.
 
@@ -67,7 +89,7 @@ typedef struct _SSL_Font_ {
   If it cannot create the object it will return 0
 
 \-----------------------------------------------------------------------------*/
-SSL_Font *SSL_Font_Load(char *file, int size, SSL_Font_Type type, SSL_Window *window);
+SSL_Font *SSL_Font_Load(char *file, int size, SSL_Window *window);
 
 
 /*!--------------------------------------------------------------------------
@@ -107,6 +129,7 @@ SSL_Font *SSL_IMG_Font_Load(char *file, int size, int char_width, int char_heigh
 \-----------------------------------------------------------------------------*/
 void SSL_Font_Draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, SSL_Font *font, SDL_Color fontColor, SSL_Window *window);
 
+
 /*!--------------------------------------------------------------------------
   @brief    Destroys the SSL_Font Object.
   @param    font      The SSL_Font object to destroy.
@@ -118,4 +141,4 @@ void SSL_Font_Draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, S
 \-----------------------------------------------------------------------------*/
 int SSL_Font_Destroy(SSL_Font *font);
 
-#endif /* SDL_FONT_H_ */
+#endif
