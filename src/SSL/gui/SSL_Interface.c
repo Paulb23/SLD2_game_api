@@ -188,7 +188,7 @@ void interface_draw(SSL_Interface *interface, SSL_Window *window) {
 				check_button = (SSL_Check_box *)current_button;
 
 				if (check_button->check_box_status->active) {
-					SSL_Image_Draw(check_button->button_image_info->image, check_button->button->position.x, current_button->button->position.y, 0,check_button->check_box_image_info->active_frame, SDL_FLIP_NONE, window);
+					SSL_Image_Draw(check_button->button_image_info->image, check_button->button->position.x, current_button->button->position.y, 0, 1, check_button->check_box_image_info->active_frame, SDL_FLIP_NONE, window);
 					break;
 				}
 			}
@@ -197,11 +197,11 @@ void interface_draw(SSL_Interface *interface, SSL_Window *window) {
 			image_button = (SSL_Image_Button *)current_button;
 
 			if (current_button->button_status->pressed) {
-				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0, 1, image_button->button_image_info->pressed_frame, SDL_FLIP_NONE, window);
 			} else if (current_button->button_status->hovered) {
-				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->hovered_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0, 1, image_button->button_image_info->hovered_frame, SDL_FLIP_NONE, window);
 			} else {
-				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0,image_button->button_image_info->default_frame, SDL_FLIP_NONE, window);
+				SSL_Image_Draw(image_button->button_image_info->image, image_button->button->position.x, image_button->button->position.y, 0, 1, image_button->button_image_info->default_frame, SDL_FLIP_NONE, window);
 			}
 		}
 	 i++;

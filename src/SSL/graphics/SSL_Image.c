@@ -131,6 +131,7 @@ SSL_Image *SSL_Image_Load(char *file, int frameWidth, int frameHeight, SSL_Windo
   @param    x   		  X position on the window to draw.
   @param    y  		  Y position on the window to draw.
   @param    angle        Angle to draw the image at, 0 - 360.
+  @param	scale		 The scale of the image.
   @param    frame        Frame to draw, 0 for whole image.
   @param    flip         Flip state of the image, one of the following:
 								:: SDL_FLIP_NONE :: SDL_FLIP_HORIZONTAL :: SDL_FLIP_VERTICAL
@@ -140,7 +141,7 @@ SSL_Image *SSL_Image_Load(char *file, int frameWidth, int frameHeight, SSL_Windo
   Draws an SSL_Image to the SSL_Window passed.
 
 \-----------------------------------------------------------------------------*/
-void SSL_Image_Draw(SSL_Image *image, int x, int y, int angle, int frame, SDL_RendererFlip flip, SSL_Window *window) {
+void SSL_Image_Draw(SSL_Image *image, int x, int y, int angle, int scale, int frame, SDL_RendererFlip flip, SSL_Window *window) {
 
 		/* image frame, rectangle inside the image to draw */
 		SDL_Rect imageFrame;
@@ -168,8 +169,8 @@ void SSL_Image_Draw(SSL_Image *image, int x, int y, int angle, int frame, SDL_Re
 		SDL_Rect offset;
 		offset.x = x;
 		offset.y = y;
-		offset.w = image->frame_width;
-		offset.h = image->frame_height;
+		offset.w = image->frame_width * scale;
+		offset.h = image->frame_height * scale;
 
 		/* find the centre of the frame */
 		SDL_Point centre = {
