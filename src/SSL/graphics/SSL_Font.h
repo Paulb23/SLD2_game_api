@@ -56,7 +56,7 @@ typedef struct _SSL_IMG_Font_ {
 
 
 /*!--------------------------------------------------------------------------
-  @brief    SSL_FNT_CHAR_FONT
+  @brief    SSL_FNT_CHAR_FONT (INTERNAL USE ONLY!)
 
   This object contains the img chars Font.
 
@@ -66,7 +66,7 @@ typedef struct _SSL_FNT_CHAR_Font_ {
 	int x_offset;	/**< x offset of the char */
 	int y_offset;	/**< y offset of the char */
 	int x_advance;	/**< space to be left after this char */
-} _SSL_FNT_CHAR_Font_;
+} SSL_FNT_CHAR_Font;
 
 
 /*!--------------------------------------------------------------------------

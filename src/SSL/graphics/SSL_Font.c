@@ -99,9 +99,11 @@ static void draw_img_font(int x, int y, int angle, SDL_RendererFlip flip, char *
 
 \-----------------------------------------------------------------------------*/
 static SSL_Font_Type get_font_type(char *file) {
-	if (strcmp(file, "ttf") == 0) {
+	char *type = SSL_String_Get_Filetype(file);
+
+	if (strcmp(type, "ttf") == 0) {
 		return SSL_FONT_TTF;
-	} else if (strcmp(file, "fnt") == 0) {
+	} else if (strcmp(type, "fnt") == 0) {
 		return SSL_FONT_FNT;
 	}
 
@@ -169,7 +171,120 @@ SSL_Font *SSL_Font_Load(char *file, int size, SSL_Window *window) {
 		/* load the font */
 		font->font = TTF_OpenFont(file, size);
 	} else if (font->type == SSL_FONT_FNT) {
+		FILE *fnt_file = fopen(file, "r");
 
+		if (fnt_file == NULL) {
+			SSL_Log_Write("Error: Unable to Load fnt file!");
+			return 0;
+		}
+		font->fnt_font.chars = SSL_Hashmap_Create();
+		char chr = fgetc(fnt_file);
+		if (chr == 'i') {
+			rewind(fnt_file);
+			char line[200];
+			char *id;
+			SSL_FNT_CHAR_Font *charachter;
+
+			while (( fgets(line, sizeof(line), fnt_file))) {
+				char *word = strtok(line, " ");
+				char *line_start = word;
+
+				while (word != NULL) {
+					word = strtok(NULL, " ");
+					if (word != NULL) {
+						int split = SSL_String_Last_Index_Of(word, "=");
+						char *key = SSL_String_Substring(word, 0, split - 1);
+						char *value = SSL_String_Substring(word, split, strlen(word));
+
+						if (strcmp(line_start, "info") == 0) {
+							if (strcmp(key, "padding") == 0) {
+								char buffer[3] = "";
+								int i;
+								int q = 0;
+								int x = 0;
+								for (i = 0; i <= strlen(value); i++) {
+									if (value[i] == ',' || value[i] == '\0') {
+										q = 0;
+
+										if (x == 0) {
+											font->fnt_font.padding.x = atoi(buffer);
+										} else if (x == 1) {
+											font->fnt_font.padding.y = atoi(buffer);
+										} else if (x == 2) {
+											font->fnt_font.padding.w = atoi(buffer);
+										} else if (x == 3) {
+											font->fnt_font.padding.h = atoi(buffer);
+										}
+										x++;
+									} else {
+										buffer[q] = value[i];
+										q++;
+									}
+								}
+							}
+							if (strcmp(key, "spacing") == 0) {
+								char buffer[3] = "";
+								int i;
+								int q = 0;
+								int x = 0;
+								for (i = 0; i <= strlen(value); i++) {
+									if (value[i] == ',' || value[i] == '\0') {
+										q = 0;
+
+										if (x == 0) {
+											font->fnt_font.spaceing_horizontal = atoi(buffer);
+										} else if (x == 1) {
+											font->fnt_font.spaceing_vertical = atoi(buffer);
+										}
+										x++;
+									} else {
+										buffer[q] = value[i];
+										q++;
+									}
+								}
+							}
+						} else if (strcmp(line_start, "common") == 0) {
+							if (strcmp(key, "lineHeight") == 0) {
+								font->fnt_font.line_height = atoi(value);
+							}
+						} else if (strcmp(line_start, "page") == 0) {
+							if (strcmp(key, "file") == 0) {
+								char path[999];
+								sprintf(path, "%s%s", SSL_String_Substring(file, 0, SSL_String_Last_Index_Of(file, "/")), value);
+								font->fnt_font.font = SSL_Image_Load(path, 0, 0, window);
+							}
+						} else if (strcmp(line_start, "char") == 0) {
+							if (strcmp(key, "id") == 0) {
+								charachter = malloc(sizeof(SSL_FNT_CHAR_Font));
+								id = value;
+							}
+							if (strcmp(key, "x") == 0) {
+								charachter->pos.x = atoi(value);
+							}
+							if (strcmp(key, "y") == 0) {
+								charachter->pos.y = atoi(value);
+							}
+							if (strcmp(key, "width") == 0) {
+								charachter->pos.w = atoi(value);
+							}
+							if (strcmp(key, "height") == 0) {
+								charachter->pos.h = atoi(value);
+							}
+							if (strcmp(key, "xoffset") == 0) {
+								charachter->x_offset = atoi(value);
+							}
+							if (strcmp(key, "yoffset") == 0) {
+								charachter->y_offset = atoi(value);
+							}
+							if (strcmp(key, "xadvance") == 0) {
+								charachter->x_advance = atoi(value);
+								SSL_Hashmap_Add(font->fnt_font.chars, id, charachter);
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 
 	/* return the font */
