@@ -98,6 +98,41 @@ static void draw_img_font(int x, int y, int angle, SDL_RendererFlip flip, char *
   @return 	 A font type
 
 \-----------------------------------------------------------------------------*/
+static void draw_fnt_font(int x, int y, int angle, SDL_RendererFlip flip, char *text, SSL_Font *font, SDL_Color fontColor, SSL_Window *window) {
+
+
+	SDL_Rect offset;
+
+	int i;
+	int char_count = strlen(text);
+
+	for (i = 0; i < char_count; i++) {
+		int ch = text[i];
+		SSL_FNT_CHAR_Font *character = SSL_Hashmap_Get(font->fnt_font.chars, "32");
+
+		printf("%i \n", character->pos.x);
+		offset.x = x;
+		offset.x = y;
+		offset.x = character->pos.w;
+		offset.x = character->pos.h;
+
+		/* find the centre of the frame */
+		SDL_Point centre = {
+			character->pos.w / 2,
+			character->pos.w / 2
+		};
+
+		/* draw the image */
+		SDL_RenderCopyEx( window->renderer, font->fnt_font.font->Image, &character->pos, &offset, angle, &centre, flip);
+	}
+}
+
+/*!--------------------------------------------------------------------------
+  @brief    get type ( INTERNAL USE ONLY )
+  @param	file	file to get the type of
+  @return 	 A font type
+
+\-----------------------------------------------------------------------------*/
 static SSL_Font_Type get_font_type(char *file) {
 	char *type = SSL_String_Get_Filetype(file);
 
@@ -250,7 +285,10 @@ SSL_Font *SSL_Font_Load(char *file, int size, SSL_Window *window) {
 						} else if (strcmp(line_start, "page") == 0) {
 							if (strcmp(key, "file") == 0) {
 								char path[999];
-								sprintf(path, "%s%s", SSL_String_Substring(file, 0, SSL_String_Last_Index_Of(file, "/")), value);
+								char *file_name = value;
+								file_name++;
+								file_name[strlen(file_name) - 2] = '\0';
+								sprintf(path, "%s%s",  SSL_String_Substring(file, 0, SSL_String_Last_Index_Of(file, "/")), file_name);
 								font->fnt_font.font = SSL_Image_Load(path, 0, 0, window);
 							}
 						} else if (strcmp(line_start, "char") == 0) {
@@ -363,7 +401,7 @@ void SSL_Font_Draw(int x, int y, int angle, SDL_RendererFlip flip, char *text, S
 		}
 		break;
 		case (SSL_FONT_FNT): {
-
+			draw_fnt_font(x, y, angle, flip, text, font, fontColor, window);
 		}
 		break;
 		case (SSL_FONT_INVALID): {
